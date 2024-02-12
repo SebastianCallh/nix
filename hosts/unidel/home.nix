@@ -1,15 +1,21 @@
 { config, pkgs, builtins, ... }:
-
+let 
+  username = "seb";
+in 
 {
-  imports = [ ../../modules/home/hyprland.nix ];
+  imports = [ 
+    ./hyprland.nix
+    ./waybar.nix
+  ];
 
-  home.username = "seb";
-  home.homeDirectory = "/home/seb";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   
   fonts.fontconfig.enable = true;
   
   home.packages = with pkgs; [
     kitty
+    dolphin
     curl
     neovim
  
@@ -23,7 +29,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
+  
+  
   programs.git = {
     enable = true;
     userName = "Sebastian Callh";

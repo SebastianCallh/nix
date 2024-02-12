@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
+sudo nixos-rebuild switch --flake "$PWD#$HOSTNAME"
 
-sudo nixos-rebuild switch --flake $PWD#$1 

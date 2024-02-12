@@ -4,13 +4,15 @@ let
   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
   session = "${pkgs.hyprland}/bin/Hyprland";
   username = "seb";
+  hostname = "unidel";
+  terminal = "kitty";
 in
 
 {
   imports =
     [ 
       ./hardware-configuration.nix
-      ../../modules/configuration/user.nix
+      ../../modules/nixos/user.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -18,7 +20,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -46,11 +48,43 @@ in
     LC_TIME = "sv_SE.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
+  # audio
+  sound.enable = true; 
+  hardware.pulseaudio.enable = false;
+  services.pipewire = { 
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
+
+  services.mpd = {
+    enable = true;
+    user = username;
+    musicDirectory = "/home/${username}/Music/";
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "PipeWire Output"
+      }
+    '';
+  
+    network.listenAddress = "any"; 
+    startWhenNeeded = true; 
+  };
+
+  systemd.services.mpd.environment = {
+    # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+    # User-id 1000 must match user in `services.mpd.user`
+    XDG_RUNTIME_DIR = "/run/user/1000";
+  };
+
+  # Configure keymap in X11
+  #services.xserver = {
+  #  xkb.layout = "us";
+  #  xkb.variant = "";
+  #};
   
   user.enable = true;
   user.name = "${username}";
@@ -60,9 +94,10 @@ in
       "${username}" = import ./home.nix;
     };
   };
-  
-  nixpkgs.config.allowUnfree = true;
+
   hardware.bluetooth.enable = true;
+  hardware.opengl.enable = true; # needed for wayland WMs
+  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
     dconf 
@@ -70,6 +105,8 @@ in
 
     # ui 
     hyprpaper
+    hyprland
+    sway
     waybar
     wofi
   ];
@@ -78,20 +115,13 @@ in
     enable = true;
   };
 
-  services.pipewire = {
-    enable = true;
-  };
-
   # for screen sharing
   xdg = { 
     portal = {
       enable = true;
       wlr.enable = true;
-      config.commons.default = "xdg-desktop-portal-hyprland";
-      #extraPortals = with pkgs; [
-      #   xdg-desktop-portal-wlr
-      #   xdg-desktop-portal-gtk
-      #];
+      # config.commons.default = "xdg-desktop-portal-hyprland";
+      config.commons.default = "xdg-desktop-portal-wlr";
     };
   };
 
@@ -99,8 +129,8 @@ in
     enable = true;
     settings = {
       initial_session = {
-        command = "${session}";
-        user = "${username}";
+        command = session;
+        user = username;
       };
       default_session = {
         command = "${tuigreet} --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time -cmd ${session}";
@@ -109,11 +139,16 @@ in
     };
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
+  environment.sessionVariables = {
+    TERM=terminal;
 
-  
+    NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
 
-  # Some programs need SUID wrappers, can be configured further or are
+    # try to solve 'wlr_gles2_renderer_create_with_drm_fd() failed!'
+    # https://www.reddit.com/r/hyprland/comments/16rjanl/comment/k27j8bp/
+    # WLR_RENDERER_ALLOW_SOFTWARE = "1";
+  };
+  #. Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
