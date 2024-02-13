@@ -1,6 +1,7 @@
 { config, pkgs, builtins, ... }:
 let 
   username = "seb";
+  term = "kitty";
 in 
 {
   imports = [ 
@@ -95,6 +96,7 @@ in
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    TERM = term;
   };
   
   # Let Home Manager install and manage itself.
