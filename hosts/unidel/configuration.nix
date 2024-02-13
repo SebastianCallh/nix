@@ -21,21 +21,15 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = hostname; # Define your hostname.
+  networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
   time.timeZone = "Europe/Stockholm";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.UTF-8";
     LC_IDENTIFICATION = "sv_SE.UTF-8";
@@ -87,7 +81,7 @@ in
   #};
   
   user.enable = true;
-  user.name = "${username}";
+  user.name = username;
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -97,6 +91,8 @@ in
 
   hardware.bluetooth.enable = true;
   hardware.opengl.enable = true; # needed for wayland WMs
+  hardware.keyboard.zsa.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
@@ -120,8 +116,8 @@ in
     portal = {
       enable = true;
       wlr.enable = true;
-      # config.commons.default = "xdg-desktop-portal-hyprland";
-      config.commons.default = "xdg-desktop-portal-wlr";
+      config.commons.default = "xdg-desktop-portal-hyprland";
+      # config.commons.default = "xdg-desktop-portal-wlr";
     };
   };
 
@@ -141,26 +137,8 @@ in
 
   environment.sessionVariables = {
     TERM=terminal;
-
     NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
-
-    # try to solve 'wlr_gles2_renderer_create_with_drm_fd() failed!'
-    # https://www.reddit.com/r/hyprland/comments/16rjanl/comment/k27j8bp/
-    # WLR_RENDERER_ALLOW_SOFTWARE = "1";
   };
-  #. Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
