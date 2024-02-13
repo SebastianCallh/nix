@@ -1,4 +1,4 @@
-{ config, pkgs, builtins, ... }:
+{ config, pkgs, lib, builtins, ... }:
 let 
   username = "seb";
   term = "kitty";
@@ -13,7 +13,12 @@ in
   home.homeDirectory = "/home/${username}";
   
   fonts.fontconfig.enable = true;
-  
+  nixpkgs.config = { 
+    allowUnfree = true;
+    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+         "discord"
+    ];
+  };
   home.packages = with pkgs; [
     kitty
     dolphin
