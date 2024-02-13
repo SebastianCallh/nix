@@ -99,6 +99,7 @@ in
   environment.systemPackages = with pkgs; [
     dconf 
     wl-clipboard
+    brightnessctl
 
     # ui 
     hyprpaper
