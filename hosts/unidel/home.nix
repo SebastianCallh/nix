@@ -24,9 +24,10 @@ in
     dolphin
     curl
     neovim
+    neofetch 
     discord
     brave
-
+ 
     # fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
 
