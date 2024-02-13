@@ -25,6 +25,7 @@ in
     curl
     neovim
     discord
+    brave
 
     # fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
