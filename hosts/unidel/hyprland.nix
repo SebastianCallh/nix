@@ -67,21 +67,27 @@
       "$mod SHIFT, 8, movetoworkspace, 8"
       "$mod SHIFT, 9, movetoworkspace, 9"
       "$mod SHIFT, 0, movetoworkspace, 10"
+    ];
 
+    # l -> do stuff even when locked
+    # e -> repeats when key is held
+    bindle = [
       # volume controls
       ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ",XF86MicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
+      # screen brightness
+      ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
+      ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+    ];
+
+    bindl = [
       # media controls
       ",XF86AudioPlay, exec, playerctl play-pause"
       ",XF86AudioNext, exec, playerctl next"
       ",XF86AudioPrev, exec, playerctl previous"
-
-      # screen brightness
-      ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
-      ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
     ];
   }; 
 }
