@@ -74,6 +74,11 @@
       ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ",XF86MicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
+      # media controls
+      ",XF86AudioPlay, exec, playerctl play-pause"
+      ",XF86AudioNext, exec, playerctl next"
+      ",XF86AudioPrev, exec, playerctl previous"
+
       # screen brightness
       ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
       ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"

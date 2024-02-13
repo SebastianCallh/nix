@@ -100,6 +100,7 @@ in
     dconf 
     wl-clipboard
     brightnessctl
+    playerctl
 
     # ui 
     hyprpaper
