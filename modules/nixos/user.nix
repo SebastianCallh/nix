@@ -17,7 +17,7 @@ in
     users.users.${cfg.name} = {
       isNormalUser = true;
       initialPassword = "12345";
-      extraGroups = [ "networkmanager" "wheel" "plugdev" ];
+      extraGroups = [ "networkmanager" "wheel" "plugdev" "input" ];
       shell = pkgs.zsh;
     };
   };
