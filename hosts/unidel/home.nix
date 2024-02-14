@@ -1,9 +1,4 @@
-{ config, pkgs, lib, builtins, inputs, ... }:
-let
-  username = "seb";
-  term = "foot";
-  editor = "hx";  
-in 
+{ config, pkgs, lib, builtins, inputs, username, hostname, terminal, editor, ... }:
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -20,9 +15,10 @@ in
   nixpkgs.config = { 
     allowUnfree = true;
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-         "discord"
+      "discord"
     ];
   };
+
   home.packages = with pkgs; [
     foot
     dolphin
@@ -38,15 +34,7 @@ in
     # fonts
     fira-code
     # (nerdfonts.override { fonts = [ "Fira Code" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
-  
   
   programs.git = {
     enable = true;
@@ -94,25 +82,10 @@ in
     # '';
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/seb/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
     EDITOR = editor;
-    TERM = term;
+    TERM = terminal;
   };
   
   # Let Home Manager install and manage itself.
