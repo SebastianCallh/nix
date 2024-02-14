@@ -75,12 +75,6 @@ in
     # User-id 1000 must match user in `services.mpd.user`
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
-
-  # Configure keymap in X11
-  #services.xserver = {
-  #  xkb.layout = "us";
-  #  xkb.variant = "";
-  #};
   
   user.enable = true;
   user.name = username;
@@ -95,6 +89,7 @@ in
   hardware.opengl.enable = true; # needed for wayland WMs
   hardware.keyboard.zsa.enable = true;
 
+  security.polkit.enable = true; # privilege manager
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
