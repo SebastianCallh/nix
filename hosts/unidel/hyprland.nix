@@ -37,6 +37,7 @@
       "$mod, R, exec, $menu" 
       "$mod, T, exec, $terminal"
       "$mod, Q, exit"
+      "$mod, C, killactive"
       "$mod, P, pseudo," # dwindle
       "$mod, J, togglesplit," # dwindle
 
