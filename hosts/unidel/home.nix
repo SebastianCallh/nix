@@ -27,7 +27,8 @@ in
     neofetch 
     discord
     brave
- 
+    helix
+
     # fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
 
