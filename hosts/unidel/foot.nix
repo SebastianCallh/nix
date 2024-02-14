@@ -7,7 +7,7 @@ programs.foot = {
   settings = {
     main = {
       term = "xterm-256color";
-      font = "Fira Code:size=11";
+      font = "Monoid Nerd Font Mono: size=11";
       dpi-aware = "yes";
     };
 

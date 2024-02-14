@@ -31,9 +31,15 @@
     libnotify
     mako
 
-    # fonts
-    fira-code
-    # (nerdfonts.override { fonts = [ "Fira Code" ]; })
+   (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "SpaceMono"
+        "Iosevka"
+        "Monoid"
+        "Hack"
+      ];
+    })
   ];
   
   programs.git = {
