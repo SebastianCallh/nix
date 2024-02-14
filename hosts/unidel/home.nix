@@ -1,13 +1,14 @@
 { config, pkgs, lib, builtins, ... }:
 let 
   username = "seb";
-  term = "kitty";
+  term = "foot";
   editor = "hx";  
 in 
 {
   imports = [ 
     ./hyprland.nix
     ./waybar.nix
+    ./foot.nix
   ];
 
   home.username = username;
@@ -21,7 +22,7 @@ in
     ];
   };
   home.packages = with pkgs; [
-    kitty
+    foot
     dolphin
     curl
     neovim
@@ -32,8 +33,9 @@ in
     libnotify
     mako
 
-     # fonts
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    # fonts
+    fira-code
+    # (nerdfonts.override { fonts = [ "Fira Code" ]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your

@@ -4,7 +4,7 @@
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
-    "$terminal" = "kitty";
+    "$terminal" = "foot";
     "$filemanager" = "dolphin";
     "$menu" = "wofi --show drun";
 
