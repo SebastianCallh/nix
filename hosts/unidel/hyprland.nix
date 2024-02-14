@@ -9,7 +9,9 @@
     "$menu" = "wofi --show drun";
 
     exec-once = "hyprpaper & waybar";
-    
+ 
+    monitor = ",preferred,auto,1";
+
     input = { 
       kb_options = "ctrl:nocaps";
       follow_mouse = 1;
