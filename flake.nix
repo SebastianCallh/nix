@@ -18,10 +18,9 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-    
       nixosConfigurations.unidel = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
-          modules = [ 
+          modules = [
             ./hosts/unidel/configuration.nix
             inputs.home-manager.nixosModules.default
           ];

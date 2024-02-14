@@ -1,16 +1,18 @@
-{ config, pkgs, lib, builtins, ... }:
-let 
+{ config, pkgs, lib, builtins, inputs, ... }:
+let
   username = "seb";
   term = "foot";
   editor = "hx";  
 in 
 {
-  imports = [ 
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
     ./hyprland.nix
     ./waybar.nix
     ./foot.nix
   ];
 
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
   home.username = username;
   home.homeDirectory = "/home/${username}";
   
