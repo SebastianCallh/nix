@@ -2,6 +2,7 @@
 let 
   username = "seb";
   term = "kitty";
+  editor = "hx";  
 in 
 {
   imports = [ 
@@ -105,7 +106,7 @@ in
   #  /etc/profiles/per-user/seb/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = editor;
     TERM = term;
   };
   
