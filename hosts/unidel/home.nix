@@ -28,8 +28,10 @@ in
     discord
     brave
     helix
+    libnotify
+    mako
 
-    # fonts
+     # fonts
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
 
     # # You can also create simple shell scripts directly inside your
