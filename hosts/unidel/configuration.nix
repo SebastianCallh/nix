@@ -6,6 +6,7 @@ let
   username = "seb";
   hostname = "unidel";
   terminal = "kitty";
+  editor = "hx";
 in
 
 {
@@ -140,6 +141,7 @@ in
 
   environment.sessionVariables = {
     TERM=terminal;
+    EDITOR=editor;
     NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
   };
 
