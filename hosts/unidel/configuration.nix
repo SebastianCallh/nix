@@ -134,12 +134,6 @@ in
     };
   };
 
-  environment.sessionVariables = {
-    TERM=terminal;
-    EDITOR=editor;
-    NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

@@ -106,6 +106,7 @@ in
   #  /etc/profiles/per-user/seb/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
     EDITOR = editor;
     TERM = term;
   };
