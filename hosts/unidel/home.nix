@@ -38,6 +38,7 @@
     libnotify
     mako
     ranger
+    lazygit
 
    (nerdfonts.override {
       fonts = [
