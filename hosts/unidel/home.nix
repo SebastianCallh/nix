@@ -11,6 +11,13 @@
   home.username = username;
   home.homeDirectory = "/home/${username}";
   
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Original-Ice";
+    size = 22;
+  };
+
   fonts.fontconfig.enable = true;
   nixpkgs.config = { 
     allowUnfree = true;
