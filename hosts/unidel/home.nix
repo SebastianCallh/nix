@@ -28,7 +28,6 @@
 
   home.packages = with pkgs; [
     foot
-    dolphin
     curl
     neovim
     neofetch 
