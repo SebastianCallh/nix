@@ -106,6 +106,7 @@ in
     wl-clipboard
     brightnessctl
     playerctl
+    libnotify
 
     # ui 
     hyprpaper
@@ -113,6 +114,7 @@ in
     sway
     waybar
     wofi
+    mako
   ];
 
   programs.zsh = {

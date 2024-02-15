@@ -34,8 +34,6 @@
     discord
     brave
     helix
-    libnotify
-    mako
     ranger
     lazygit
 
