@@ -70,16 +70,18 @@
     package = pkgs.emacs-gtk;
   };
 
-
-  # attempt to solve firefox saying "unable to load hand2 from the cursor theme"
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.gnome.gnome-themes-extra;
-      name = "Adwaita-dark";
+      name = "Catppuccin-Macchiato-Standard-Teal-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "teal" ];
+        size = "standard";
+        tweaks = [ "black" ];
+        variant = "macchiato";
+      };
     };
-  };
-
+  };  
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
