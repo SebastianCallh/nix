@@ -1,4 +1,4 @@
-{ config, pkgs, lib, builtins, inputs, username, hostname, terminal, editor, ... }:
+{ config, pkgs, lib, builtins, inputs, username, ... }:
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -96,12 +96,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-  };
-
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
-    EDITOR = editor;
-    TERM = terminal;
   };
   
   # Let Home Manager install and manage itself.

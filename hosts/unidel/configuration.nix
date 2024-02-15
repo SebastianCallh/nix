@@ -82,13 +82,16 @@ in
     extraSpecialArgs = { 
       inherit inputs;
       username = username;
-      hostname = hostname;
-      terminal = terminal;
-      editor = editor;  
     };
     users = {
       "${username}" = import ./home.nix;
     };
+  };
+
+  environment.variables = {
+    NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
+    EDITOR = editor;
+    TERM = terminal;
   };
 
   hardware.bluetooth.enable = true;
