@@ -7,6 +7,7 @@ let
   hostname = "unidel";
   terminal = "foot";
   editor = "hx";
+  browser = "firefox";
 in
 
 {
@@ -92,6 +93,7 @@ in
     NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
     EDITOR = editor;
     TERM = terminal;
+    BROWSER = browser;
   };
 
   hardware.bluetooth.enable = true;
