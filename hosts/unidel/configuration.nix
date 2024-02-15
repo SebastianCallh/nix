@@ -5,7 +5,7 @@ let
   session = "${pkgs.hyprland}/bin/Hyprland";
   username = "seb";
   hostname = "unidel";
-  terminal = "kitty";
+  terminal = "foot";
   editor = "hx";
 in
 
