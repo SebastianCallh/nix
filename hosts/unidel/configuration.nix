@@ -110,6 +110,8 @@ in
     playerctl
     libnotify
     xdg-utils
+    qt5.qtwayland
+    qt6.qtwayland
 
     # ui 
     hyprpaper
