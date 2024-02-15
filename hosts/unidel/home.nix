@@ -37,6 +37,7 @@
     helix
     libnotify
     mako
+    ranger
 
    (nerdfonts.override {
       fonts = [
