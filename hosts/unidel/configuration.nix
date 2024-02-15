@@ -107,6 +107,7 @@ in
     brightnessctl
     playerctl
     libnotify
+    xdg-utils
 
     # ui 
     hyprpaper
