@@ -83,6 +83,7 @@ in
     extraSpecialArgs = { 
       inherit inputs;
       username = username;
+      terminal = terminal;
     };
     users = {
       "${username}" = import ./home.nix;

@@ -1,8 +1,8 @@
-{ config, pkgs, lib, builtins, inputs, username, ... }:
+{ config, pkgs, lib, builtins, inputs, username, terminal, ... }:
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./hyprland.nix
+    ../../modules/home-manager/hyprland/default.nix
     ../../modules/home-manager/waybar/default.nix
     ./foot.nix
   ];
@@ -26,6 +26,8 @@
     ];
   };
 
+  module.hyprland.enable = true;
+  module.hyprland.terminal = terminal;
   home.packages = with pkgs; [
     foot
     curl
