@@ -8,7 +8,7 @@
     "$filemanager" = "dolphin";
     "$menu" = "wofi --show drun";
 
-    exec-once = "hyprpaper & mako";
+    exec-once = "hyprpaper & waybar & mako";
  
     monitor = ",preferred,auto,1";
 

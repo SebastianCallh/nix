@@ -4,6 +4,8 @@
 
 programs.waybar = {
   enable = true;
+  style = ./style.css;
+  
   settings = {
     mainBar = {
       layer = "top";
@@ -27,8 +29,8 @@ programs.waybar = {
         };
   
         format = "{icon} {capacity}%";
-        format-charging = "󰂄  {capacity}%";
-        format-plugged = "  {capacity}%";
+        format-charging = "󰂄 {capacity}%";
+        format-plugged = " {capacity}%";
         format-discharging = "{icon}  {capacity}%";
         format-alt = "{icon} {time}";
         format-icons = ["󰁻" "󰁼" "󰁾" "󰂀" "󰁹" ];
@@ -53,49 +55,9 @@ programs.waybar = {
       #     "interval": 1,
       #     "exec": "$HOME/.config/waybar/get_kbdlayout.sh"
       # },
-  
-      style = ''
-        * {
-          border: none;
-          border-radius: 0;
-          font-size: 20px;
-          font-family: "Monoid Mono Nerd Font:size=11";
-          all: unset;
-        }
-   
-        window#waybar {
-          background: #${config.colorScheme.palette.base01};
-          color: #${config.colorScheme.palette.base05};
-        } 
-        
-        #workspaces button {
-          padding: 0 5px;
-        }
-
-        #workspaces button.active { 
-          background: #${config.colorScheme.palette.base0C};
-          color: #${config.colorScheme.palette.base04};
-        }
-
-        #workspaces button.focused {
-          color: #ffffff;
-          background: #eba0ac;
-          border-radius: 10px;
-        }
-        
-        #workspaces button.urgent {
-          color: #11111b;
-          background: #a6e3a1;
-          border-radius: 10px;
-        }
-         
-        #battery { 
-          background: #${config.colorScheme.palette.base08};
-          color: #${config.colorScheme.palette.base04};
-        }
-      '';
-    };
+    };  
   };
 };
 
 }
+

@@ -3,7 +3,7 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./hyprland.nix
-    ./waybar.nix
+    ../../modules/home-manager/waybar/default.nix
     ./foot.nix
   ];
 
@@ -84,6 +84,25 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".config/colors.css".text = ''
+      @define-color base #${config.colorScheme.palette.base00};
+      @define-color mantle #${config.colorScheme.palette.base01};
+      @define-color surface0 #${config.colorScheme.palette.base02};
+      @define-color surface1 #${config.colorScheme.palette.base03};
+      @define-color surface2 #${config.colorScheme.palette.base04};
+      @define-color text #${config.colorScheme.palette.base05};
+      @define-color rosewater #${config.colorScheme.palette.base06};
+      @define-color lavender #${config.colorScheme.palette.base07};
+      @define-color red #${config.colorScheme.palette.base08};
+      @define-color peach #${config.colorScheme.palette.base08};
+      @define-color yellow #${config.colorScheme.palette.base09};
+      @define-color green #${config.colorScheme.palette.base0A};
+      @define-color teal #${config.colorScheme.palette.base0B};
+      @define-color blue #${config.colorScheme.palette.base0C};
+      @define-color mauve #${config.colorScheme.palette.base0D};
+      @define-color flamingo #${config.colorScheme.palette.base0F};
+    '';
+
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
