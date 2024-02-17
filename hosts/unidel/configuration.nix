@@ -93,6 +93,7 @@ in
   environment.variables = {
     NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
     EDITOR = editor;
+    VISUAL = editor;
     TERM = terminal;
     BROWSER = browser;
   };
