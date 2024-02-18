@@ -1,19 +1,19 @@
-{config, pkgs, lib, ...}
+{config, pkgs, lib, ...}:
 
 {
-  options = with lib; {
-    theme = {
+  options.helix = with lib; {
+    theme = mkOption {
       type = types.str;
       default = "base16_default";
-    }
+    };
   };
 
   config = {
-    
+    programs.helix.enable = true;
     home.file = {
       ".config/helix/config.toml".text = ''
-        theme = ${options.theme};
-      ''
+        theme = "${config.helix.theme}"
+      '';
     };
   };
 }

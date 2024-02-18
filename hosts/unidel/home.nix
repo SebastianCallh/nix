@@ -5,6 +5,7 @@
     ../../modules/home-manager/hyprland/default.nix
     ../../modules/home-manager/waybar/default.nix
     ../../modules/home-manager/foot/default.nix
+    ../../modules/home-manager/helix/default.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
@@ -31,7 +32,7 @@
 
   foot.font = font; 
   foot.fontSize = 12;
-  
+  helix.theme = "ayu_mirage";
   home.packages = with pkgs; [
     foot
     curl
@@ -39,7 +40,6 @@
     neofetch 
     discord
     brave
-    helix
     ranger
     lazygit
     zoxide 
