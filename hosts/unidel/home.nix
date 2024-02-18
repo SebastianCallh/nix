@@ -8,7 +8,7 @@
     ../../modules/home-manager/helix/default.nix
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+  colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
   home.username = username;
   home.homeDirectory = "/home/${username}";
   

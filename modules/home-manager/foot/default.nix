@@ -38,7 +38,7 @@
           regular5=config.colorScheme.palette.base0E; # magenta
           regular6=config.colorScheme.palette.base0C; # cyan
           regular7=config.colorScheme.palette.base06; # white
-          alpha=0.7;
+          alpha=1;
         };
       };
     };
