@@ -8,6 +8,7 @@ let
   terminal = "foot";
   editor = "hx";
   browser = "firefox";
+  font = "Monoid Nerd Font Mono";
 in
 
 {
@@ -84,6 +85,7 @@ in
       inherit inputs;
       username = username;
       terminal = terminal;
+      font = font;
     };
     users = {
       "${username}" = import ./home.nix;
@@ -114,7 +116,7 @@ in
     xdg-utils
     qt5.qtwayland
     qt6.qtwayland
-
+    
     # ui 
     hyprpaper
     hyprland
@@ -126,6 +128,7 @@ in
 
   programs.zsh = {
     enable = true;
+    # dotDir = ".config/zsh";
     autosuggestions.enable = true;
     enableCompletion = true;
   };
@@ -137,6 +140,13 @@ in
       wlr.enable = true;
       config.commons.default = "xdg-desktop-portal-hyprland";
       # config.commons.default = "xdg-desktop-portal-wlr";
+    };
+
+    mime = {
+      enable = true;
+      defaultApplications = {
+        "text/markdown" = [editor];
+      };
     };
   };
 

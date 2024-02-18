@@ -1,10 +1,10 @@
-{ config, pkgs, lib, builtins, inputs, username, terminal, ... }:
+{ config, pkgs, lib, builtins, inputs, username, terminal, font,... }:
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ../../modules/home-manager/hyprland/default.nix
     ../../modules/home-manager/waybar/default.nix
-    ./foot.nix
+    ../../modules/home-manager/foot/default.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
@@ -28,6 +28,10 @@
 
   module.hyprland.enable = true;
   module.hyprland.terminal = terminal;
+
+  foot.font = font; 
+  foot.fontSize = 12;
+  
   home.packages = with pkgs; [
     foot
     curl
@@ -38,6 +42,7 @@
     helix
     ranger
     lazygit
+    zoxide 
 
    (nerdfonts.override {
       fonts = [
