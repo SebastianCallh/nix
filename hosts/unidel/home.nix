@@ -34,7 +34,6 @@
   foot.fontSize = 12;
   helix.theme = "ayu_mirage";
   home.packages = with pkgs; [
-    foot
     curl
     neovim
     neofetch 
