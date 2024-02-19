@@ -2,11 +2,11 @@
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ../../modules/home-manager/hyprland/default.nix
-    ../../modules/home-manager/waybar/default.nix
-    ../../modules/home-manager/foot/default.nix
-    ../../modules/home-manager/helix/default.nix
-    ../../modules/home-manager/zsh/default.nix
+    ../../modules/home-manager/hyprland
+    ../../modules/home-manager/waybar
+    ../../modules/home-manager/foot
+    ../../modules/home-manager/helix
+    ../../modules/home-manager/zsh
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
