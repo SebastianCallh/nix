@@ -1,10 +1,20 @@
 { config, lib, ... }:
 
+let 
+  cfg = config.hyprland;
+  color = config.hyprland.colorScheme.palette;
+in
 {
 
   options.hyprland = with lib; {
     terminal = mkOption {
       type = types.str;
+    };
+
+    colorScheme = mkOption {
+      description = ''
+        The nix color palette to use.
+      '';
     };
   };
 
@@ -12,7 +22,7 @@
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
-      "$terminal" = config.hyprland.terminal;
+      "$terminal" = cfg.terminal;
       "$menu" = "wofi --show drun";
   
       exec-once = "hyprpaper & waybar & mako";
@@ -23,6 +33,7 @@
         border_size = 2;
         gaps_in = 8;
         gaps_out = 8;
+        "col.active_border" = "rgba(${color.base0C}FF) rgba(${color.base05}FF) 45deg";
       };
 
       decoration = {

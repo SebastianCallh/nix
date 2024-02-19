@@ -28,6 +28,7 @@
     ];
   };
 
+  hyprland.colorScheme = config.colorScheme;
   hyprland.terminal = terminal;
 
   foot.font = font;
