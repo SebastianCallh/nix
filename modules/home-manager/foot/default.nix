@@ -21,6 +21,7 @@
           term = "foot";
           font = "${config.foot.font}: size=${toString config.foot.fontSize}";
           dpi-aware = "yes";
+          pad = "15x10";
         };
     
         mouse = {
