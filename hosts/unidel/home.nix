@@ -30,8 +30,8 @@
   module.hyprland.enable = true;
   module.hyprland.terminal = terminal;
 
-  foot.font = font; 
-  foot.fontSize = 12;
+  foot.font = font;
+  foot.fontSize = 10;
   helix.theme = "ayu_mirage";
   home.packages = with pkgs; [
     curl
