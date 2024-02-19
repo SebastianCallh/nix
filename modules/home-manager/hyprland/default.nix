@@ -23,7 +23,19 @@ in {
       exec-once = "hyprpaper & waybar & mako";
    
       monitor = ",preferred,auto,1";
-  
+      
+      general = {
+        border_size = 2;
+        gaps_in = 8;
+        gaps_out = 8;
+      };
+
+      decoration = {
+        rounding = 10;
+        dim_inactive = true;
+        dim_strength = 0.1;
+      };
+
       input = { 
         kb_options = "ctrl:nocaps";
         follow_mouse = 1;
