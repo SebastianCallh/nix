@@ -6,6 +6,7 @@
     ../../modules/home-manager/waybar/default.nix
     ../../modules/home-manager/foot/default.nix
     ../../modules/home-manager/helix/default.nix
+    ../../modules/home-manager/zsh/default.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
@@ -43,6 +44,7 @@
     lazygit
     zoxide 
     nil 
+    eza
 
    (nerdfonts.override {
       fonts = [

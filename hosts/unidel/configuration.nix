@@ -126,12 +126,7 @@ in
     mako
   ];
 
-  programs.zsh = {
-    enable = true;
-    # dotDir = ".config/zsh";
-    autosuggestions.enable = true;
-    enableCompletion = true;
-  };
+  programs.zsh.enable = true;
 
   # for screen sharing
   xdg = { 
