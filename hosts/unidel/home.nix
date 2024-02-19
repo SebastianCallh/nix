@@ -59,7 +59,6 @@
     enable = true;
     userName = "Sebastian Callh";
     userEmail = "sebastian.callh@gmail.com";
-
     extraConfig = {
       push = {
         autoSetupRemote = true;
@@ -100,12 +99,12 @@
       @define-color rosewater #${config.colorScheme.palette.base06};
       @define-color lavender #${config.colorScheme.palette.base07};
       @define-color red #${config.colorScheme.palette.base08};
-      @define-color peach #${config.colorScheme.palette.base08};
-      @define-color yellow #${config.colorScheme.palette.base09};
-      @define-color green #${config.colorScheme.palette.base0A};
-      @define-color teal #${config.colorScheme.palette.base0B};
-      @define-color blue #${config.colorScheme.palette.base0C};
-      @define-color mauve #${config.colorScheme.palette.base0D};
+      @define-color peach #${config.colorScheme.palette.base09};
+      @define-color yellow #${config.colorScheme.palette.base0A};
+      @define-color green #${config.colorScheme.palette.base0B};
+      @define-color teal #${config.colorScheme.palette.base0C};
+      @define-color blue #${config.colorScheme.palette.base0D};
+      @define-color mauve #${config.colorScheme.palette.base0E};
       @define-color flamingo #${config.colorScheme.palette.base0F};
     '';
  };
