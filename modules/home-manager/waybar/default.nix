@@ -25,7 +25,7 @@ programs.waybar = {
         states = {
           good = 80;
           warning = 30;
-          critical = 10;
+          critical = 15;
         };
   
         format = "{icon} {capacity}%";
