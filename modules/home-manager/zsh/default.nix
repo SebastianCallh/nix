@@ -9,6 +9,7 @@
     shellAliases = {
       ls = "exa";
       cd = "z";
+      lg = "lazygit";
     };
   };
 
