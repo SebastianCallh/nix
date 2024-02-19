@@ -42,6 +42,7 @@
     ranger
     lazygit
     zoxide 
+    nil 
 
    (nerdfonts.override {
       fonts = [
