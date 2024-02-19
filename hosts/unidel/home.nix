@@ -42,7 +42,6 @@
     brave
     ranger
     lazygit
-    zoxide 
     nil 
     eza
 

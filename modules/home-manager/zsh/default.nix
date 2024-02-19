@@ -8,10 +8,16 @@
     enableCompletion = true;
     shellAliases = {
       ls = "exa";
+      cd = "z";
     };
   };
 
   programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
   };
