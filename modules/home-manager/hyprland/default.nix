@@ -1,23 +1,18 @@
-{ config, lib, pkgs, terminal, ... }:
+{ config, lib, ... }:
 
-let 
-  cfg = config.module.hyprland;
-in {
+{
 
-  options.module.hyprland = with lib; {
-  
-    enable = mkEnableOption "Enabl hyprland.";    
+  options.hyprland = with lib; {
     terminal = mkOption {
       type = types.str;
     };
-
   };
 
   config = {
-    wayland.windowManager.hyprland.enable = cfg.enable;
+    wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
-      "$terminal" = cfg.terminal;
+      "$terminal" = config.hyprland.terminal;
       "$menu" = "wofi --show drun";
   
       exec-once = "hyprpaper & waybar & mako";

@@ -28,8 +28,7 @@
     ];
   };
 
-  module.hyprland.enable = true;
-  module.hyprland.terminal = terminal;
+  hyprland.terminal = terminal;
 
   foot.font = font;
   foot.fontSize = 10;
