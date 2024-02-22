@@ -7,6 +7,7 @@
 
   home.packages = with pkgs; [
     lazygit
+    ripgrep
   ];
 
   programs.home-manager.enable = true;
