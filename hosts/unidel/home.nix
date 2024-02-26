@@ -6,7 +6,7 @@
     ../../modules/home-manager/waybar
     ../../modules/home-manager/foot
     ../../modules/home-manager/helix
-    ../../modules/home-manager/zsh
+    ../../modules/home-manager/sh
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
@@ -43,7 +43,6 @@
     ranger
     lazygit
     nil 
-    eza
 
    (nerdfonts.override {
       fonts = [
