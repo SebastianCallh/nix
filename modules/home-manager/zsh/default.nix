@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ ... }:
 
 {
   programs.zsh = {
@@ -10,6 +10,7 @@
       ls = "exa";
       cd = "z";
       lg = "lazygit";
+      cat = "bat";
     };
   };
 
@@ -34,5 +35,9 @@
 
       package.disabled = true;
     };
-  };  
+  };
+
+  programs.bat = {
+    enable = true;
+  };
 }
