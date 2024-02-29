@@ -1,8 +1,15 @@
-{ config, pkgs, lib, builtins, inputs, username, terminal, font,... }:
+{ config, pkgs, lib, builtins, inputs, username, terminal, font, ... }:
+let
+  background = ../../images/nix-blue.png;
+in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.hyprlock.homeManagerModules.default
+    inputs.hypridle.homeManagerModules.default
     ../../modules/home-manager/hyprland
+    ../../modules/home-manager/hyprlock
+    ../../modules/home-manager/hypridle
     ../../modules/home-manager/waybar
     ../../modules/home-manager/foot
     ../../modules/home-manager/helix
@@ -12,12 +19,13 @@
   colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
   home.username = username;
   home.homeDirectory = "/home/${username}";
+  programs.hyprlock.enable = true;
   
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Original-Ice";
-    size = 22;
+    size = 26;
   };
 
   fonts.fontconfig.enable = true;
@@ -30,19 +38,22 @@
 
   hyprland.colorScheme = config.colorScheme;
   hyprland.terminal = terminal;
-
+  hyprlock.background = background;
+  hypridle.timeout = 60;
+  
   foot.font = font;
   foot.fontSize = 10;
   helix.theme = "ayu_mirage";
   home.packages = with pkgs; [
     curl
     neovim
-    neofetch 
+    neofetch
     discord
     brave
     ranger
     lazygit
-    nil 
+    nil
+    ripgrep
 
    (nerdfonts.override {
       fonts = [

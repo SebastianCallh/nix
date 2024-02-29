@@ -120,6 +120,7 @@ in
     # ui 
     hyprpaper
     hyprland
+    inputs.hyprlock
     sway
     waybar
     wofi
@@ -134,7 +135,6 @@ in
       enable = true;
       wlr.enable = true;
       config.commons.default = "xdg-desktop-portal-hyprland";
-      # config.commons.default = "xdg-desktop-portal-wlr";
     };
 
     mime = {

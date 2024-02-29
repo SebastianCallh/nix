@@ -14,31 +14,25 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
 
- };
-
-  outputs = { self, nixpkgs, nix-darwin, ... }@inputs:
-    let
+  outputs = { self, nixpkgs, nix-darwin, ... }@inputs: {
+    nixosConfigurations.unidel = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      nixosConfigurations.unidel = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/unidel/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-
-      # darwinConfigurations."Sebastians-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      darwinConfigurations.sigdis = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/sigdis/configuration.nix
-          inputs.home-manager.darwinModules.default
-        ];
-      };
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/unidel/configuration.nix
+        inputs.home-manager.nixosModules.default
+      ];
     };
+    
+    darwinConfigurations.sigdis = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/sigdis/configuration.nix
+        inputs.home-manager.darwinModules.default
+      ];
+    };
+  };
 }
