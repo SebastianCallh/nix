@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 let
   username = "seb";
@@ -10,13 +10,14 @@ in
 
 {
   imports = [];
-
+  
   users.users.seb = {
     name = "seb";
     home = "/Users/seb";
   };
 
   home-manager.users.seb = import ./home.nix;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.zsh.enable = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
   services.nix-daemon.enable = true;
