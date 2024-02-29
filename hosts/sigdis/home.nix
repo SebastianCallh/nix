@@ -2,7 +2,7 @@
 {
   imports = [
     ../../modules/home-manager/helix
-    ../../modules/home-manager/zsh
+    ../../modules/home-manager/sh
     ../../modules/home-manager/kitty
   ];
   
