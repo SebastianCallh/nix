@@ -17,7 +17,11 @@ in
   };
 
   home-manager.users.seb = import ./home.nix;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [ "root" "seb" ];
+  };
+  
   programs.zsh.enable = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
   services.nix-daemon.enable = true;
