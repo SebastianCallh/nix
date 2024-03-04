@@ -29,6 +29,13 @@ in
     podman
   ];
   
+  environment.variables = {
+    EDITOR = editor;
+    VISUAL = editor;
+    TERM = terminal;
+    BROWSER = browser;
+  };
+  
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config = {
     allowUnfree = true;
