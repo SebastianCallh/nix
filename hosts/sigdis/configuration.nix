@@ -22,6 +22,9 @@ in
     trusted-users = [ "root" "seb" ];
   };
 
+  # Even though we enable zsh in our homd config this is needed. 
+  # it sets up /etc/zshenv, /etc/zshrc to add /run/current-system/sw/bin to PATH and set other NIX-related envs
+  programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
     podman
   ];
