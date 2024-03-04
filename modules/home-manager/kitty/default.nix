@@ -6,7 +6,7 @@ in
 {
   options.kitty = with lib; {
     theme = mkOption {
-      type = types.string;
+      type = types.str;
       default = "base16_default";
     };
   };
