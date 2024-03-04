@@ -11,6 +11,7 @@
       cd = "z";
       lg = "lazygit";
       cat = "bat";
+      ya = "yazi";
     };
 
     sessionVariables = {
