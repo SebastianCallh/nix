@@ -26,7 +26,6 @@ in
     podman
   ];
   
-  programs.zsh.enable = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config = {
     allowUnfree = true;
