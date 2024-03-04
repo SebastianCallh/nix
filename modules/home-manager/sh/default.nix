@@ -12,6 +12,10 @@
       lg = "lazygit";
       cat = "bat";
     };
+
+    sessionVariables = {
+      NIXPKGS_ALLOW_UNFREE = 1;
+    };
   };
 
   programs.fzf = {
