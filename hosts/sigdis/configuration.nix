@@ -40,6 +40,7 @@ in
   nixpkgs.config = {
     allowUnfree = true;
   };
+  nix.package = pkgs.nix;
   services.nix-daemon.enable = true;
   system.stateVersion = 4;
 }
