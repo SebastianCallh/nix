@@ -3,7 +3,7 @@
 let
   username = "seb";
   hostname = "sigdis";
-  terminal = "foot";
+  terminal = "kitty";
   editor = "hx";
   browser = "firefox";
 in
