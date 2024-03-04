@@ -34,7 +34,7 @@
 
         [[language]]
         name = "python"
-        language-servers = ["pyslp"]
+        language-servers = ["pylsp"]
         auto-format = true
         
         [language.formatter]
