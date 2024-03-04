@@ -13,10 +13,11 @@
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })   
   ];
 
-  kitty.theme = "Catppuccin-Mocha";
+  helix.theme = "catppuccin_macchiato";
+  kitty.theme = "Catppuccin-Macchiato";
   kitty.font = {
     name = "Terminess Nerd Font Mono";
-    size = 24;
+    size = 20;
   };
     
   programs.home-manager.enable = true;
