@@ -21,6 +21,10 @@ in
     experimental-features = [ "nix-command" "flakes" ];
     trusted-users = [ "root" "seb" ];
   };
+
+  environment.systemPackages = with pkgs; [
+    podman
+  ];
   
   programs.zsh.enable = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
