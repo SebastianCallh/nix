@@ -28,5 +28,38 @@
         character = "┆"
       '';
     };
+
+    home.file = {
+      ".config/helix/languages.toml".text = '' 
+
+        [[language]]
+        name = "python"
+        language-servers = ["pyslp"]
+        auto-format = true
+        
+        [language.formatter]
+        command = "black"
+        args = ["--line-length", "88", "--quiet", "-"]
+        
+        [language-server.pylsp.config.pylsp]
+        plugins.black.enabled = true
+        plugins.pylint.enabled = true
+        plugins.pyflakes.enabled = false
+        plugins.pyls_mypy.enabled = true
+        plugins.pyls_mypy.live_mode = false
+        plugins.isort.enabled = true
+        plugins.rope_autoimport.enabled = true
+        
+        [tool.black]
+        line-length = 100
+
+        [tool.pylint.format]
+        max-line-length = 100
+        
+        [tool.isort]
+        line_length = 100
+        profile = "black"
+      '';
+    };
   };
 }
