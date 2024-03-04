@@ -13,7 +13,7 @@
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })   
   ];
 
-  kitty.theme = "Ayu Mirage";
+  kitty.theme = "Catppuccin-Mocha";
   kitty.font = {
     name = "Terminess Nerd Font Mono";
     size = 24;
