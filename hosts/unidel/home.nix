@@ -43,7 +43,6 @@ in
   
   foot.font = font;
   foot.fontSize = 10;
-  helix.theme = "ayu_mirage";
   home.packages = with pkgs; [
     curl
     neovim

@@ -4,7 +4,7 @@
   options.helix = with lib; {
     theme = mkOption {
       type = types.str;
-      default = "base16_default";
+      default = "base16_transparent";
     };
   };
 
