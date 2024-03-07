@@ -25,7 +25,7 @@ in
       "$terminal" = cfg.terminal;
       "$menu" = "wofi --show drun";
   
-      exec-once = "hyprpaper & waybar & mako";
+      exec-once = "hyprpaper & waybar & mako & nm-applet --indicator";
    
       monitor = ",preferred,auto,1";
       

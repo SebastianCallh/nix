@@ -116,7 +116,8 @@ in
     xdg-utils
     qt5.qtwayland
     qt6.qtwayland
-    
+    networkmanagerapplet
+   
     # ui 
     hyprpaper
     hyprland
