@@ -1,6 +1,9 @@
 #! /usr/bin/env bash
 full_host=$HOSTNAME
-host=${full_host%".local"} # mac adds this and I don't want it
+
+# mac adds this and I don't want it
+host=${full_host%".local"}
+host=${full_host%".lan"}
 
 if [ $host == "sigdis" ]; then
   darwin-rebuild switch --flake "$PWD#$host"
