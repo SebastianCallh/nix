@@ -27,6 +27,7 @@ in
   programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
     podman
+    google-cloud-sdk
   ];
   
   environment.variables = {
