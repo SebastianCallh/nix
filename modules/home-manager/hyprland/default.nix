@@ -67,15 +67,21 @@ in
         "$mod, R, exec, $menu" 
         "$mod, T, exec, $terminal"
         "$mod, Q, exit"
-        "$mod, K, killactive"
-        "$mod, P, pseudo," # dwindle
-        "$mod, J, togglesplit," # dwindle
+        "$mod, P, killactive"
+        # "$mod, P, pseudo," # dwindle
+        # "$mod, J, togglesplit," # dwindle
   
         # shift focus with arrow keys 
         "$mod, left, movefocus, l" 
         "$mod, right, movefocus, r" 
         "$mod, up, movefocus, u" 
         "$mod, down, movefocus, d" 
+  
+        # shift focus with vim bindings
+        "$mod, H, movefocus, l" 
+        "$mod, L, movefocus, r" 
+        "$mod, K, movefocus, u" 
+        "$mod, J, movefocus, d" 
   
         # switch workspace 
         "$mod, 1, workspace, 1"
