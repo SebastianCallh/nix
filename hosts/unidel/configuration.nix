@@ -100,7 +100,6 @@ in
     BROWSER = browser;
   };
 
-  hardware.bluetooth.enable = true;
   hardware.opengl.enable = true; # needed for wayland WMs
   hardware.keyboard.zsa.enable = true;
 
@@ -113,11 +112,15 @@ in
     brightnessctl
     playerctl
     libnotify
-    xdg-utils
+    xdg-utils # provides xgd-open and more
     qt5.qtwayland
     qt6.qtwayland
+    libappindicator # tray icons
+    
+    # networking
     networkmanagerapplet
-   
+    blueman
+
     # ui 
     hyprpaper
     hyprland
@@ -129,6 +132,9 @@ in
   ];
 
   programs.zsh.enable = true;
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # for screen sharing
   xdg = { 
