@@ -3,8 +3,9 @@ full_host=$HOSTNAME
 
 # mac adds this and I don't want it
 host=${full_host%".local"}
-host=${full_host%".lan"}
-
+host=${host%".lan"}
+echo $host
+ 
 if [ $host == "sigdis" ]; then
   darwin-rebuild switch --flake "$PWD#$host"
 elif [ $host == "unidel" ]; then
