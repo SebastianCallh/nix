@@ -6,6 +6,8 @@
     dotDir = ".config/zsh";
     enableAutosuggestions = true;
     enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    
     shellAliases = {
       ls = "exa";
       cd = "z";
