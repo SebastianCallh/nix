@@ -124,7 +124,7 @@ in
     # ui 
     hyprpaper
     hyprland
-    inputs.hyprlock
+    # inputs.hyprlock
     sway
     waybar
     wofi

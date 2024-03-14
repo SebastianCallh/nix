@@ -5,11 +5,12 @@ in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    inputs.hyprlock.homeManagerModules.default
-    inputs.hypridle.homeManagerModules.default
+    # inputs.hyprlock.homeManagerModules.default
+    # inputs.hypridle.homeManagerModules.default
     ../../modules/home-manager/hyprland
-    ../../modules/home-manager/hyprlock
-    ../../modules/home-manager/hypridle
+    ../../modules/home-manager/firefox
+    # ../../modules/home-manager/hyprlock
+    # ../../modules/home-manager/hypridle
     ../../modules/home-manager/waybar
     ../../modules/home-manager/foot
     ../../modules/home-manager/helix
@@ -19,8 +20,6 @@ in
   colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
   home.username = username;
   home.homeDirectory = "/home/${username}";
-  programs.hyprlock.enable = true;
-  
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
@@ -38,8 +37,9 @@ in
 
   hyprland.colorScheme = config.colorScheme;
   hyprland.terminal = terminal;
-  hyprlock.background = background;
-  hypridle.timeout = 60;
+  # programs.hyprlock.enable = true;
+  # hyprlock.background = background;
+  # hypridle.timeout = 60;
   
   foot.font = font;
   foot.fontSize = 10;
@@ -74,10 +74,6 @@ in
         autoSetupRemote = true;
       };
     };
-  };
-
-  programs.firefox = {
-    enable = true;
   };
 
   programs.emacs = {
