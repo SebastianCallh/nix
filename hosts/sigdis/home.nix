@@ -11,6 +11,7 @@
     lazygit
     ripgrep
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })   
+    slack-term
   ];
 
   helix.theme = "ayu_light";
