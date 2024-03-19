@@ -10,8 +10,10 @@
   home.packages = with pkgs; [
     lazygit
     ripgrep
-    (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })   
     slack-term
+    spotify-tui
+    spotifyd
+    (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })
   ];
 
   helix.theme = "ayu_light";
