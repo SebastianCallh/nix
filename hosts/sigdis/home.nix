@@ -13,6 +13,7 @@
     slack-term
     spotify-tui
     spotifyd
+    visidata
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })
   ];
 
