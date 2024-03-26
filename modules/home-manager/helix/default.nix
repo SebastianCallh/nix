@@ -34,30 +34,19 @@
 
         [[language]]
         name = "python"
-        language-servers = ["pylsp"]
+        language-servers = ["pyright"]
         auto-format = true
-        
-        [language.formatter]
-        command = "black"
-        args = ["--line-length", "88", "--quiet", "-"]
-        
-        [language-server.pylsp.config.pylsp]
-        plugins.black.enabled = true
-        plugins.pylint.enabled = true
-        plugins.pyflakes.enabled = false
-        plugins.pyls_mypy.enabled = true
-        plugins.pyls_mypy.live_mode = false
-        plugins.isort.enabled = true
-        plugins.rope_autoimport.enabled = true
-        
+        roots = ["setup.py", "setup.cfg", "pyproject.toml"]
+        formatter = { command = "black", args = ["--quiet", "--line-length", "88", "-"] }
+
         [tool.black]
-        line-length = 100
+        line-length = 88
 
         [tool.pylint.format]
-        max-line-length = 100
+        max-line-length = 88
         
         [tool.isort]
-        line_length = 100
+        line_length = 88
         profile = "black"
       '';
     };
