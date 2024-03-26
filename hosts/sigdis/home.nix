@@ -12,6 +12,7 @@
     ripgrep
     slack-term
     visidata
+    nodePackages.pyright
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })
   ];
 
