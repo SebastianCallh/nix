@@ -1,10 +1,16 @@
 {config, lib, ...}:
-
+let 
+cfg = config.helix;
+in
 {
   options.helix = with lib; {
     theme = mkOption {
       type = types.str;
       default = "base16_transparent";
+    };
+
+    git_tui = mkOption {
+      type = types.str;
     };
   };
 
@@ -12,7 +18,7 @@
     programs.helix.enable = true;
     home.file = {
       ".config/helix/config.toml".text = ''
-        theme = "${config.helix.theme}"
+        theme = "${cfg.theme}"
 
         [editor]
         line-number = "relative"
@@ -26,6 +32,9 @@
         [editor.indent-guides]
         render = true
         character = "┆"
+
+        [keys.normal]
+        C-g = [":new", ":insert-output ${cfg.git_tui}", ":buffer-close!", ":redraw"]
       '';
     };
 

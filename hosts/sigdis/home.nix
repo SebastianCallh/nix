@@ -16,6 +16,7 @@
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })
   ];
 
+  helix.git_tui = "lazygit";
   helix.theme = "ayu_light";
   kitty.theme = "Ayu Light";
   kitty.font = {
