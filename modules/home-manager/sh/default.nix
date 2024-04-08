@@ -4,9 +4,9 @@
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
-    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
     
     shellAliases = {
       ls = "exa";
