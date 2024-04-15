@@ -35,6 +35,7 @@ in
     VISUAL = editor;
     TERM = terminal;
     BROWSER = browser;
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
   
   nixpkgs.hostPlatform = "aarch64-darwin";
