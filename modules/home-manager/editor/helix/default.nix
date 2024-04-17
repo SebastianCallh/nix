@@ -1,4 +1,4 @@
-{config, lib, ...}:
+{config, lib, pkgs, ...}:
 let 
 cfg = config.helix;
 in
@@ -15,7 +15,14 @@ in
   };
 
   config = {
-    programs.helix.enable = true;
+    programs.helix = {
+      enable = true;
+      extraPackages = with pkgs; [
+        python3Packages.black
+        nodePackages.pyright
+      ];
+    };
+    
     home.file = {
       ".config/helix/config.toml".text = ''
         theme = "${cfg.theme}"
