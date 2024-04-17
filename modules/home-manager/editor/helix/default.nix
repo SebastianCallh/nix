@@ -12,11 +12,17 @@ in
     git_tui = mkOption {
       type = types.str;
     };
+    
+    defaultEditor = mkOption {
+      type = types.bool;
+      default = false;
+    };
   };
 
   config = {
     programs.helix = {
       enable = true;
+      defaultEditor = cfg.defaultEditor;
       extraPackages = with pkgs; [
         python3Packages.black
         nodePackages.pyright

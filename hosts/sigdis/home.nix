@@ -20,6 +20,8 @@
 
   helix.git_tui = "lazygit";
   helix.theme = "ayu_light";
+  helix.defaultEditor = true;
+  
   kitty.theme = "Ayu Light";
   kitty.font = {
     name = "Terminess Nerd Font Mono";
