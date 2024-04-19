@@ -37,7 +37,7 @@ in
   kitty.theme = "Ayu Mirage";
   kitty.font = {
     name = "Hack Nerd Font Mono";
-    size = 10;
+    size = 18;
   };
 
   home.packages = with pkgs; [
