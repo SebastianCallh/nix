@@ -5,10 +5,8 @@ let
   session = "${pkgs.hyprland}/bin/Hyprland";
   username = "seb";
   hostname = "unidel";
-  terminal = "foot";
   editor = "hx";
   browser = "firefox";
-  font = "Monoid Nerd Font Mono";
 in
 
 {
@@ -84,8 +82,6 @@ in
     extraSpecialArgs = { 
       inherit inputs;
       username = username;
-      terminal = terminal;
-      font = font;
     };
     users = {
       "${username}" = import ./home.nix;
@@ -96,7 +92,6 @@ in
     NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
     EDITOR = editor;
     VISUAL = editor;
-    TERM = terminal;
     BROWSER = browser;
   };
 

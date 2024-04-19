@@ -1,4 +1,4 @@
-{ config, pkgs, lib, builtins, inputs, username, terminal, font, ... }:
+{ config, pkgs, lib, builtins, inputs, username, ... }:
 let
   background = ../../images/nix-blue.png;
 in
@@ -12,7 +12,6 @@ in
     # ../../modules/home-manager/hyprlock
     # ../../modules/home-manager/hypridle
     ../../modules/home-manager/waybar
-    ../../modules/home-manager/foot
     ../../modules/home-manager/editor/helix
     ../../modules/home-manager/sh
   ];
@@ -36,13 +35,16 @@ in
   };
 
   hyprland.colorScheme = config.colorScheme;
-  hyprland.terminal = terminal;
   # programs.hyprlock.enable = true;
   # hyprlock.background = background;
   # hypridle.timeout = 60;
   
-  foot.font = font;
-  foot.fontSize = 10;
+  kitty.theme = "Ayu Mirage";
+  kitty.font = {
+    name = "Hack Nerd Font Mono";
+    size = 10;
+  };
+
   home.packages = with pkgs; [
     curl
     neovim
@@ -74,11 +76,6 @@ in
         autoSetupRemote = true;
       };
     };
-  };
-
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs-gtk;
   };
 
   gtk = {

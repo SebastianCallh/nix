@@ -7,10 +7,6 @@ in
 {
 
   options.hyprland = with lib; {
-    terminal = mkOption {
-      type = types.str;
-    };
-
     colorScheme = mkOption {
       description = ''
         The nix color palette to use.
@@ -22,7 +18,7 @@ in
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
-      "$terminal" = cfg.terminal;
+      "$terminal" = "$TERM";
       "$menu" = "wofi --show drun";
   
       exec-once = "hyprpaper & waybar & mako & blueman-applet & nm-applet --indicator";
