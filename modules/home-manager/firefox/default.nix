@@ -5,26 +5,26 @@
   config = {
     programs.firefox = {
       enable = true;
-      profiles = {
-        seb = {
-          id = 0;
-          name = "seb";
+      # profiles = {
+      #   seb = {
+      #     id = 0;
+      #     name = "seb";
 
-          extraConfig = ''
-            user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-          '';
+          # extraConfig = ''
+          #   user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+          # '';
       
-          userChrome = pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/Tagggar/Firefox-Alpha/main/chrome/userChrome.css";
-            sha256 = "he";
-          };
+          # userChrome = pkgs.fetchurl {
+          #   url = "https://raw.githubusercontent.com/Tagggar/Firefox-Alpha/main/chrome/userChrome.css";
+          #   sha256 = "he";
+          # };
         
-          userContent = pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/Tagggar/Firefox-Alpha/main/chrome/userContent.css";
-            sha256 = "webaiwdh";
-          };
-        };
-      };
+          # userContent = pkgs.fetchurl {
+          #   url = "https://raw.githubusercontent.com/Tagggar/Firefox-Alpha/main/chrome/userContent.css";
+          #   sha256 = "webaiwdh";
+          # };
+        # };
+      # };
     };
   };
 }
