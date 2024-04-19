@@ -13,7 +13,7 @@ in
     # ../../modules/home-manager/hypridle
     ../../modules/home-manager/waybar
     ../../modules/home-manager/foot
-    ../../modules/home-manager/helix
+    ../../modules/home-manager/editor/helix
     ../../modules/home-manager/sh
   ];
 

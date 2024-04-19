@@ -9,10 +9,6 @@ in
       default = "base16_transparent";
     };
 
-    git_tui = mkOption {
-      type = types.str;
-    };
-    
     defaultEditor = mkOption {
       type = types.bool;
       default = false;
@@ -24,6 +20,7 @@ in
       enable = true;
       defaultEditor = cfg.defaultEditor;
       extraPackages = with pkgs; [
+        lazygit
         python3Packages.black
         nodePackages.pyright
       ];
@@ -47,7 +44,7 @@ in
         character = "┆"
 
         [keys.normal]
-        C-g = [":new", ":insert-output ${cfg.git_tui}", ":buffer-close!", ":redraw"]
+        C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
       '';
     };
 
