@@ -54,10 +54,7 @@ in
         pseudotile = true;
         preserve_split = true;
       };
-  
-      # see http://wiki.hyprland.org/Configuring/Window-Rules
-      windowrulev2 = "nomaximizerequest, class:.*;";
-  
+   
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
