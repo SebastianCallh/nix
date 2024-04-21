@@ -120,11 +120,8 @@ in
 
     # ui 
     hyprpaper
-    hyprland
 
     # inputs.hyprlock
-    lemurs
-    waybar
     wofi
     mako
   ];
