@@ -1,19 +1,13 @@
 { config, pkgs, lib, builtins, inputs, username, ... }:
 let
-  background = ../../images/nix-blue.png;
+  background = ../../images/nixos-blue.png;
 in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    # inputs.hyprlock.homeManagerModules.default
-    # inputs.hypridle.homeManagerModules.default
-    # ../../modules/home-manager/hyprland
     ../../modules/home-manager/desktop
     ../../modules/home-manager/styling
     ../../modules/home-manager/firefox
-    # ../../modules/home-manager/hyprlock
-    # ../../modules/home-manager/hypridle
-    # ../../modules/home-manager/waybar
     ../../modules/home-manager/editor/helix
     ../../modules/home-manager/sh
   ];
@@ -29,10 +23,12 @@ in
     ];
   };
 
-  hyprland.colorScheme = config.colorScheme;
-  # programs.hyprlock.enable = true;
-  # hyprlock.background = background;
-  # hypridle.timeout = 60;
+  desktop.terminal = "${pkgs.kitty}/bin/kitty";
+  desktop.background = background;
+  desktop.lockscreen.background = background;
+  desktop.lockscreen.timeout = 120;
+  desktop.colorScheme = config.colorScheme;
+  desktop.monitor = "eDP-1";
   
   kitty.theme = "Ayu Mirage";
   kitty.font = {
@@ -42,15 +38,12 @@ in
 
   home.packages = with pkgs; [
     curl
-    neovim
     neofetch
     discord
-    brave
-    ranger
     lazygit
     nil
     ripgrep
-
+    
    (nerdfonts.override {
       fonts = [
         "FiraCode"

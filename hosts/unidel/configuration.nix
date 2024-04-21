@@ -1,5 +1,4 @@
 { config, pkgs, inputs, ... }:
-
 let
   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
   session = "${pkgs.hyprland}/bin/Hyprland";
@@ -8,7 +7,6 @@ let
   editor = "hx";
   browser = "firefox";
 in
-
 {
   imports =
     [ 
@@ -76,8 +74,12 @@ in
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
   
-  user.enable = true;
-  user.name = username;
+  user = {
+    enable = true;
+    name = username;
+    autologin = false;
+  };
+  
   home-manager = {
     extraSpecialArgs = { 
       inherit inputs;
@@ -102,7 +104,7 @@ in
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
-    dconf 
+    dconf
     wl-clipboard
     brightnessctl
     playerctl
@@ -119,8 +121,9 @@ in
     # ui 
     hyprpaper
     hyprland
+
     # inputs.hyprlock
-    sway
+    lemurs
     waybar
     wofi
     mako
@@ -147,6 +150,9 @@ in
     };
   };
 
+  # https://discourse.nixos.org/t/swaylock-wont-unlock/27275/3
+  security.pam.services.swaylock = {};
+  
   services.greetd = {
     enable = true;
     settings = {
@@ -154,8 +160,9 @@ in
         command = session;
         user = username;
       };
+
       default_session = {
-        command = "${tuigreet} --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time -cmd ${session}";
+        command = "${tuigreet} --greeting 'Greetings' --asterisks --remember --remember-user-session --time --cmd ${session}";
         user = "greeter";
       };
     };

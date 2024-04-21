@@ -1,16 +1,25 @@
 { config, lib, ... }:
-
 let 
   cfg = config.hyprland;
-  color = config.hyprland.colorScheme.palette;
+  color = cfg.colorScheme.palette;
 in
 {
-
   options.hyprland = with lib; {
     colorScheme = mkOption {
       description = ''
-        The nix color palette to use.
+        The Nix color palette to use.
       '';
+    };
+
+    terminal = mkOption {
+      type = types.str;
+      description = ''
+        Executable for the terminal to use.
+      '';
+    };
+
+    lockCommand = mkOption {
+      type = types.str;
     };
   };
 
@@ -18,10 +27,11 @@ in
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
-      "$terminal" = "$TERM";
+      "$terminal" = cfg.terminal;
       "$menu" = "wofi --show drun";
-  
-      exec-once = "hyprpaper & waybar & mako & blueman-applet & nm-applet --indicator";
+      "$locker" = cfg.lockCommand;
+      
+      exec-once = "hyprpaper & waybar & swayidle -w & mako & blueman-applet & nm-applet --indicator";
    
       monitor = ",preferred,auto,1";
       
@@ -59,6 +69,7 @@ in
       bind = [
         "$mod, R, exec, $menu" 
         "$mod, T, exec, $terminal"
+        "$mod, L, exec, $locker"
         "$mod, Q, exit"
         "$mod, P, killactive"
         # "$mod, P, pseudo," # dwindle
