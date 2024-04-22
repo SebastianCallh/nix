@@ -8,6 +8,7 @@ in {
     ./hyprpaper.nix
     ./swaylock.nix
     ./swayidle.nix
+    ./wofi.nix
     ./waybar
   ];
 
@@ -15,17 +16,17 @@ in {
     background = mkOption {
       type = types.path;
     };
-    
+
     monitor = mkOption {
       type = types.str;
     };
-      
+
     colorScheme = mkOption {
       description = ''
         The Nix color palette to use.
       '';
     };
-  
+
     terminal = mkOption {
       type = types.str;
       description = ''
@@ -33,6 +34,16 @@ in {
       '';
     };
 
+    wofi = {
+      font = mkOption {
+        type = hm.types.fontType;
+        default = {
+          name = "consolas";
+          size = 10;
+        };
+      };
+    };      
+  
     lockscreen = {
       background = mkOption {
         type = types.path;
@@ -55,5 +66,7 @@ in {
     swaylock.background = cfg.lockscreen.background;
     swayidle.timeout = cfg.lockscreen.timeout;
     swayidle.lockCommand = lockCommand;
+
+    wofi.font = cfg.wofi.font;
   };
 }

@@ -32,7 +32,7 @@
       @define-color mauve #${config.colorScheme.palette.base0E};
       @define-color flamingo #${config.colorScheme.palette.base0F};
     '';
- };
+  };
   
   fonts.fontconfig.enable = true;
   home.pointerCursor = {

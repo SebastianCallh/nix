@@ -1,6 +1,7 @@
 { config, pkgs, lib, builtins, inputs, username, ... }:
 let
   background = ../../images/nixos-blue.png;
+  fontName = "Hack Nerd Font Mono";
 in
 {
   imports = [
@@ -25,14 +26,18 @@ in
 
   desktop.terminal = "${pkgs.kitty}/bin/kitty";
   desktop.background = background;
-  desktop.lockscreen.background = background;
-  desktop.lockscreen.timeout = 120;
   desktop.colorScheme = config.colorScheme;
   desktop.monitor = "eDP-1";
+  desktop.lockscreen.background = background;
+  desktop.lockscreen.timeout = 120;
+  desktop.wofi.font = {
+    name = fontName;
+    size = 18;
+  };
   
   kitty.theme = "Ayu Mirage";
   kitty.font = {
-    name = "Hack Nerd Font Mono";
+    name = fontName;
     size = 18;
   };
 
