@@ -9,6 +9,7 @@ in
     ../../modules/home-manager/desktop
     ../../modules/home-manager/styling
     ../../modules/home-manager/firefox
+    ../../modules/home-manager/syncthing
     ../../modules/home-manager/editor/helix
     ../../modules/home-manager/sh
   ];
@@ -20,6 +21,7 @@ in
     allowUnfree = true;
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "discord"
+      "obsidian"
     ];
   };
 
@@ -51,6 +53,7 @@ in
     curl
     neofetch
     discord
+    obsidian
     lazygit
     nil
     ripgrep
