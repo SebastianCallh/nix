@@ -38,7 +38,7 @@ window#waybar {
   background: @lavender;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
+#language, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
   background: @mantle;
   padding: 0 0.5em 0 0.5em;
   border-radius: 10px;

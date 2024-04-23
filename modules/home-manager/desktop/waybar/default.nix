@@ -12,8 +12,14 @@ programs.waybar = {
       position = "top";
       height = 30;
       modules-left = ["hyprland/workspaces"]; 
-      modules-right = ["tray" "battery" "clock"];
-      
+      modules-right = ["tray" "hyprland/language" "battery" "clock"];
+
+      "hyprland/language" = {
+        format = "{}";
+        format-en = "󰌌  en";
+        format-se = "󰌌  se";
+      };
+
       clock = {
         format = "{:%H:%M}";
         format-alt = "{:%d/%m}";

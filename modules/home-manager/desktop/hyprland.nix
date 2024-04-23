@@ -49,7 +49,8 @@ in
       };
 
       input = { 
-        kb_options = "ctrl:nocaps";
+        kb_layout = "us,se";
+        kb_options = "ctrl:nocaps,grp:alt_shift_toggle";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = 1;
@@ -69,10 +70,10 @@ in
       bind = [
         "$mod, R, exec, $menu" 
         "$mod, T, exec, $terminal"
-        "$mod, L, exec, $locker"
+        "$mod, P, exec, $locker"
         "$mod, N, exec, $sidebar"
         "$mod, Q, exit"
-        "$mod, P, killactive"
+        "$mod, K, killactive"
         # "$mod, P, pseudo," # dwindle
         # "$mod, J, togglesplit," # dwindle
   
