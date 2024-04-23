@@ -73,7 +73,7 @@ in
         "$mod, P, exec, $locker"
         "$mod, N, exec, $sidebar"
         "$mod, Q, exit"
-        "$mod, K, killactive"
+        "$mod, W, killactive"
         # "$mod, P, pseudo," # dwindle
         # "$mod, J, togglesplit," # dwindle
   
