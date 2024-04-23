@@ -1,5 +1,5 @@
 { config, lib, ... }: 
-let 
+let
 cfg = config.desktop;
 lockCommand = "${config.programs.swaylock.package}/bin/swaylock -f";
 in {
@@ -8,6 +8,7 @@ in {
     ./hyprpaper.nix
     ./swaylock.nix
     ./swayidle.nix
+    ./swaync.nix
     ./wofi.nix
     ./waybar
   ];

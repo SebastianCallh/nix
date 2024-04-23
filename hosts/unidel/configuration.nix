@@ -113,24 +113,21 @@ in
     qt5.qtwayland
     qt6.qtwayland
     libappindicator # tray icons
-    
+    swaynotificationcenter
+
     # networking
     networkmanagerapplet
     blueman
 
     # ui 
     hyprpaper
-
-    # inputs.hyprlock
-    wofi
-    mako
   ];
 
   programs.zsh.enable = true;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-
+  
   # for screen sharing
   xdg = { 
     portal = {

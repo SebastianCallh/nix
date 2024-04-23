@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 let 
   cfg = config.hyprland;
   color = cfg.colorScheme.palette;
@@ -28,10 +28,10 @@ in
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
       "$terminal" = cfg.terminal;
-      "$menu" = "wofi --show drun";
+      "$menu" = "${config.programs.wofi.package}/bin/wofi --show drun";
       "$locker" = cfg.lockCommand;
-      
-      exec-once = "hyprpaper & waybar & swayidle -w & mako & blueman-applet & nm-applet --indicator";
+      "$sidebar" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t";
+      exec-once = "hyprpaper & waybar & swayidle -w & swaync & blueman-applet & nm-applet --indicator";
    
       monitor = ",preferred,auto,1";
       
@@ -70,6 +70,7 @@ in
         "$mod, R, exec, $menu" 
         "$mod, T, exec, $terminal"
         "$mod, L, exec, $locker"
+        "$mod, N, exec, $sidebar"
         "$mod, Q, exit"
         "$mod, P, killactive"
         # "$mod, P, pseudo," # dwindle
