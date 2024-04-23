@@ -34,8 +34,8 @@ window#waybar {
 } 
 
 #workspaces button.urgent {
-  color: @text;
-  background: @teal;
+  color: @mantle;
+  background: @lavender;
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
