@@ -1,5 +1,7 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, inputs, ... }: 
 {
+  colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
+
   gtk = {
     enable = true;
     theme = {

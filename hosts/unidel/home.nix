@@ -13,7 +13,6 @@ in
     ../../modules/home-manager/sh
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
   home.username = username;
   home.homeDirectory = "/home/${username}";
  
@@ -24,23 +23,30 @@ in
     ];
   };
 
-  desktop.terminal = "${pkgs.kitty}/bin/kitty";
-  desktop.background = background;
-  desktop.colorScheme = config.colorScheme;
-  desktop.monitor = "eDP-1";
-  desktop.lockscreen.background = background;
-  desktop.lockscreen.timeout = 120;
-  desktop.wofi.font = {
-    name = fontName;
-    size = 18;
+  desktop = {
+    terminal = "${pkgs.kitty}/bin/kitty";
+    background = background;
+    colorScheme = config.colorScheme;
+    monitor = "eDP-1";
+    lockscreen = {
+      background = background;
+      timeout = 120;
+    };
+
+    wofi.font = {
+      name = fontName;
+      size = 18;
+    };
   };
   
-  kitty.theme = "Ayu Mirage";
-  kitty.font = {
-    name = fontName;
-    size = 18;
+  kitty = {
+    theme = "Ayu Mirage";
+    font = {
+      name = fontName;
+      size = 18;
+    };
   };
-
+  
   home.packages = with pkgs; [
     curl
     neofetch
