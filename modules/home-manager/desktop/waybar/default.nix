@@ -17,7 +17,7 @@ programs.waybar = {
       "hyprland/language" = {
         format = "{}";
         format-en = "󰌌  en";
-        format-se = "󰌌  se";
+        format-sv = "󰌌  se";
       };
 
       clock = {
