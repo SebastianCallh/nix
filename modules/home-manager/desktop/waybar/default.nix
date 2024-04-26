@@ -14,6 +14,11 @@ programs.waybar = {
       modules-left = ["hyprland/workspaces"]; 
       modules-right = ["tray" "hyprland/language" "battery" "clock"];
 
+      "tray" = {
+        icon-size = 21;
+        spacing = 10;
+      };
+
       "hyprland/language" = {
         format = "{}";
         format-en = "󰌌  en";
