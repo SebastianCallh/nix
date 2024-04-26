@@ -26,7 +26,7 @@ in
   };
 
   desktop = {
-    terminal = "${pkgs.kitty}/bin/kitty";
+    terminal = lib.getExe config.sh.package;
     background = background;
     colorScheme = config.colorScheme;
     monitor = "eDP-1";
@@ -39,6 +39,11 @@ in
       name = fontName;
       size = 18;
     };
+  };
+
+  sh = {
+    terminal = "kitty";
+    shell = "zsh";
   };
   
   kitty = {

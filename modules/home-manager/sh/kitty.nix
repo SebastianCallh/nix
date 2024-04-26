@@ -1,7 +1,6 @@
-{config, lib, ...}:
-
+{ config, lib, ... }:
 let
-cfg = config.kitty;
+  cfg = config.kitty;
 in
 {
   options.kitty = with lib; {
@@ -25,7 +24,5 @@ in
       theme = cfg.theme;
       font = cfg.font;
     };
-
-    home.sessionVariables.TERM = "kitty";
-   };
+  };
 }

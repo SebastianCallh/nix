@@ -1,6 +1,6 @@
 {config, lib, pkgs, ...}:
 let 
-cfg = config.helix;
+  cfg = config.helix;
 in
 {
   options.helix = with lib; {

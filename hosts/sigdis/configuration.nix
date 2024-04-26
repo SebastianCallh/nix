@@ -3,7 +3,6 @@
 let
   username = "seb";
   hostname = "sigdis";
-  terminal = "kitty";
   editor = "hx";
   browser = "firefox";
 in
@@ -31,9 +30,6 @@ in
   ];
   
   environment.variables = {
-    EDITOR = editor;
-    VISUAL = editor;
-    TERM = terminal;
     BROWSER = browser;
     NIXPKGS_ALLOW_UNFREE = "1";
   };
