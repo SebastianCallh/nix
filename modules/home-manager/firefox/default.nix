@@ -5,10 +5,11 @@
   config = {
     programs.firefox = {
       enable = true;
-      # profiles = {
-      #   seb = {
-      #     id = 0;
-      #     name = "seb";
+      profiles = {
+        seb = {
+          id = 0;
+          name = "seb";
+          extraConfig = builtins.readFile ./prefs.js;
 
           # extraConfig = ''
           #   user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -23,8 +24,8 @@
           #   url = "https://raw.githubusercontent.com/Tagggar/Firefox-Alpha/main/chrome/userContent.css";
           #   sha256 = "webaiwdh";
           # };
-        # };
-      # };
+        };
+      };
     };
   };
 }
