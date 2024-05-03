@@ -29,7 +29,25 @@ in
     terminal = lib.getExe config.sh.package;
     background = background;
     colorScheme = config.colorScheme;
-    monitor = "eDP-1";
+    monitors = [
+      {
+        name = "eDP-1";
+        width = 1920;
+        height = 1080;
+        wallpaper = background;
+        x = 0;
+        y = 1440;
+      }
+      {
+        name = "DP-1";
+        width = 2560;
+        height = 1440;
+        wallpaper = background;
+        x = 0;
+        y = 0;
+      }
+    ];
+
     lockscreen = {
       background = background;
       timeout = 120;

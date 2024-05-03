@@ -1,5 +1,5 @@
 { pkgs, config, lib, ... }:
-let 
+let
   cfg = config.hyprland;
   color = cfg.colorScheme.palette;
 in
@@ -33,7 +33,15 @@ in
       "$sidebar" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t";
       exec-once = "hyprpaper & waybar & swayidle -w & swaync & blueman-applet & nm-applet --indicator";
    
-      monitor = ",preferred,auto,1";
+    monitor = map
+      (m:
+        let
+          resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+          position = "${toString m.x}x${toString m.y}";
+        in
+          "${m.name},${if m.enabled then "${resolution},${position},${toString m.scale}" else "disable"}"
+      )
+      config.desktop.monitors;
       
       general = {
         border_size = 2;

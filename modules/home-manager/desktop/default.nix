@@ -4,6 +4,7 @@ cfg = config.desktop;
 lockCommand = "${config.programs.swaylock.package}/bin/swaylock -f";
 in {
   imports = [
+    ./monitors.nix
     ./hyprland.nix
     ./hyprpaper.nix
     ./swaylock.nix

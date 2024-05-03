@@ -13,12 +13,20 @@ in
     };
   };
 
-  config = {
+  config = let
+    preloads = builtins.concatStringsSep "\n" (map
+      (m: "preload = ${toString m.wallpaper}")
+      config.desktop.monitors);
+      
+    wallpapers = builtins.concatStringsSep "\n" (map
+      (m: "wallpaper = ${m.name},${toString m.wallpaper}")
+      config.desktop.monitors);
+  in {
     home.file.".config/hypr/hyprpaper.conf".text = ''
-      preload = ${toString cfg.background}
-      wallpaper = ${cfg.monitor},${toString cfg.background}
       ipc = off # don't tick and check IPC
       splash = false
+      ${preloads}
+      ${wallpapers}
     '';
   };
 }
