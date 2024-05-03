@@ -40,8 +40,8 @@ programs.waybar = {
         };
   
         format = "{icon} {capacity}%";
-        format-charging = "󰂄 {capacity}%";
-        format-plugged = " {capacity}%";
+        format-charging = "󰂄  {capacity}%";
+        format-plugged = "  {capacity}%";
         format-discharging = "{icon}  {capacity}%";
         format-alt = "{icon} {time}";
         format-icons = ["󰁻" "󰁼" "󰁾" "󰂀" "󰁹" ];
