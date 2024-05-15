@@ -1,16 +1,10 @@
 { pkgs, config, lib, ... }:
 let
   cfg = config.hyprland;
-  color = cfg.colorScheme.palette;
+  color = config.styling.colorScheme.palette;
 in
 {
   options.hyprland = with lib; {
-    colorScheme = mkOption {
-      description = ''
-        The Nix color palette to use.
-      '';
-    };
-
     terminal = mkOption {
       type = types.str;
       description = ''

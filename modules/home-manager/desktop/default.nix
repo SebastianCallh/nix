@@ -1,9 +1,10 @@
 { config, lib, ... }: 
 let
-cfg = config.desktop;
-lockCommand = "${config.programs.swaylock.package}/bin/swaylock -f";
+  cfg = config.desktop;
+  lockCommand = "${config.programs.swaylock.package}/bin/swaylock -f";
 in {
   imports = [
+    ./styling.nix
     ./monitors.nix
     ./hyprland.nix
     ./hyprpaper.nix
@@ -15,18 +16,8 @@ in {
   ];
 
   options.desktop = with lib; {
-    background = mkOption {
-      type = types.path;
-    };
-
-    monitor = mkOption {
-      type = types.str;
-    };
-
-    colorScheme = mkOption {
-      description = ''
-        The Nix color palette to use.
-      '';
+    theme = mkOption {
+      type = types.enum [ "light" "dark" ];  
     };
 
     terminal = mkOption {
@@ -47,7 +38,7 @@ in {
     };      
   
     lockscreen = {
-      background = mkOption {
+      wallpaper = mkOption {
         type = types.path;
       };
     
@@ -58,17 +49,18 @@ in {
   };
 
   config = {  
-    hyprland.colorScheme = cfg.colorScheme;
-    hyprland.terminal = cfg.terminal;
-    hyprland.lockCommand = lockCommand;
+    hyprland = {
+      terminal = cfg.terminal;
+      lockCommand = lockCommand;
+    };
     
-    hyprpaper.background = cfg.background;
-    hyprpaper.monitor = cfg.monitor;
+    swayidle = {
+      timeout = cfg.lockscreen.timeout;
+      lockCommand = lockCommand;
+    };
     
-    swaylock.background = cfg.lockscreen.background;
-    swayidle.timeout = cfg.lockscreen.timeout;
-    swayidle.lockCommand = lockCommand;
-
+    swaylock.wallpaper = cfg.lockscreen.wallpaper;
     wofi.font = cfg.wofi.font;
+    styling.theme = cfg.theme;
   };
 }

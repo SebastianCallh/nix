@@ -24,30 +24,30 @@ in
         python3Packages.black
         nodePackages.pyright
       ];
+    
+      settings = {
+        editor = {
+          line-number = "relative";
+          mouse = false;
+        };
+        
+        editor.cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+        
+        editor.indent-guides = {
+          render = true;
+          character = "┆";
+        };
+        
+        keys.normal = {
+          C-g = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
+        };
+      };
     };
     
-    home.file = {
-      ".config/helix/config.toml".text = ''
-        theme = "${cfg.theme}"
-
-        [editor]
-        line-number = "relative"
-        mouse = false
-
-        [editor.cursor-shape]
-        insert = "bar"
-        normal = "block"
-        select = "underline"
-
-        [editor.indent-guides]
-        render = true
-        character = "┆"
-
-        [keys.normal]
-        C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
-      '';
-    };
-
     home.file = {
       ".config/helix/languages.toml".text = '' 
 

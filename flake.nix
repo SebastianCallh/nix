@@ -4,7 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
-
+    catppuccin.url = "github:catppuccin/nix";
+    
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +24,7 @@
       modules = [
         ./hosts/unidel/configuration.nix
         inputs.home-manager.nixosModules.default
+        inputs.catppuccin.nixosModules.catppuccin
       ];
     };
     

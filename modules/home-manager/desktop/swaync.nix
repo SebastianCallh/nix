@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  color = config.colorScheme.palette;
+  color = config.styling.colorScheme.palette;
 in {
   home.file.".config/swaync/config.json".text = ''
     {

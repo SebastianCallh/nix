@@ -1,11 +1,11 @@
 { config, lib, ... }:
 let 
-cfg = config.swaylock;
-color = config.colorScheme.palette;
+  cfg = config.swaylock;
+  color = config.styling.colorScheme.palette;
 in
 {
   options.swaylock = with lib; {
-    background = mkOption {
+    wallpaper = mkOption {
       type = types.path;
     };
   };
@@ -14,7 +14,7 @@ in
     programs.swaylock = {
       enable = true;
       settings = {
-        image = toString cfg.background;
+        image = toString cfg.wallpaper;
         font-size = 28;
         text-color = color.base05;
         text-clear-color = color.base05;

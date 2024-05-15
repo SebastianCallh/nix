@@ -1,13 +1,9 @@
 { config, pkgs, lib, builtins, inputs, username, ... }:
-let
-  background = ../../images/nixos-blue.png;
-  fontName = "Hack Nerd Font Mono";
-in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.catppuccin.homeManagerModules.catppuccin
     ../../modules/home-manager/desktop
-    ../../modules/home-manager/styling
     ../../modules/home-manager/firefox
     ../../modules/home-manager/syncthing
     ../../modules/home-manager/editor/helix
@@ -16,7 +12,8 @@ in
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
- 
+  xdg.enable = true; # required for catppuccin/nix theming
+  
   nixpkgs.config = { 
     allowUnfree = true;
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -26,15 +23,14 @@ in
   };
 
   desktop = {
+    theme = "light";
     terminal = lib.getExe config.sh.package;
-    background = background;
-    colorScheme = config.colorScheme;
     monitors = [
       {
         name = "eDP-1";
         width = 1920;
         height = 1080;
-        wallpaper = background;
+        wallpaper = config.styling.wallpaper;
         x = 0;
         y = 1440;
       }
@@ -42,19 +38,19 @@ in
         name = "DP-1";
         width = 2560;
         height = 1440;
-        wallpaper = background;
+        wallpaper = config.styling.wallpaper;
         x = 0;
         y = 0;
       }
     ];
 
     lockscreen = {
-      background = background;
+      wallpaper = config.styling.wallpaper;
       timeout = 120;
     };
 
     wofi.font = {
-      name = fontName;
+      name = config.styling.fontName;
       size = 18;
     };
   };
@@ -65,9 +61,8 @@ in
   };
   
   kitty = {
-    theme = "Ayu Mirage";
     font = {
-      name = fontName;
+      name = config.styling.fontName;
       size = 18;
     };
   };
