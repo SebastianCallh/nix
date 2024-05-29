@@ -76,6 +76,7 @@
     nil
     ripgrep
     
+    file
    (nerdfonts.override {
       fonts = [
         "FiraCode"
