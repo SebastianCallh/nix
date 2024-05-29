@@ -15,6 +15,7 @@
     visidata
     devenv
     file
+    killall
     nodePackages.pyright
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })
   ];
