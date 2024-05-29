@@ -14,6 +14,7 @@
     slack-term
     visidata
     devenv
+    file
     nodePackages.pyright
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })
   ];
