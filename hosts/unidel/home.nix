@@ -77,6 +77,7 @@
     ripgrep
     
     file
+    killall
    (nerdfonts.override {
       fonts = [
         "FiraCode"
