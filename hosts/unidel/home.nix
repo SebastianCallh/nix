@@ -19,6 +19,9 @@
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "discord"
       "obsidian"
+      "steam"
+      "steam-original"
+      "steam-run"
     ];
   };
 
