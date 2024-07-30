@@ -61,8 +61,7 @@ in
   };
   
   config = {
-   
-    catppuccin.flavour = {
+    catppuccin.flavor = {
       "light" = "latte";
       "dark" = "frappe";
     }."${cfg.theme}";
@@ -80,18 +79,20 @@ in
 
     gtk = {
       enable = true;
-      catppuccin = {
-        enable = true;
-        size = "compact";
-        accent = "teal";
-        tweaks = [ "rimless" ];
-        cursor = {
-          enable = true;
-          accent = "dark";
-        };
-      };
+      # catppuccin = {
+      #   enable = true;
+      #   size = "compact";
+      #   accent = "teal";
+      #   tweaks = [ "rimless" ];
+      # };
     };
     
+    # catppuccin = {
+    #   pointerCursor = {
+    #     enable = true;
+    #     accent = "dark";
+    #   };
+    # };
     fonts.fontconfig.enable = true;
     home.pointerCursor = {
       gtk.enable = true;

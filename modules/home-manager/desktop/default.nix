@@ -59,8 +59,11 @@ in {
       lockCommand = lockCommand;
     };
     
-    swaylock.wallpaper = cfg.lockscreen.wallpaper;
-    wofi.font = cfg.wofi.font;
     styling.theme = cfg.theme;
+    swaylock.wallpaper = cfg.lockscreen.wallpaper;
+    wofi = {
+      font = cfg.wofi.font;
+      theme = cfg.theme;
+    };
   };
 }
