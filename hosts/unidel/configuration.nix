@@ -42,7 +42,6 @@ in
   };
 
   # audio
-  sound.enable = true; 
   hardware.pulseaudio.enable = false;
   services.pipewire = { 
     enable = true;
@@ -97,7 +96,7 @@ in
     BROWSER = browser;
   };
 
-  hardware.opengl.enable = true; # needed for wayland WMs
+  hardware.graphics.enable = true; # needed for wayland WMs
   hardware.keyboard.zsa.enable = true;
 
   security.polkit.enable = true; # privilege manager
