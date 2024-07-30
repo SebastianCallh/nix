@@ -22,7 +22,7 @@ in
       extraPackages = with pkgs; [
         lazygit
         python3Packages.black
-        nodePackages.pyright
+        pyright
       ];
     
       settings = {
