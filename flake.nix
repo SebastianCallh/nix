@@ -28,6 +28,17 @@
       ];
     };
     
+
+    nixosConfigurations.violin = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/violin/configuration.nix
+        inputs.home-manager.nixosModules.default
+        inputs.catppuccin.nixosModules.catppuccin
+      ];
+    };
+
     darwinConfigurations.sigdis = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       specialArgs = { inherit inputs; };
