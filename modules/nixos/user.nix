@@ -7,6 +7,7 @@ in
     enable = mkEnableOption "enable user module";
     
     name = mkOption {
+      type = types.str;
       description = ''
         Name of user
       '';

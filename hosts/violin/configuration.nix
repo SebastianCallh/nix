@@ -12,6 +12,7 @@ in
     [ 
       ./hardware-configuration.nix
       ../../modules/nixos/user.nix
+      ../../modules/nixos/docker.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -73,12 +74,6 @@ in
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
   
-  user = {
-    enable = true;
-    name = username;
-    autologin = false;
-  };
-  
   home-manager = {
     extraSpecialArgs = { 
       inherit inputs;
@@ -117,11 +112,24 @@ in
     # networking
     networkmanagerapplet
     blueman
-    slack
     # ui 
     hyprpaper
+
+    slack
   ];
 
+  ## custom modules  
+  user = {
+    enable = true;
+    name = username;
+    autologin = false;
+  };
+
+  docker = {
+    enable = true;
+    userName = username;
+  };
+  
   programs.zsh.enable = true;
 
   hardware.bluetooth.enable = true;
