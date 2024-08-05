@@ -20,9 +20,6 @@
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "discord"
       "obsidian"
-      "steam"
-      "steam-original"
-      "steam-run"
       "slack"
     ];
   };
@@ -68,23 +65,23 @@
   kitty = {
     font = {
       name = config.styling.fontName;
-      size = 18;
+      size = 16;
     };
   };
   
   home.packages = with pkgs; [
     curl
     neofetch
-    discord
     obsidian
     lazygit
     nil
     ripgrep
-    
     devenv
+    libreoffice
+            
     file
     killall
-   (nerdfonts.override {
+    (nerdfonts.override {
       fonts = [
         "FiraCode"
         "SpaceMono"
