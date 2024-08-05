@@ -6,6 +6,7 @@
     ../../modules/home-manager/desktop
     ../../modules/home-manager/firefox
     ../../modules/home-manager/syncthing
+    ../../modules/home-manager/direnv
     ../../modules/home-manager/editor/helix
     ../../modules/home-manager/sh
   ];
@@ -80,6 +81,7 @@
     nil
     ripgrep
     
+    devenv
     file
     killall
    (nerdfonts.override {
