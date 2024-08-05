@@ -116,6 +116,7 @@ in
     hyprpaper
 
     slack
+    file
   ];
 
   ## custom modules  
@@ -124,7 +125,11 @@ in
     name = username;
     autologin = false;
   };
-
+  
+  nix.extraOptions = ''
+    trusted-users = root seb
+  '';
+  
   docker = {
     enable = true;
     userName = username;
