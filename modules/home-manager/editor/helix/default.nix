@@ -21,7 +21,8 @@ in
       defaultEditor = cfg.defaultEditor;
       extraPackages = with pkgs; [
         lazygit
-        python3Packages.black
+        black
+        isort
         pyright
       ];
     
@@ -49,23 +50,25 @@ in
     };
     
     home.file = {
-      ".config/helix/languages.toml".text = '' 
-
+      ".config/helix/languages.toml".text = 
+      let 
+        ll = toString 89;
+      in '' 
         [[language]]
         name = "python"
         language-servers = ["pyright"]
         auto-format = true
-        roots = ["setup.py", "setup.cfg", "pyproject.toml"]
-        formatter = { command = "black", args = ["--quiet", "--line-length", "88", "-"] }
+        roots = ["setup.py", "setup.cfg", "pyproject.toml", "requirements.txt"]
+        formatter = { command = "sh", args = ["-c", "black --quiet - | isort -"] }
 
         [tool.black]
-        line-length = 88
+        line-length = ${ll}
 
         [tool.pylint.format]
-        max-line-length = 88
+        max-line-length = ${ll}
         
         [tool.isort]
-        line_length = 88
+        line_length = ${ll}
         profile = "black"
       '';
     };
