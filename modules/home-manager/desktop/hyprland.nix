@@ -84,12 +84,18 @@ in
         "$mod, right, movefocus, r" 
         "$mod, up, movefocus, u" 
         "$mod, down, movefocus, d" 
-  
-        # shift focus with vim bindings
+
+         # shift focus with vim keys
         "$mod, H, movefocus, l" 
         "$mod, L, movefocus, r" 
         "$mod, K, movefocus, u" 
         "$mod, J, movefocus, d" 
+  
+        # move window with vim keys
+        "$mod shift, left, movewindow, l" 
+        "$mod shift, right, movewindow, r" 
+        "$mod shift, up, movewindow, u" 
+        "$mod shift, down, movewindow, d" 
   
         # switch workspace 
         "$mod, 1, workspace, 1"
