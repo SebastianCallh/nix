@@ -75,24 +75,13 @@ in
       yazi.catppuccin.enable = true;
       bat.catppuccin.enable = true;
       fzf.catppuccin.enable = true;
+      zellij.catppuccin.enable = true;
     };
 
     gtk = {
       enable = true;
-      # catppuccin = {
-      #   enable = true;
-      #   size = "compact";
-      #   accent = "teal";
-      #   tweaks = [ "rimless" ];
-      # };
     };
     
-    # catppuccin = {
-    #   pointerCursor = {
-    #     enable = true;
-    #     accent = "dark";
-    #   };
-    # };
     fonts.fontconfig.enable = true;
     home.pointerCursor = {
       gtk.enable = true;

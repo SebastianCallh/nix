@@ -1,5 +1,7 @@
 { config, pkgs, lib, builtins, inputs, username, ... }:
-{
+let 
+  theme = "light";
+in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
@@ -25,7 +27,7 @@
   };
 
   desktop = {
-    theme = "light";
+    theme = theme;
     terminal = lib.getExe config.sh.package;
     monitors = [
       {
@@ -60,6 +62,7 @@
   sh = {
     terminal = "kitty";
     shell = "zsh";
+    multiplexer = "zellij";
   };
   
   kitty = {

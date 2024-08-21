@@ -6,6 +6,7 @@ in
   imports = [
     ./kitty.nix
     ./zsh.nix
+    ./zellij.nix
   ];
 
   options.sh = with lib; {
@@ -15,6 +16,10 @@ in
     
     shell = mkOption {
       type = types.enum [ "zsh" ];
+    };
+
+    multiplexer = mkOption {
+      type = types.enum [ "none" "zellij" ];
     };
 
     package = mkOption {
