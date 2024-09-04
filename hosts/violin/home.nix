@@ -1,6 +1,17 @@
 { config, pkgs, lib, builtins, inputs, username, ... }:
 let 
   theme = "light";
+  home_monitor = {
+    x = 2560;
+    y = 1440;
+  };
+
+  office_monitor = {
+    x = 3840;
+    y = 2160;
+  };
+
+  monitor = home_monitor;
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -36,12 +47,12 @@ in {
         height = 1080;
         wallpaper = config.styling.wallpaper;
         x = 0;
-        y = 2160;
+        y = monitor.y;
       }
       {
         name = "DP-1";
-        width = 3840;
-        height = 2160;
+        width = monitor.x;
+        height = monitor.y;
         wallpaper = config.styling.wallpaper;
         x = 0;
         y = 0;
