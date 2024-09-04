@@ -28,7 +28,7 @@ in
             command = cfg.lockCommand;
           }
           {
-            timeout = cfg.timeout + 10;
+            timeout = cfg.timeout + 60;
             command = "${dpmsCommand} off";
             resumeCommand = "${dpmsCommand} on";
           }

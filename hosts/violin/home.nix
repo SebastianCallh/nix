@@ -50,7 +50,7 @@ in {
 
     lockscreen = {
       wallpaper = config.styling.wallpaper;
-      timeout = 120;
+      timeout = 5 * 60;
     };
 
     wofi.font = {
