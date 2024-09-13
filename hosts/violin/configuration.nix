@@ -91,7 +91,9 @@ in
     BROWSER = browser;
   };
 
-  hardware.graphics.enable = true; # needed for wayland WMs
+  # this is needed to fix 'wlr_gles2_renderer_create_with_drm_fd() failed'
+  # when using hyprland
+  hardware.opengl.enable = true;
   hardware.keyboard.zsa.enable = true;
 
   security.polkit.enable = true; # privilege manager
