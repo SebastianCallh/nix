@@ -93,7 +93,9 @@ in
 
   # this is needed to fix 'wlr_gles2_renderer_create_with_drm_fd() failed'
   # when using hyprland
-  hardware.opengl.enable = true;
+  # hardware.opengl.enable = true; this is depricated in favor of hardware.graphics.enable;
+  hardware.graphics.enable = true;
+
   hardware.keyboard.zsa.enable = true;
 
   security.polkit.enable = true; # privilege manager
