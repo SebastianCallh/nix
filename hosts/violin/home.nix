@@ -58,6 +58,14 @@ in {
         x = 0;
         y = 0;
       }
+      {
+        name = "HDMI-A-1";
+        width = monitor.x;
+        height = monitor.y;
+        wallpaper = config.styling.wallpaper;
+        x = 0;
+        y = 0;
+      }
     ];
 
     lockscreen = {
