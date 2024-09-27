@@ -22,6 +22,7 @@ in {
     ../../modules/home-manager/direnv
     ../../modules/home-manager/editor/helix
     ../../modules/home-manager/sh
+    ../../modules/home-manager/dockertools
   ];
 
   home.username = username;
@@ -82,7 +83,8 @@ in {
       size = 16;
     };
   };
-  
+  dockertools.enable = true;
+    
   home.packages = with pkgs; [
     curl
     neofetch

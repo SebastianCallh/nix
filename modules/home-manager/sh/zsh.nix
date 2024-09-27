@@ -19,6 +19,7 @@ in
         ls = "exa";
         cd = "z";
         lg = "lazygit";
+        lc = "lazydocker"; # 'l'azy'c'ontainers
         cat = "bat";
         ya = "yazi";
       };
