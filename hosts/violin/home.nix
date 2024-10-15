@@ -46,8 +46,6 @@ in {
         height = 1080;
         wallpaper = config.styling.wallpaper;
         position = "auto-down";
-        # x = 0;
-        # y = monitor.y;
       }
       {
         name = "DP-1";
@@ -55,8 +53,6 @@ in {
         height = office_monitor.y;
         wallpaper = config.styling.wallpaper;
         position = "auto-up";
-        # x = 0;
-        # y = 0;
       }
       {
         name = "HDMI-A-1";
@@ -64,8 +60,6 @@ in {
         height = home_monitor.y;
         wallpaper = config.styling.wallpaper;
         position = "auto-up";
-        # x = 0;
-        # y = 0;
       }
     ];
 
@@ -103,7 +97,6 @@ in {
     ripgrep
     devenv
     libreoffice
-            
     file
     killall
     (nerdfonts.override {
