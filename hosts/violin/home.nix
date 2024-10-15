@@ -33,6 +33,7 @@ in {
       "discord"
       "obsidian"
       "slack"
+      "spotify"
     ];
   };
 
@@ -97,6 +98,8 @@ in {
     ripgrep
     devenv
     libreoffice
+    spotify
+
     file
     killall
     (nerdfonts.override {
