@@ -100,6 +100,7 @@ in {
     libreoffice
     spotify
 
+    tree
     file
     killall
     (nerdfonts.override {
