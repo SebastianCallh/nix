@@ -10,8 +10,6 @@ let
     x = 3840;
     y = 2160;
   };
-
-  monitor = home_monitor;
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -47,24 +45,27 @@ in {
         width = 1920;
         height = 1080;
         wallpaper = config.styling.wallpaper;
-        x = 0;
-        y = monitor.y;
+        position = "auto-down";
+        # x = 0;
+        # y = monitor.y;
       }
       {
         name = "DP-1";
-        width = monitor.x;
-        height = monitor.y;
+        width = office_monitor.x;
+        height = office_monitor.y;
         wallpaper = config.styling.wallpaper;
-        x = 0;
-        y = 0;
+        position = "auto-up";
+        # x = 0;
+        # y = 0;
       }
       {
         name = "HDMI-A-1";
-        width = monitor.x;
-        height = monitor.y;
+        width = home_monitor.x;
+        height = home_monitor.y;
         wallpaper = config.styling.wallpaper;
-        x = 0;
-        y = 0;
+        position = "auto-up";
+        # x = 0;
+        # y = 0;
       }
     ];
 
@@ -119,7 +120,7 @@ in {
   programs.git = {
     enable = true;
     userName = "Sebastian Callh";
-    userEmail = "sebastian.callh@gmail.com";
+    userEmail = "sebastian.callh@violet.ai";
     extraConfig = {
       push = {
         autoSetupRemote = true;

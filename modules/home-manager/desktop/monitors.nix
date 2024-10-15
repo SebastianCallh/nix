@@ -30,14 +30,11 @@ in
           type = types.path;
           default = null;
         };
-        x = mkOption {
-          type = types.int;
-          default = 0;
+        position = mkOption {
+          type = types.str;
+          default = "auto";
         };
-        y = mkOption {
-          type = types.int;
-          default = 0;
-        };
+
         enabled = mkOption {
           type = types.bool;
           default = true;
