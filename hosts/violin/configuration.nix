@@ -113,6 +113,12 @@ in
     libappindicator # tray icons
     swaynotificationcenter
 
+    # this is needed in development shells to build a lot of python packages
+    # without it we get errors like
+    # ImportError: libstdc++.so.6: cannot open shared object file: No such file or directory
+    # LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";    
+    # pkgs.stdenv.cc.cc.lib
+
     # networking
     networkmanagerapplet
     blueman
