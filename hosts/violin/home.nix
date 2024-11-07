@@ -119,6 +119,7 @@ in {
     userName = "Sebastian Callh";
     userEmail = "sebastian.callh@violet.ai";
     extraConfig = {
+      init.defaultBranch = "main";
       push = {
         autoSetupRemote = true;
       };
