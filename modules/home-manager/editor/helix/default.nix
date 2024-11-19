@@ -28,6 +28,7 @@ in
         editor = {
           line-number = "relative";
           mouse = false;
+          soft-wrap.enable = true;
         };
         
         editor.cursor-shape = {
