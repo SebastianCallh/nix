@@ -103,15 +103,11 @@ in {
     tree
     file
     killall
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "SpaceMono"
-        "Iosevka"
-        "Monoid"
-        "Hack"
-      ];
-    })
+    nerd-fonts.fira-code
+    nerd-fonts.space-mono
+    nerd-fonts.iosevka
+    nerd-fonts.monoid
+    nerd-fonts.hack
   ];
   
   programs.git = {

@@ -7,7 +7,12 @@ in
     fontName = mkOption {
       readOnly = true;
       type = types.str;
-      default = "Hack Nerd Font Mono";
+
+      # after nix version 25 something all nerd fonts were moved
+      # to separate packages and for when using them fonts are installed in a different 
+      # place (I think) which causes kitty to crash which  makes it so I can't do anything
+      # default = "Hack Nerd Font Mono";
+      default = "Consolas";
     };
     
     theme = mkOption {
