@@ -73,14 +73,14 @@ in
 
     # we can use the API of catppuccin/nix to style 
     # things that does not have their own CSS
-    programs = {
-      starship.catppuccin.enable = true;
-      helix.catppuccin.enable = true;
-      kitty.catppuccin.enable = true;
-      yazi.catppuccin.enable = true;
-      bat.catppuccin.enable = true;
-      fzf.catppuccin.enable = true;
-      zellij.catppuccin.enable = true;
+    catppuccin = {
+      starship.enable = true;
+      helix.enable = true;
+      kitty.enable = true;
+      yazi.enable = true;
+      bat.enable = true;
+      fzf.enable = true;
+      zellij.enable = true;
     };
 
     gtk = {
