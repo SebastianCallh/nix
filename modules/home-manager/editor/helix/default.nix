@@ -52,7 +52,7 @@ in
       ".config/helix/languages.toml".text = 
       '' 
         [language-server.ruff]
-        command = "ruff"
+        command = "${pkgs.ruff}/bin/ruff"
         args = ["server"]
 
         [[language]]
