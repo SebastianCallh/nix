@@ -76,17 +76,12 @@ in {
   };
 
   sh = {
-    terminal = "kitty";
+    theme = theme;
+    terminal = "ghostty";
     shell = "zsh";
-    multiplexer = "zellij";
+    # multiplexer = "none";
   };
   
-  kitty = {
-    font = {
-      name = config.styling.fontName;
-      size = 16;
-    };
-  };
   dockertools.enable = true;
     
   home.packages = with pkgs; [

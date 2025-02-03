@@ -92,7 +92,7 @@ in
       gtk.enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Original-Ice";
-      size = 26;
+      size = 24;
     };
   };
 }
