@@ -25,6 +25,7 @@ in
       "$menu" = "${config.programs.wofi.package}/bin/wofi --show drun";
       "$locker" = cfg.lockCommand;
       "$sidebar" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t";
+      "$printscreen" = "${pkgs.grimblast}/bin/grimblast copysave area";
       exec-once = "hyprpaper & waybar & swayidle -w & swaync & blueman-applet & nm-applet --indicator";
    
     monitor = map
@@ -75,6 +76,7 @@ in
         "$mod, T, exec, $terminal"
         "$mod, P, exec, $locker"
         "$mod, N, exec, $sidebar"
+        "$mod, S, exec, $printscreen"
         "$mod, Q, exit"
         "$mod, W, killactive"
         # "$mod, P, pseudo," # dwindle

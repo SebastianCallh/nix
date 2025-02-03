@@ -96,6 +96,7 @@ in {
     lazygit
     nil
     ripgrep
+    grimblast
     devenv
     libreoffice
     spotify
