@@ -39,6 +39,13 @@ in
         window-decoration = false;
         background-opacity = 0.8;
         background-blur = true;
+
+        keybind = [
+          "ctrl+h=goto_split:left"
+          "ctrl+l=goto_split:right"
+          "ctrl+j=goto_split:bottom"
+          "ctrl+k=goto_split:top"
+        ];
       };
     };
   };
