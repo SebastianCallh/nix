@@ -60,7 +60,7 @@ in
         auto-format = true
         language-servers = [
           { name = "ruff", only-features = [ "format", "diagnostics" ] },
-          { name = "pyright", except-features = [ "diagnostics" ] },
+          { name = "pyright" },
         ]
       '';
     };
