@@ -35,6 +35,7 @@ in
         theme = cfg.theme_name;
         font-family = cfg.font.name;
         font-size = cfg.font.size;
+        gtk-tabs-location = "bottom";
         window-decoration = false;
         background-opacity = 0.8;
         background-blur = true;
