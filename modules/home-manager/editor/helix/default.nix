@@ -29,6 +29,12 @@ in
           line-number = "relative";
           mouse = false;
           soft-wrap.enable = true;
+
+          # try out the new experimental inline diagnostics
+          end-of-line-diagnostics = "hint";
+          inline-diagnostics = {
+            cursor-line = "error";
+          };
         };
         
         editor.cursor-shape = {
