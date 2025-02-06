@@ -13,6 +13,7 @@ in
       ./hardware-configuration.nix
       ../../modules/nixos/user.nix
       ../../modules/nixos/docker.nix
+      ../../modules/nixos/zsa.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -129,6 +130,8 @@ in
     file
   ];
 
+  zsa.enable = true;
+  
   ## custom modules  
   user = {
     enable = true;
