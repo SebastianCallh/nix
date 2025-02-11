@@ -1,4 +1,4 @@
-{config, lib, ...}:
+{config, lib, pkgs, ...}:
 let
 cfg = config.coding;
 in
@@ -8,8 +8,17 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [ delta ];
     programs.lazygit = {
       enable = true;
+      settings = {
+        git = {
+          paging = {
+            colorArg = "always";
+            pager = "delta --dark --paging=never";
+          };
+        };
+      };
     };
   };
 }
