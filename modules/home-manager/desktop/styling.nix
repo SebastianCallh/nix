@@ -81,6 +81,7 @@ in
       bat.enable = true;
       fzf.enable = true;
       zellij.enable = true;
+      delta.enable = true;
     };
 
     gtk = {
