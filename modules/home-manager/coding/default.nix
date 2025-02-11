@@ -8,14 +8,19 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [ delta ];
+    programs.git.delta = {
+      enable = true;
+      options = {
+      };
+    };
+
     programs.lazygit = {
       enable = true;
       settings = {
         git = {
           paging = {
             colorArg = "always";
-            pager = "delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
+            pager = "delta --dark --paging=never --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
           };
         };
       };

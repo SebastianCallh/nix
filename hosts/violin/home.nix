@@ -15,6 +15,7 @@ in {
     inputs.nix-colors.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
     ../../modules/home-manager/desktop
+    ../../modules/home-manager/git
     ../../modules/home-manager/coding
     ../../modules/home-manager/firefox
     ../../modules/home-manager/syncthing
@@ -76,6 +77,14 @@ in {
     };
   };
 
+  git = {
+    enable = true;
+    userName = "Sebastian Callh";
+    userEmail = "sebastian.callh@violet.ai";
+    enableDelta = true;
+    enableLazygit = true;
+  };
+  
   coding.enable = true;
   sh = {
     theme = theme;
@@ -106,19 +115,7 @@ in {
     nerd-fonts.monoid
     nerd-fonts.hack
   ];
-  
-  programs.git = {
-    enable = true;
-    userName = "Sebastian Callh";
-    userEmail = "sebastian.callh@violet.ai";
-    extraConfig = {
-      init.defaultBranch = "main";
-      push = {
-        autoSetupRemote = true;
-      };
-    };
-  };
-  
+    
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
