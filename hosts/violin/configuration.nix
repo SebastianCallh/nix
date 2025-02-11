@@ -97,8 +97,6 @@ in
   # hardware.opengl.enable = true; this is depricated in favor of hardware.graphics.enable;
   hardware.graphics.enable = true;
 
-  hardware.keyboard.zsa.enable = true;
-
   security.polkit.enable = true; # privilege manager
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
