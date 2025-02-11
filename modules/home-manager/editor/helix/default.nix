@@ -49,7 +49,8 @@ in
         };
         
         keys.normal = {
-          C-g = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
+          # for some reason Esc does not work in this view, so you can't cancel commits. Awkward!
+          # C-g = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
         };
       };
     };
