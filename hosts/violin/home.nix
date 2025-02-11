@@ -15,6 +15,7 @@ in {
     inputs.nix-colors.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
     ../../modules/home-manager/desktop
+    ../../modules/home-manager/coding
     ../../modules/home-manager/firefox
     ../../modules/home-manager/syncthing
     ../../modules/home-manager/direnv
@@ -75,6 +76,7 @@ in {
     };
   };
 
+  coding.enable = true;
   sh = {
     theme = theme;
     terminal = "ghostty";
@@ -88,7 +90,6 @@ in {
     curl
     neofetch
     obsidian
-    lazygit
     nil
     ripgrep
     grimblast
