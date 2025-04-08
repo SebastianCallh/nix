@@ -13,7 +13,7 @@ let
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     ../../modules/home-manager/desktop
     ../../modules/home-manager/git
     ../../modules/home-manager/coding

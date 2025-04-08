@@ -11,11 +11,14 @@ in
   imports =
     [ 
       ./hardware-configuration.nix
+      ../../modules/nixos/core.nix
       ../../modules/nixos/user.nix
       ../../modules/nixos/docker.nix
       ../../modules/nixos/zsa.nix
       inputs.home-manager.nixosModules.default
     ];
+
+  core.gc = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
