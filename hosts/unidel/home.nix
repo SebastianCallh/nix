@@ -1,4 +1,6 @@
 { config, pkgs, lib, builtins, inputs, username, ... }:
+let theme = "light";
+in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -26,7 +28,7 @@
   };
 
   desktop = {
-    theme = "light";
+    theme = theme;
     terminal = lib.getExe config.sh.package;
     monitors = [
       {

@@ -77,6 +77,7 @@ in
       starship.enable = true;
       helix.enable = true;
       kitty.enable = true;
+      ghostty.enable = true;
       yazi.enable = true;
       bat.enable = true;
       fzf.enable = true;

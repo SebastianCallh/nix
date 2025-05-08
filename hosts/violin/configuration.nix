@@ -129,6 +129,11 @@ in
 
     slack
     file
+    unzip
+
+    # see if we can run julia in a distrobox
+    distrobox
+
   ];
 
   zsa.enable = true;
@@ -187,6 +192,9 @@ in
       };
     };
   };
+
+  # see if this lets us install and run julia packages and python cli tools (it did not work)
+  programs.nix-ld.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

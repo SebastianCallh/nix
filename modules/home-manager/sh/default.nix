@@ -39,7 +39,6 @@ in
    };
 
   config = {
-    ghostty.theme = "dark";
     home.sessionVariables.TERM = config.sh.terminal;
     zsh.enable = config.sh.shell == "zsh";
   };

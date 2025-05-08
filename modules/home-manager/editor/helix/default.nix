@@ -4,11 +4,6 @@ let
 in
 {
   options.helix = with lib; {
-    theme = mkOption {
-      type = types.str;
-      default = "base16_transparent";
-    };
-
     defaultEditor = mkOption {
       type = types.bool;
       default = false;
