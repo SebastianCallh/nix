@@ -27,9 +27,6 @@ in
         font-size = cfg.font.size;
         gtk-tabs-location = "bottom";
         window-decoration = false;
-        background-opacity = 0.8;
-        background-blur = true;
-
         keybind = [
           # navigate splits
           "ctrl+h=goto_split:left"
