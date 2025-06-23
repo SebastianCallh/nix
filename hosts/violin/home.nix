@@ -133,6 +133,7 @@ in {
     tree
     file
     killall
+    zed-editor-fhs
     nerd-fonts.fira-code
     nerd-fonts.space-mono
     nerd-fonts.iosevka
