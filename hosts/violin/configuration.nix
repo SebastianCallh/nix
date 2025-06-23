@@ -130,10 +130,6 @@ in
     slack
     file
     unzip
-
-    # see if we can run julia in a distrobox
-    distrobox
-
   ];
 
   zsa.enable = true;
@@ -159,22 +155,6 @@ in
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   
-  # for screen sharing
-  xdg = { 
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      config.commons.default = "xdg-desktop-portal-hyprland";
-    };
-
-    mime = {
-      enable = true;
-      defaultApplications = {
-        "text/markdown" = [editor];
-      };
-    };
-  };
-
   # https://discourse.nixos.org/t/swaylock-wont-unlock/27275/3
   security.pam.services.swaylock = {};
   
