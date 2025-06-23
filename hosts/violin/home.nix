@@ -27,8 +27,32 @@ in {
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
-  xdg.enable = true; # required for catppuccin/nix theming
+  # xdg.enable = true; # required for catppuccin/nix theming
   
+  xdg = { 
+    portal = {
+      enable = true;
+      # wlr.enable = true;
+      xdgOpenUsePortal = true;
+      # config.commons.default = "xdg-desktop-portal-hyprland";
+      config.common = {
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+        "org.freedesktop.impl.portal.OpenURI" = [ "gtk" ];
+        default = "*";
+      };
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
+
+    # mime = {
+    #   enable = true;
+    #   defaultApplications = {
+    #     "text/markdown" = [editor];
+    #   };
+    # };
+  };
+
   nixpkgs.config = { 
     allowUnfree = true;
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -105,7 +129,7 @@ in {
     devenv
     libreoffice
     spotify
-
+    dconf # https://github.com/nix-community/home-manager/issues/3113
     tree
     file
     killall
