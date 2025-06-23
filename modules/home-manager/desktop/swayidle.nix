@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 let 
 inherit (lib) getExe';
 cfg = config.swayidle;
@@ -20,7 +20,8 @@ in
       enable = true;
       timeouts =
         let
-          dpmsCommand = "${getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms";
+          # dpmsCommand = "${getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms";
+          dpmsCommand = "${getExe' pkgs.hyprland "hyprctl"} dispatch dpms";
         in
         [
           {
