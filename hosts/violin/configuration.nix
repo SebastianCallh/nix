@@ -114,6 +114,7 @@ in
     qt6.qtwayland
     libappindicator # tray icons
     swaynotificationcenter
+    pavucontrol
 
     # this is needed in development shells to build a lot of python packages
     # without it we get errors like
