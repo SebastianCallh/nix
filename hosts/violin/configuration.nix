@@ -114,7 +114,7 @@ in
     qt6.qtwayland
     libappindicator # tray icons
     swaynotificationcenter
-    pavucontrol
+    pavucontrol # audio control
 
     # this is needed in development shells to build a lot of python packages
     # without it we get errors like
@@ -153,7 +153,16 @@ in
   
   programs.zsh.enable = true;
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental = true; # Show battery charge of Bluetooth devices
+      };
+    };
+  };
+  
   services.blueman.enable = true;
   
   # https://discourse.nixos.org/t/swaylock-wont-unlock/27275/3
