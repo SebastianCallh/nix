@@ -139,6 +139,7 @@ in {
     nerd-fonts.iosevka
     nerd-fonts.monoid
     nerd-fonts.hack
+    postman
   ];
     
   # Let Home Manager install and manage itself.
