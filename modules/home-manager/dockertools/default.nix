@@ -10,6 +10,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = [
       pkgs.lazydocker
+      pkgs.docker-buildx
     ];
 
     xdg.configFile."lazydocker/config.yml".source = (pkgs.formats.yaml { }).generate "config" {
