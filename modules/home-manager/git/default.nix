@@ -36,6 +36,8 @@ in
           autoSetupRemote = true;
         };
       };
+
+      lfs.enable = true;
     };
 
     programs.git.delta = {
@@ -53,10 +55,6 @@ in
         };
       };
     };
-
-    home.packages = [
-      pkgs.git-lfs
-    ];
   };
 }
 
