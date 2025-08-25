@@ -53,6 +53,10 @@ in
         };
       };
     };
+
+    home.packages = [
+      pkgs.git-lfs
+    ];
   };
 }
 
