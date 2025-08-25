@@ -140,6 +140,7 @@ in {
     nerd-fonts.monoid
     nerd-fonts.hack
     postman
+    claude-code
   ];
     
   # Let Home Manager install and manage itself.
