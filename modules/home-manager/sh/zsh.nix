@@ -10,7 +10,6 @@ in
   config = {
     programs.zsh = {
       enable = cfg.enable;
-      dotDir = ".config/zsh";
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;
       enableCompletion = true;
