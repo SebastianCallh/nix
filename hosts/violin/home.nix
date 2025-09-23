@@ -141,6 +141,12 @@ in {
     nerd-fonts.hack
     postman
     claude-code
+
+    # these are needed to build many python dependencies
+    stdenv.cc.cc.lib
+    zlib
+    expat
+    glib
   ];
     
   # Let Home Manager install and manage itself.
