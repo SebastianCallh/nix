@@ -141,6 +141,7 @@ in {
     nerd-fonts.hack
     postman
     claude-code
+    bottom
 
     # these are needed to build many python dependencies
     stdenv.cc.cc.lib
