@@ -48,10 +48,12 @@ in
       enable = cfg.enableLazygit;
       settings = {
         git = {
-          paging = {
-            colorArg = "always";
-            pager = "delta --dark --paging=never --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
-          };
+          pagers = [
+            {
+              colorArg = "always";
+              pager = "delta --dark --paging=never --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
+            }
+          ];
         };
       };
     };
