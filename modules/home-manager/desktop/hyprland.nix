@@ -80,7 +80,7 @@ in
         "$mod, P, exec, $locker"
         "$mod, N, exec, $sidebar"
         "$mod, S, exec, $printscreen"
-        "$mod, Q, exit"
+        # "$mod, Q, hyprctl dispatch exit"
         "$mod, W, killactive"
         # "$mod, P, pseudo," # dwindle
         # "$mod, J, togglesplit," # dwindle
