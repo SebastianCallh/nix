@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 let
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-  session = "${pkgs.hyprland}/bin/Hyprland";
+  session = "Hyprland"; # logging out and in does not work with the pkgs prefix for some reason
   username = "seb";
   hostname = "violin";
   editor = "hx";
