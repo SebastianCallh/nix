@@ -17,6 +17,7 @@ in
       extraPackages = with pkgs; [
         ruff
         pyright
+        markdown-oxide
       ];
     
       settings = {
