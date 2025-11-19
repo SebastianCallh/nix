@@ -28,20 +28,23 @@ in
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
-      userName = cfg.userName;
-      userEmail = cfg.userEmail;
-      extraConfig = {
-        init.defaultBranch = "main";
-        push = {
-          autoSetupRemote = true;
+      settings = {
+        user = {
+          name = cfg.userName;
+          email = cfg.userEmail;
+          init.defaultBranch = "main";
+          push = {
+            autoSetupRemote = true;
+          };
+          
         };
       };
-
       lfs.enable = true;
     };
 
-    programs.git.delta = {
+    programs.delta = {
       enable = cfg.enableDelta;
+      enableGitIntegration = true;
     };
 
     programs.lazygit = {
