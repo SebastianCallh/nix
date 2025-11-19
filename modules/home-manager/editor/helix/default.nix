@@ -18,6 +18,7 @@ in
         ruff
         pyright
         markdown-oxide
+        nodePackages.vscode-json-languageserver
       ];
     
       settings = {
