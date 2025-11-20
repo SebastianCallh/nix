@@ -1,6 +1,6 @@
 { config, pkgs, lib, builtins, inputs, username, ... }:
 let 
-  theme = "light";
+  theme = "dark";
   home_monitor = {
     x = 2560;
     y = 1440;
