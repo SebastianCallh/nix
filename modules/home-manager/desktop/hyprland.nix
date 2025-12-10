@@ -52,7 +52,7 @@ in
       general = {
         border_size = 2;
         gaps_in = 2;
-        gaps_out = 2;
+        gaps_out = 0;
         "col.active_border" = "rgba(${color.base0C}FF) rgba(${color.base05}FF) 45deg";
       };
 
