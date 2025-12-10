@@ -61,6 +61,10 @@ in
         dim_strength = 0.1;
       };
 
+      animations = {
+        enabled = false;
+      };
+
       input = { 
         kb_layout = "us,se";
         kb_options = "ctrl:nocaps,grp:alt_shift_toggle";
