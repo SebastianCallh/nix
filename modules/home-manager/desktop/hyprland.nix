@@ -29,7 +29,14 @@ in
       "$locker" = cfg.lockCommand;
       "$sidebar" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t";
       "$printscreen" = "${pkgs.grimblast}/bin/grimblast copysave area";
-      exec-once = "hyprpaper & waybar & swayidle -w & swaync & blueman-applet & nm-applet --indicator";
+      exec-once = [
+        "hyprpaper"
+        "waybar"
+        "swayidle -w"
+        "swaync"
+        "blueman-applet"
+        "nm-applet --indicator"
+      ];
    
     monitor = map
       (m:
@@ -44,13 +51,12 @@ in
       
       general = {
         border_size = 2;
-        gaps_in = 8;
-        gaps_out = 8;
+        gaps_in = 2;
+        gaps_out = 2;
         "col.active_border" = "rgba(${color.base0C}FF) rgba(${color.base05}FF) 45deg";
       };
 
       decoration = {
-        rounding = 10;
         dim_inactive = true;
         dim_strength = 0.1;
       };

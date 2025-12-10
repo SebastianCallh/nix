@@ -8,7 +8,7 @@
       * {
         border: none;
         border-radius: 0;
-        font-size: 18px;
+        font-size: 14px;
         font-family: Monoid Mono Nerd Font;
       }
       
@@ -22,12 +22,11 @@
       }
       
       #workspaces button {
-        padding: 0 0.5em 0 0.5em;
-        border-radius: 10px;
-        margin-top: 0.4em;
-        margin-left: 0.4em;
+        padding: 0 0.3em 0 0.3em;
+        margin-top: 0.1em;
+        margin-left: 0.1em;
         color: @teal;
-        background: @surfac2;
+        background: @mantle;
       }
       
       #workspaces button.active {
@@ -48,9 +47,10 @@
       #language, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
         background: @mantle;
         padding: 0 0.5em 0 0.5em;
-        border-radius: 10px;
-        margin-top: 0.4em;
-        margin-right: 0.4em;
+        margin-top: 0.1em;
+        margin-bottom: 0.1em;
+        margin-left: -0.1em;
+        border: 2px solid @blue;
       }
       
       @keyframes blink {
@@ -61,12 +61,12 @@
       }
         
       #battery.warning:not(.charging) {
-          color: @text;
-          animation-name: blink;
-          animation-duration: 0.5s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
+        color: @text;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
       }  '';
     
     settings = {

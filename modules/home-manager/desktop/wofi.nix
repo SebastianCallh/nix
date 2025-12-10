@@ -85,18 +85,6 @@ in
           border: 0.16em solid @lavender;
           border-radius: 0.1em;
           background-color: @base;
-          animation: slideIn 0.5s ease-in-out both;
-        }
-         
-        /* Slide In */
-        @keyframes slideIn {
-          0% {
-              opacity: 0;
-          }
-         
-          100% {
-              opacity: 1;
-          }
         }
          
         /* Inner Box */
@@ -105,7 +93,6 @@ in
           padding: 10px;
           border: none;
           background-color: @base;
-          animation: fadeIn 0.5s ease-in-out both;
         }
          
         /* Fade In */
@@ -143,7 +130,6 @@ in
           border-radius: 0.1em;
           color: @text;
           background-color: @base;
-          animation: fadeIn 0.5s ease-in-out both;
         }
          
         #input image {
@@ -160,7 +146,6 @@ in
           margin: 5px;
           border: none;
           color: @text;
-          animation: fadeIn 0.5s ease-in-out both;
         }
          
         #entry {
@@ -245,8 +230,8 @@ in
         @define-color	crust-rgb  rgb(35, 38, 52);
         
         * {
-            font-family: "${cfg.font.name}";
-            font-size: ${toString cfg.font.size}px;
+          font-family: "${cfg.font.name}";
+          font-size: ${toString cfg.font.size}px;
         }
         
         /* Window */
@@ -256,18 +241,6 @@ in
           border: 0.16em solid @lavender;
           border-radius: 0.1em;
           background-color: @base;
-          animation: slideIn 0.5s ease-in-out both;
-        }
-        
-        /* Slide In */
-        @keyframes slideIn {
-          0% {
-             opacity: 0;
-          }
-        
-          100% {
-             opacity: 1;
-          }
         }
         
         /* Inner Box */
@@ -276,20 +249,8 @@ in
           padding: 10px;
           border: none;
           background-color: @base;
-          animation: fadeIn 0.5s ease-in-out both;
         }
-        
-        /* Fade In */
-        @keyframes fadeIn {
-          0% {
-             opacity: 0;
-          }
-        
-          100% {
-             opacity: 1;
-          }
-        }
-        
+                
         /* Outer Box */
         #outer-box {
           margin: 5px;
@@ -314,7 +275,6 @@ in
           border-radius: 0.1em;
           color: @text;
           background-color: @base;
-          animation: fadeIn 0.5s ease-in-out both;
         }
         
         #input image {
@@ -331,7 +291,6 @@ in
           margin: 5px;
           border: none;
           color: @text;
-          animation: fadeIn 0.5s ease-in-out both;
         }
         
         #entry {
