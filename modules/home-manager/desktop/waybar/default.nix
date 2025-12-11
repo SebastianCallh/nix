@@ -50,7 +50,6 @@
         margin-top: 0.1em;
         margin-bottom: 0.1em;
         margin-left: -0.1em;
-        border: 2px solid @blue;
       }
       
       @keyframes blink {
