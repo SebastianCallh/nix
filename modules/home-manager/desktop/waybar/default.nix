@@ -1,51 +1,31 @@
-{ config, ... }:
+{ ... }:
 {
   programs.waybar = {
     enable = true;
+    # colours are assumed to come from stylix or another style definition merged with this
     style = ''
-      @import url("${config.styling.colors}/palette.css");
     
       * {
         border: none;
         border-radius: 0;
-        font-size: 14px;
-        font-family: Monoid Mono Nerd Font;
       }
       
       #window {
         font-weight: bold;
       }
       
-      window#waybar {
-        background: transparent;
-        color: @text;
-      }
-      
       #workspaces button {
         padding: 0 0.3em 0 0.3em;
         margin-top: 0.1em;
         margin-left: 0.1em;
-        color: @teal;
-        background: @mantle;
       }
-      
-      #workspaces button.active {
-        color: @mantle;
-        background: @teal;
-      }
-      
-      #workspaces button.focused {
-        color: @text;
-        background: @teal;
-      } 
-      
+
       #workspaces button.urgent {
-        color: @mantle;
-        background: @lavender;
-      }
-      
+        color: @base05;
+        background: @base08;
+      }      
+
       #language, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
-        background: @mantle;
         padding: 0 0.5em 0 0.5em;
         margin-top: 0.1em;
         margin-bottom: 0.1em;
@@ -54,19 +34,20 @@
       
       @keyframes blink {
        to {
-        background-color: @mantle;
-        color: @text;
+        background-color: @base08;
+        color: @base05;
        }
       }
         
       #battery.warning:not(.charging) {
-        color: @text;
+        color: @base05;
         animation-name: blink;
         animation-duration: 0.5s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
         animation-direction: alternate;
-      }  '';
+      }
+    '';
     
     settings = {
       mainBar = {
