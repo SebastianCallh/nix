@@ -50,15 +50,15 @@ in
       config.desktop.monitors;
       
       general = {
-        border_size = 2;
+        # border_size = 2;
         gaps_in = 2;
         gaps_out = 0;
-        "col.active_border" = "rgba(${color.base0C}FF) rgba(${color.base05}FF) 45deg";
+        # "col.active_border" = "rgba(${color.base0C}FF) rgba(${color.base05}FF) 45deg";
       };
 
       decoration = {
         dim_inactive = true;
-        dim_strength = 0.1;
+        dim_strength = 0.2;
       };
 
       animations = {

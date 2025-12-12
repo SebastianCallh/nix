@@ -15,10 +15,13 @@ in
       ../../modules/nixos/user.nix
       ../../modules/nixos/docker.nix
       ../../modules/nixos/zsa.nix
+      ../../modules/nixos/styling.nix
       inputs.home-manager.nixosModules.default
     ];
 
   core.gc = true;
+
+  styling.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

@@ -9,7 +9,7 @@
         seb = {
           id = 0;
           name = "seb";
-          extraConfig = builtins.readFile ./prefs.js;
+          # extraConfig = builtins.readFile ./prefs.js;
 
           # extraConfig = ''
           #   user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);

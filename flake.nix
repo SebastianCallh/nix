@@ -17,6 +17,11 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nix-darwin, ... }@inputs: {
@@ -36,7 +41,8 @@
       modules = [
         ./hosts/violin/configuration.nix
         inputs.home-manager.nixosModules.default
-        inputs.catppuccin.nixosModules.catppuccin
+        # inputs.catppuccin.nixosModules.catppuccin
+        inputs.stylix.nixosModules.stylix
       ];
     };
 

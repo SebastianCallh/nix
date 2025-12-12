@@ -16,7 +16,7 @@ in
   config = {
     programs.kitty = {
       enable = true;
-      font = cfg.font;
+      # font = cfg.font;
     };
   };
 }

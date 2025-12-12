@@ -66,24 +66,24 @@ in
   };
   
   config = {
-    catppuccin.flavor = {
-      "light" = "latte";
-      "dark" = "frappe";
-    }."${cfg.theme}";
+    # catppuccin.flavor = {
+    #   "light" = "latte";
+    #   "dark" = "frappe";
+    # }."${cfg.theme}";
 
     # we can use the API of catppuccin/nix to style 
     # things that does not have their own CSS
-    catppuccin = {
-      starship.enable = true;
-      helix.enable = true;
-      kitty.enable = true;
-      ghostty.enable = true;
-      yazi.enable = true;
-      bat.enable = true;
-      fzf.enable = true;
-      zellij.enable = true;
-      delta.enable = true;
-    };
+    # catppuccin = {
+      # starship.enable = true;
+      # helix.enable = true;
+      # kitty.enable = true;
+      # ghostty.enable = true;
+      # yazi.enable = true;
+      # bat.enable = true;
+      # fzf.enable = true;
+      # zellij.enable = true;
+      # delta.enable = true;
+    # };
 
     gtk = {
       enable = true;

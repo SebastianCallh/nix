@@ -13,7 +13,7 @@ let
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    inputs.catppuccin.homeModules.catppuccin
+    inputs.stylix.homeModules.stylix
     ../../modules/home-manager/desktop
     ../../modules/home-manager/git
     ../../modules/home-manager/coding
@@ -27,8 +27,20 @@ in {
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
-  # xdg.enable = true; # required for catppuccin/nix theming
-  
+
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+    image = ../../images/nix-catppuccin-latte.png;
+    targets = {
+      firefox = {
+        enable = true;
+        profileNames = [ "seb" ];
+      };
+    };
+  };
+
   xdg = { 
     portal = {
       enable = true;
@@ -93,11 +105,6 @@ in {
     lockscreen = {
       wallpaper = config.styling.wallpaper;
       timeout = 5 * 60;
-    };
-
-    wofi.font = {
-      name = config.styling.fontName;
-      size = 18;
     };
   };
 

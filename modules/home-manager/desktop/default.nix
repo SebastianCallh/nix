@@ -7,7 +7,7 @@ in {
     ./styling.nix
     ./monitors.nix
     ./hyprland.nix
-    ./hyprpaper.nix
+    # ./hyprpaper.nix
     ./swaylock.nix
     ./swayidle.nix
     ./swaync.nix
@@ -61,9 +61,5 @@ in {
     
     styling.theme = cfg.theme;
     swaylock.wallpaper = cfg.lockscreen.wallpaper;
-    wofi = {
-      font = cfg.wofi.font;
-      theme = cfg.theme;
-    };
   };
 }
