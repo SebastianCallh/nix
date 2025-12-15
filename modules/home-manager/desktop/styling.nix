@@ -7,7 +7,7 @@ in
     font = mkOption {
       readOnly = true;
       type = types.str;
-      default = "DejaVu";
+      default = "Fira Code";
     };
     
     theme = mkOption {
