@@ -11,11 +11,6 @@ in
   ];
 
   options.sh = with lib; {
-
-    theme = mkOption {
-      type = types.enum [ "light" "dark" ];  
-    };
-
     terminal = mkOption {
       type = types.enum [ "kitty" "ghostty" ];
     };
@@ -23,10 +18,6 @@ in
     shell = mkOption {
       type = types.enum [ "zsh" ];
     };
-
-    # multiplexer = mkOption {
-    #   type = types.enum [ "none" "zellij" ];
-    # };
 
     package = mkOption {
       readOnly = true;

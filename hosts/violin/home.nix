@@ -1,6 +1,5 @@
-{ config, pkgs, lib, builtins, inputs, username, ... }:
+{ config, pkgs, lib, inputs, username, ... }:
 let 
-  theme = "dark";
   home_monitor = {
     x = 2560;
     y = 1440;
@@ -9,12 +8,13 @@ let
   office_monitor = {
     x = 3840;
     y = 2160;
-  };
+ };
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
     ../../modules/home-manager/desktop
+    ../../modules/home-manager/corepackages
     ../../modules/home-manager/git
     ../../modules/home-manager/coding
     ../../modules/home-manager/firefox
@@ -25,58 +25,15 @@ in {
     ../../modules/home-manager/dockertools
   ];
 
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
-
-  stylix = {
-    enable = true;
-    autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-    image = ../../images/nix-catppuccin-latte.png;
-    targets = {
-      firefox = {
-        enable = true;
-        profileNames = [ "seb" ];
-      };
-    };
+  home = {
+    username = username;
+    homeDirectory = "/home/${username}";
   };
 
-  xdg = { 
-    portal = {
-      enable = true;
-      # wlr.enable = true;
-      xdgOpenUsePortal = true;
-      # config.commons.default = "xdg-desktop-portal-hyprland";
-      config.common = {
-        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-        "org.freedesktop.impl.portal.OpenURI" = [ "gtk" ];
-        default = "*";
-      };
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
-    };
-
-    # mime = {
-    #   enable = true;
-    #   defaultApplications = {
-    #     "text/markdown" = [editor];
-    #   };
-    # };
-  };
-
-  nixpkgs.config = { 
-    allowUnfree = true;
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "discord"
-      "obsidian"
-      "slack"
-      "spotify"
-    ];
-  };
+  corepackages.enable = true;
 
   desktop = {
-    theme = theme;
+    theme = "catppuccin-latte";
     terminal = lib.getExe config.sh.package;
     monitors = [
       {
@@ -118,43 +75,15 @@ in {
   
   coding.enable = true;
   sh = {
-    theme = theme;
     terminal = "ghostty";
     shell = "zsh";
-    # multiplexer = "none";
   };
   
   dockertools.enable = true;
-    
+   
   home.packages = with pkgs; [
-    curl
-    neofetch
-    obsidian
-    nil
-    ripgrep
-    grimblast
-    devenv
     libreoffice
-    spotify
-    dconf # https://github.com/nix-community/home-manager/issues/3113
-    tree
-    file
-    killall
-    zed-editor-fhs
-    nerd-fonts.fira-code
-    nerd-fonts.space-mono
-    nerd-fonts.iosevka
-    nerd-fonts.monoid
-    nerd-fonts.hack
     postman
-    claude-code
-    bottom
-
-    # these are needed to build many python dependencies
-    stdenv.cc.cc.lib
-    zlib
-    expat
-    glib
   ];
     
   # Let Home Manager install and manage itself.

@@ -1,14 +1,8 @@
-{ config, lib, ... }:
+{ config,  ... }:
 let
   cfg = config.wofi;
 in
 {
-  options.wofi = with lib; {
-    theme = mkOption {
-      type = types.enum [ "light" "dark" ];  
-    };
-  };
-  
   config = {
     programs.wofi = {
       enable = true;

@@ -12,6 +12,16 @@ in
   };
   
   config = lib.mkIf cfg.enable {
-      home.packages = [ pkgs.aider-chat ];
+      home.packages = with pkgs; [
+        devenv
+        aider-chat
+        claude-code
+
+        # these are needed to build many python dependencies
+        stdenv.cc.cc.lib
+        zlib
+        expat
+        glib
+      ];
   };
 }
