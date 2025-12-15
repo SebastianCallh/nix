@@ -93,7 +93,7 @@ in
     };
 
     fonts.packages = with pkgs; [
-      nerd-fonts.fira-code
+      nerd-fonts.fira-code # one nerd font required for starship prompt
     ];
   };
 }
