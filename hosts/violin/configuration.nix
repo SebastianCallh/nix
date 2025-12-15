@@ -2,8 +2,6 @@
 let
   username = "seb";
   hostname = "violin";
-  editor = "hx";
-  browser = "firefox";
 in
 {
   imports =
@@ -18,6 +16,16 @@ in
       ../../modules/nixos/zsa.nix
       inputs.home-manager.nixosModules.default
     ];
+  
+  home-manager = {
+    extraSpecialArgs = { 
+      inherit inputs;
+      username = username;
+    };
+    users = {
+      "${username}" = import ./home.nix;
+    };
+  };
 
   core = {
     enable = true;
@@ -33,23 +41,6 @@ in
   network = {
     enable = true;
     hostname = hostname;
-  };
-  
-  home-manager = {
-    extraSpecialArgs = { 
-      inherit inputs;
-      username = username;
-    };
-    users = {
-      "${username}" = import ./home.nix;
-    };
-  };
-
-  environment.variables = {
-    NIXOS_OZONE_WL = "1"; # tell electron apps to use wayland
-    EDITOR = editor;
-    VISUAL = editor;
-    BROWSER = browser;
   };
 
   zsa.enable = true;
@@ -73,5 +64,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
