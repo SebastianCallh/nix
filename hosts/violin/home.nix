@@ -8,7 +8,7 @@ let
   office_monitor = {
     x = 3840;
     y = 2160;
- };
+  };
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default

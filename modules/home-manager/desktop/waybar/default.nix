@@ -29,7 +29,8 @@
         padding: 0 0.5em 0 0.5em;
         margin-top: 0.1em;
         margin-bottom: 0.1em;
-        margin-left: -0.1em;
+        margin-left: 0.1em;
+        background-color: @base01;
       }
       
       @keyframes blink {
