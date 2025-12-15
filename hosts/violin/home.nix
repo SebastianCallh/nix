@@ -84,6 +84,7 @@ in {
   home.packages = with pkgs; [
     libreoffice
     postman
+    slack
   ];
     
   # Let Home Manager install and manage itself.

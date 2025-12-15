@@ -1,7 +1,5 @@
-{ config, pkgs, inputs, ... }:
+{ inputs, ... }:
 let
-  tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-  session = "Hyprland"; # logging out and in does not work with the pkgs prefix for some reason
   username = "seb";
   hostname = "violin";
   editor = "hx";
@@ -13,69 +11,28 @@ in
       ./hardware-configuration.nix
       ../../modules/nixos/core.nix
       ../../modules/nixos/user.nix
+      ../../modules/nixos/bluetooth.nix
+      ../../modules/nixos/audio.nix
+      ../../modules/nixos/network.nix
       ../../modules/nixos/docker.nix
       ../../modules/nixos/zsa.nix
       inputs.home-manager.nixosModules.default
     ];
 
-  core.gc = true;
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = hostname;
-  networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  time.timeZone = "Europe/Stockholm";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "sv_SE.UTF-8";
-    LC_IDENTIFICATION = "sv_SE.UTF-8";
-    LC_MEASUREMENT = "sv_SE.UTF-8";
-    LC_MONETARY = "sv_SE.UTF-8";
-    LC_NAME = "sv_SE.UTF-8";
-    LC_NUMERIC = "sv_SE.UTF-8";
-    LC_PAPER = "sv_SE.UTF-8";
-    LC_TELEPHONE = "sv_SE.UTF-8";
-    LC_TIME = "sv_SE.UTF-8";
-  };
-
-  # audio
-  services.pulseaudio.enable = false;
-  services.pipewire = { 
+  core = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
+    username = username;
+    gc = true;
   };
 
-  services.mpd = {
+  audio = {
     enable = true;
-    user = username;
-    musicDirectory = "/home/${username}/Music/";
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "PipeWire Output"
-      }
-    '';
-  
-    network.listenAddress = "any"; 
-    startWhenNeeded = true; 
+    username = username;
   };
 
-  systemd.services.mpd.environment = {
-    # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
-    # User-id 1000 must match user in `services.mpd.user`
-    XDG_RUNTIME_DIR = "/run/user/1000";
+  network = {
+    enable = true;
+    hostname = hostname;
   };
   
   home-manager = {
@@ -95,97 +52,20 @@ in
     BROWSER = browser;
   };
 
-  # this is needed to fix 'wlr_gles2_renderer_create_with_drm_fd() failed'
-  # when using hyprland
-  # hardware.opengl.enable = true; this is depricated in favor of hardware.graphics.enable;
-  hardware.graphics.enable = true;
-
-  security.polkit.enable = true; # privilege manager
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  environment.systemPackages = with pkgs; [
-    dconf
-    wl-clipboard
-    brightnessctl
-    playerctl
-    libnotify
-    xdg-utils # provides xgd-open and more
-    qt5.qtwayland
-    qt6.qtwayland
-    libappindicator # tray icons
-    swaynotificationcenter
-    pavucontrol # audio control
-
-    # this is needed in development shells to build a lot of python packages
-    # without it we get errors like
-    # ImportError: libstdc++.so.6: cannot open shared object file: No such file or directory
-    # LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";    
-    # pkgs.stdenv.cc.cc.lib
-
-    # networking
-    networkmanagerapplet
-    blueman
-    # ui 
-    hyprpaper
-
-    slack
-    file
-    unzip
-  ];
-
   zsa.enable = true;
-  
-  ## custom modules  
+  bluetooth.enable = true;
+
   user = {
     enable = true;
     name = username;
     autologin = false;
   };
-  
-  nix.extraOptions = ''
-    trusted-users = root seb
-  '';
-  
+    
   docker = {
     enable = true;
     userName = username;
   };
   
-  programs.zsh.enable = true;
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Experimental = true; # Show battery charge of Bluetooth devices
-      };
-    };
-  };
-  
-  services.blueman.enable = true;
-  
-  # https://discourse.nixos.org/t/swaylock-wont-unlock/27275/3
-  security.pam.services.swaylock = {};
-  
-  services.greetd = {
-    enable = true;
-    settings = {
-      initial_session = {
-        command = session;
-        user = username;
-      };
-
-      default_session = {
-        command = "${tuigreet} --greeting 'Greetings' --asterisks --remember --remember-user-session --time --cmd ${session}";
-        user = "greeter";
-      };
-    };
-  };
-
-  # see if this lets us install and run julia packages and python cli tools (it did not work)
-  programs.nix-ld.enable = true;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

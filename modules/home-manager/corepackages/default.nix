@@ -29,12 +29,8 @@ in
       dconf # https://github.com/nix-community/home-manager/issues/3113
       tree
       file
+      unzip
       killall
-      nerd-fonts.fira-code
-      nerd-fonts.space-mono
-      nerd-fonts.iosevka
-      nerd-fonts.monoid
-      nerd-fonts.hack
       bottom
 
       # graphical programs
