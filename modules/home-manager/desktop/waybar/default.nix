@@ -53,7 +53,7 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
+        position = "bottom";
         height = 30;
         modules-left = ["hyprland/workspaces"]; 
         modules-right = ["tray" "hyprland/language" "battery" "clock"];
