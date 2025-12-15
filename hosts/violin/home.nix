@@ -86,6 +86,10 @@ in {
     postman
     slack
   ];
+
+  # shells need to be enabled system-wide and not only in home manager
+  # https://nixos.wiki/wiki/Command_Shell
+  programs.zsh.enable = true;
     
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

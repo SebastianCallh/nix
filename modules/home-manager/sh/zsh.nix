@@ -30,17 +30,17 @@ in
   
     programs.fzf = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = config.programs.zsh.enable;
     };
   
     programs.zoxide = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = config.programs.zsh.enable;
     };
   
     programs.yazi = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = config.programs.zsh.enable;
     };
   
     programs.starship = {

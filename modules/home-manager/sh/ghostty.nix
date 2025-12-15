@@ -1,9 +1,9 @@
-{ ... }:
+{ config, ... }:
 {
   config = {
     programs.ghostty = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = config.programs.zsh.enable;
       settings = {
         gtk-tabs-location = "bottom";
         window-decoration = false;

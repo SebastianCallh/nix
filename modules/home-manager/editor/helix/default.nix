@@ -17,7 +17,7 @@ in
       extraPackages = with pkgs; [
         ruff
         pyright
-        markdown-oxide
+        marksman
         nodePackages.vscode-json-languageserver
       ];
     
