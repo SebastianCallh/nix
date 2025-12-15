@@ -20,7 +20,6 @@ in
       enable = true;
       timeouts =
         let
-          # dpmsCommand = "${getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms";
           dpmsCommand = "${getExe' pkgs.hyprland "hyprctl"} dispatch dpms";
         in
         [
@@ -35,16 +34,10 @@ in
           }
         ];
 
-      events = [
-        {
-          event = "before-sleep";
-          command = cfg.lockCommand;
-        }
-        {
-          event = "lock";
-          command = cfg.lockCommand;
-        }
-      ];
+      events = {
+        "before-sleep" = cfg.lockCommand;
+        "lock" = cfg.lockCommand;
+      };
     };
   };
 }
