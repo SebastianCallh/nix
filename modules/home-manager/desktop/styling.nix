@@ -27,6 +27,7 @@ in
           enable = true;
           profileNames = [ "seb" ];
         };
+        wofi.enable = false; # custom style in wofi module
       };
 
       fonts = {

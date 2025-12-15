@@ -24,7 +24,7 @@ in
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
       "$terminal" = cfg.terminal;
-      "$menu" = "${config.programs.wofi.package}/bin/wofi --show drun";
+      "$menu" = "${config.programs.wofi.package}/bin/wofi --show drun -a";
       "$locker" = cfg.lockCommand;
       "$sidebar" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t";
       "$printscreen" = "${pkgs.grimblast}/bin/grimblast copysave area";

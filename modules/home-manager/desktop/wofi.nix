@@ -19,25 +19,26 @@ in
 
         #inner-box {
           margin: 5px;
-          padding: 10px;
+          padding: 2px;
+          border: none;
+          border-radius: 0px;
         }
         
         #outer-box {
           margin: 5px;
-          padding: 10px;
+          padding: 2px;
           border: none;
+          border-radius: 0px;
         }
          
         #scroll {
           margin: 0px;
-          padding: 10px;
           border: none;
         }
          
         #input {
-          margin: 5px 20px;
-          padding: 10px;
           border: none;
+          border-radius: 0px;
         }
          
         #input image {
@@ -47,6 +48,21 @@ in
         #text {
           margin: 5px;
           border: none;
+        }
+
+        #text:selected {
+          color: #${config.lib.stylix.colors.base02};
+        }
+
+        #entry {
+          padding: 0px;
+          margin: 0px;
+          border-radius: 0px;
+          background-color: #${config.lib.stylix.colors.base01};
+        }
+
+        #entry:selected {
+          background-color: #${config.lib.stylix.colors.base0E};
         }
       '';
     };
