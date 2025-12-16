@@ -58,6 +58,10 @@ in
             }
           ];
         };
+        gui = {
+          # do not prompt a return after exiting from an exec command
+          returnImmediately = true;
+        };
       };
     };
   };

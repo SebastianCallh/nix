@@ -5,7 +5,7 @@
       enable = true;
       enableZshIntegration = config.programs.zsh.enable;
       settings = {
-        gtk-tabs-location = "bottom";
+        gtk-tabs-location = "top";
         window-decoration = false;
         keybind = [
           # navigate splits

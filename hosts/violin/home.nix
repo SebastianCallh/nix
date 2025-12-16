@@ -33,7 +33,7 @@ in {
   corepackages.enable = true;
 
   desktop = {
-    theme = "catppuccin-latte";
+    theme = "ayu-mirage";
     terminal = lib.getExe config.sh.package;
     monitors = [
       {

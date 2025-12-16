@@ -19,6 +19,7 @@ in
         pyright
         marksman
         nodePackages.vscode-json-languageserver
+        lazygit
       ];
     
       settings = {
