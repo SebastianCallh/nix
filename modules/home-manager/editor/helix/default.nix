@@ -48,26 +48,31 @@ in
         
         keys.normal = {
           # for some reason Esc does not work in this view, so you can't cancel commits. Awkward!
+          # https://github.com/helix-editor/helix/discussions/12045
           # C-g = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
         };
       };
-    };
-    
-    home.file = {
-      ".config/helix/languages.toml".text = 
-      '' 
-        [language-server.ruff]
-        command = "${pkgs.ruff}/bin/ruff"
-        args = ["server"]
 
-        [[language]]
-        name = "python"
-        auto-format = true
-        language-servers = [
-          { name = "ruff", only-features = [ "format", "diagnostics" ] },
-          { name = "pyright" },
-        ]
-      '';
+      languages = {
+        language-server.ruff = {
+          command = "${pkgs.ruff}/bin/ruff";
+          args = ["server"];
+        };
+  
+        language = [
+          {
+            name = "python";
+            auto-format = true;
+            language-servers = [
+              {
+                name = "ruff";
+                only-features = ["format" "diagnostics"];
+              }
+              { name = "pyright"; }
+            ];
+          }
+        ];
+      };
     };
   };
 }
