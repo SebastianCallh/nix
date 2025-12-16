@@ -17,6 +17,10 @@ in
       commandTemplates = {
         dockerCompose = "docker compose";
       };
+
+      gui = {
+        returnImmediately = true;
+      };
     };
   };
 }
