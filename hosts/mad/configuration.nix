@@ -1,7 +1,7 @@
 { inputs, ... }:
 let
   username = "seb";
-  hostname = "violin";
+  hostname = "mad";
 in
 {
   imports =
