@@ -10,13 +10,9 @@ in
           type = types.str;
           example = "DP-1";
         };
-        width = mkOption {
-          type = types.int;
-          example = 1920;
-        };
-        height = mkOption {
-          type = types.int;
-          example = 1080;
+        resolution = mkOption {
+          type = types.str;
+          example = "1920x1080";
         };
         scale = mkOption {
           type = types.str;

@@ -33,19 +33,10 @@ in
     monitors = [
       {
         name = "eDP-1";
-        width = 1920;
-        height = 1080;
+        resolution = "preferred";
         wallpaper = config.styling.wallpaper;
         x = 0;
         y = 1440;
-      }
-      {
-        name = "DP-1";
-        width = 2560;
-        height = 1440;
-        wallpaper = config.styling.wallpaper;
-        x = 0;
-        y = 0;
       }
     ];
 

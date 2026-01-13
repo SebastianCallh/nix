@@ -40,9 +40,7 @@ in
     monitor = map
       (m:
         let
-          resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-          # position = "${toString m.x}x${toString m.y}";
-          # position = "auto-up";
+          resolution = "${m.resolution}@${toString m.refreshRate}";
         in
           "${m.name},${if m.enabled then "${resolution},${m.position},${toString m.scale}" else "disable"}"
       )

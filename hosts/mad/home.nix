@@ -1,15 +1,5 @@
 { config, pkgs, lib, inputs, username, ... }:
-let 
-  home_monitor = {
-    x = 2560;
-    y = 1440;
-  };
-
-  office_monitor = {
-    x = 3840;
-    y = 2160;
-  };
-in {
+{
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
@@ -38,24 +28,9 @@ in {
     monitors = [
       {
         name = "eDP-1";
-        width = 1920;
-        height = 1080;
+        resolution = "preferred";
         wallpaper = config.styling.wallpaper;
         position = "auto-down";
-      }
-      {
-        name = "DP-1";
-        width = office_monitor.x;
-        height = office_monitor.y;
-        wallpaper = config.styling.wallpaper;
-        position = "auto-up";
-      }
-      {
-        name = "HDMI-A-1";
-        width = home_monitor.x;
-        height = home_monitor.y;
-        wallpaper = config.styling.wallpaper;
-        position = "auto-up";
       }
     ];
 
