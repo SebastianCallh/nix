@@ -47,6 +47,11 @@
     enableDelta = true;
     enableLazygit = true;
   };
+
+  helix = {
+    enable = true;
+    defaultEditor = true;
+  };
   
   coding.enable = true;
   sh = {

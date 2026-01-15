@@ -4,13 +4,14 @@ let
 in
 {
   options.helix = with lib; {
+    enable = mkEnableOption "Enable Helix";
     defaultEditor = mkOption {
       type = types.bool;
       default = false;
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     programs.helix = {
       enable = true;
       defaultEditor = cfg.defaultEditor;
