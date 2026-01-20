@@ -14,6 +14,7 @@ in
       ../../modules/nixos/network.nix
       ../../modules/nixos/docker.nix
       ../../modules/nixos/zsa.nix
+      ../../modules/nixos/jetbrains.nix
       inputs.home-manager.nixosModules.default
     ];
   
@@ -55,6 +56,11 @@ in
   docker = {
     enable = true;
     userName = username;
+  };
+
+  jetbrains = {
+    enable = true;
+    datagrip.enable = true;
   };
   
   # shells need to be enabled system-wide and not only in home manager
