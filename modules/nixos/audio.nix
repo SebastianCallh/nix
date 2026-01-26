@@ -25,16 +25,17 @@ in
     services.mpd = {
       enable = true;
       user = cfg.username;
-      musicDirectory = "/home/${cfg.username}/Music/";
-      extraConfig = ''
-        audio_output {
-          type "pipewire"
-          name "PipeWire Output"
-        }
-      '';
-  
-      network.listenAddress = "any"; 
       startWhenNeeded = true; 
+      settings = {
+        bind_to_address = "any"; 
+        music_directory = "/home/${cfg.username}/Music/";
+        audio_output = [
+          {
+            type = "pipewire";
+            name = "PipeWire Output";
+          }
+        ];
+      };
     };
 
     systemd.services.mpd.environment = {

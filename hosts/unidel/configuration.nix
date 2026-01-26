@@ -56,12 +56,9 @@ in
     enable = true;
     user = username;
     musicDirectory = "/home/${username}/Music/";
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "PipeWire Output"
-      }
-    '';
+    settings = {
+      audio_output = "pipewire";
+    };
   
     network.listenAddress = "any"; 
     startWhenNeeded = true; 
