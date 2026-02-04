@@ -21,6 +21,10 @@
           # move tabs
           "alt+shift+h=move_tab:-1"
           "alt+shift+l=move_tab:1"
+
+          # handle line breaks
+          # https://github.com/ghostty-org/ghostty/discussions/3151#discussioncomment-11678064
+          "ctrl+enter=text:\r"
         ];
       };
     };
