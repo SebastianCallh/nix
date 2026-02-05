@@ -65,6 +65,7 @@
     libreoffice
     postman
     slack
+    google-cloud-sdk
   ];
 
   # shells need to be enabled system-wide and not only in home manager
