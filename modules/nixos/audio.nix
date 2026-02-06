@@ -27,8 +27,7 @@ in
       user = cfg.username;
       startWhenNeeded = true; 
       settings = {
-        bind_to_address = "any"; 
-        music_directory = "/home/${cfg.username}/Music/";
+        music_directory = "/home/${cfg.username}/music/";
         audio_output = [
           {
             type = "pipewire";
