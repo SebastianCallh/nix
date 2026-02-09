@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, username, ... }:
+{ config, pkgs, lib, inputs, username, full_name, email, ... }:
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -6,6 +6,7 @@
     ../../modules/home-manager/desktop
     ../../modules/home-manager/corepackages
     ../../modules/home-manager/git
+    ../../modules/home-manager/jujutsu
     ../../modules/home-manager/coding
     ../../modules/home-manager/firefox
     ../../modules/home-manager/syncthing
@@ -42,10 +43,16 @@
 
   git = {
     enable = true;
-    userName = "Sebastian Callh";
-    userEmail = "sebastian.callh@violet.ai";
+    userName = full_name;
+    userEmail = email;
     enableDelta = true;
     enableLazygit = true;
+  };
+
+  jujutsu = {
+    enable = true;
+    userName = full_name;
+    userEmail = email;
   };
 
   helix = {

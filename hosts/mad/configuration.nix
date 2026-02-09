@@ -2,6 +2,8 @@
 let
   username = "seb";
   hostname = "mad";
+  full_name = "Sebastian Callh";
+  email = "sebastian.callh@maddenanalytics.com";
 in
 {
   imports =
@@ -22,6 +24,8 @@ in
     extraSpecialArgs = { 
       inherit inputs;
       username = username;
+      full_name = full_name;
+      email = email;
     };
     users = {
       "${username}" = import ./home.nix;
