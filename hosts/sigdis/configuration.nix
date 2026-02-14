@@ -18,7 +18,7 @@ in
   home-manager.users.seb = import ./home.nix;
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "root" "seb" ];
+    trusted-users = [ "root" username ];
   };
 
   # Even though we enable zsh in our homd config this is needed. 

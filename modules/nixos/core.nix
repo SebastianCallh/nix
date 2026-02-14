@@ -29,7 +29,7 @@ in
       };
 
       extraOptions = ''
-        trusted-users = root seb
+        trusted-users = root ${cfg.username}
       '';
     };
 
