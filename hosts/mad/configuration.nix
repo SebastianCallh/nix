@@ -17,7 +17,6 @@ in
       ../../modules/nixos/docker.nix
       ../../modules/nixos/zsa.nix
       ../../modules/nixos/jetbrains.nix
-      inputs.home-manager.nixosModules.default
     ];
   
   home-manager = {
