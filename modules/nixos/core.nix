@@ -42,8 +42,8 @@ in
 
     time.timeZone = "Europe/Stockholm";
     i18n = {
-      defaultLocale = "sv_SE.UTF-8";
-      extraLocales = ["en_US.UTF-8/UTF-8"];
+      defaultLocale = "en_US.UTF-8";
+      extraLocales = ["sv_SE.UTF-8/UTF-8"];
       extraLocaleSettings = {
         LC_ADDRESS = "sv_SE.UTF-8";
         LC_IDENTIFICATION = "sv_SE.UTF-8";
