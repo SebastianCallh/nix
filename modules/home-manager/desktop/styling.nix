@@ -14,14 +14,20 @@ in
       type = types.str;
       default = "catppuccin-latte";
     };
+
+    wallpaper = mkOption {
+      readOnly = true;
+      type = types.path;
+      default = ../../../images/theme-wallpapers/${cfg.theme}.png;
+    };
   };
-  
+
   config = {
     stylix = {
       enable = true;
       autoEnable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.theme}.yaml";
-      image = ../../../images/theme-wallpapers/${cfg.theme}.png;
+      image = cfg.wallpaper;
       targets = {
         firefox = {
           enable = true;
