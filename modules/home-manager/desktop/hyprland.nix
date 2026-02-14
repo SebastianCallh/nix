@@ -35,6 +35,7 @@ in
         "swaync"
         "blueman-applet"
         "nm-applet --indicator"
+        "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"
       ];
    
     monitor = map
