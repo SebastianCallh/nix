@@ -62,7 +62,7 @@ in
 
       input = { 
         kb_layout = "us,se";
-        kb_options = "ctrl:nocaps,grp:alt_shift_toggle";
+        kb_options = "ctrl:nocaps";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = 1;
@@ -87,6 +87,7 @@ in
         "$mod, S, exec, $printscreen"
         # "$mod, Q, hyprctl dispatch exit"
         "$mod, W, killactive"
+        "$mod, space, exec, hyprctl switchxkblayout all next"
         # "$mod, P, pseudo," # dwindle
         # "$mod, J, togglesplit," # dwindle
   
