@@ -41,6 +41,7 @@ in
     programs.yazi = {
       enable = true;
       enableZshIntegration = config.programs.zsh.enable;
+      shellWrapperName = "y"; # "yy" was depricated in favour of "y"
     };
   
     programs.starship = {
