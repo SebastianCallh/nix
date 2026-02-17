@@ -10,6 +10,7 @@ in {
     ./hyprlock.nix
     ./hypridle.nix
     ./hyprshutdown.nix
+    ./hyprsunset.nix
     ./swaync.nix
     ./wofi.nix
     ./waybar
