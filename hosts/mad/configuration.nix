@@ -64,6 +64,7 @@ in
   jetbrains = {
     enable = true;
     datagrip.enable = true;
+    dataspell.enable = true;
   };
   
   # shells need to be enabled system-wide and not only in home manager
