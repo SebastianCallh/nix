@@ -1,4 +1,7 @@
 { config, pkgs, lib, inputs, username, full_name, email, ... }:
+let
+  darkMode = false;
+in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -24,7 +27,7 @@
   corepackages.enable = true;
 
   desktop = {
-    theme = "ayu-light";
+    theme = if darkMode then "ayu-mirage" else "ayu-light";
     terminal = lib.getExe config.sh.package;
     monitors = [
       {
@@ -46,6 +49,7 @@
     userName = full_name;
     userEmail = email;
     enableDelta = true;
+    deltaLight = !darkMode;
     enableLazygit = true;
   };
 

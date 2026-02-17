@@ -23,6 +23,12 @@ in
       type = types.bool;
       default = false;
     };
+
+    deltaLight = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Whether to use light mode for delta (should match your terminal theme).";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -45,6 +51,10 @@ in
     programs.delta = {
       enable = cfg.enableDelta;
       enableGitIntegration = true;
+      options = {
+        syntax-theme = "base16";
+        light = cfg.deltaLight;
+      };
     };
 
     programs.lazygit = {
@@ -54,7 +64,7 @@ in
           pagers = [
             {
               colorArg = "always";
-              pager = "delta --dark --paging=never --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
+              pager = "delta --paging=never --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
             }
           ];
         };
