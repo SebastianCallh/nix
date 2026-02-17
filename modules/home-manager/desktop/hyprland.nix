@@ -31,7 +31,6 @@ in
       exec-once = [
         "hyprpaper"
         "waybar"
-        "swayidle -w"
         "swaync"
         "blueman-applet"
         "nm-applet --indicator"

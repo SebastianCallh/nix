@@ -8,7 +8,7 @@ in {
     ./monitors.nix
     ./hyprland.nix
     ./hyprlock.nix
-    ./swayidle.nix
+    ./hypridle.nix
     ./swaync.nix
     ./wofi.nix
     ./waybar
@@ -60,7 +60,7 @@ in {
       lockCommand = lockCommand;
     };
     
-    swayidle = {
+    hypridle = {
       timeout = cfg.lockscreen.timeout;
       lockCommand = lockCommand;
     };

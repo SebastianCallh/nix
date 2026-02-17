@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
-let 
-inherit (lib) getExe';
-cfg = config.swayidle;
+let
+  inherit (lib) getExe';
+  cfg = config.hypridle;
 in
 {
-  options.swayidle = with lib; {
+  options.hypridle = with lib; {
     timeout = mkOption {
       type = types.int;
     };
@@ -15,28 +15,27 @@ in
   };
 
   config = {
-    services.swayidle = 
-    {
+    services.hypridle = {
       enable = true;
-      timeouts =
-        let
+      settings = {
+        general = {
+          before_sleep_cmd = cfg.lockCommand;
+          lock_cmd = cfg.lockCommand;
+        };
+
+        listener = let
           dpmsCommand = "${getExe' pkgs.hyprland "hyprctl"} dispatch dpms";
-        in
-        [
+        in [
           {
             timeout = cfg.timeout;
-            command = cfg.lockCommand;
+            on-timeout = cfg.lockCommand;
           }
           {
             timeout = cfg.timeout + 60;
-            command = "${dpmsCommand} off";
-            resumeCommand = "${dpmsCommand} on";
+            on-timeout = "${dpmsCommand} off";
+            on-resume = "${dpmsCommand} on";
           }
         ];
-
-      events = {
-        "before-sleep" = cfg.lockCommand;
-        "lock" = cfg.lockCommand;
       };
     };
   };
