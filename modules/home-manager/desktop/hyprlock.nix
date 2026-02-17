@@ -3,11 +3,7 @@ let
   cfg = config.hyprlock;
 in
 {
-  options.hyprlock = with lib; {
-    wallpaper = mkOption {
-      type = types.path;
-    };
-  };
+  options.hyprlock = {};
 
   config = {
     programs.hyprlock = {

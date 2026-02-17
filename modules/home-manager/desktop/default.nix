@@ -65,8 +65,6 @@ in {
       lockCommand = lockCommand;
     };
     
-    hyprlock.wallpaper = cfg.lockscreen.wallpaper;
-
     xdg = {
       portal = {
         enable = true;
