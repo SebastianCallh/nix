@@ -79,6 +79,13 @@ in
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
       };
+
+      # Prevent JetBrains tooltip/popup windows from stealing focus,
+      # which causes an infinite re-render flickering loop.
+      windowrule = [
+        "no_initial_focus on, match:class ^(jetbrains-.*)$, match:title ^(win.*)$"
+        "no_focus on, match:class ^(jetbrains-.*)$, match:title ^(win.*)$"
+      ];
       
       bind = [
         "$mod, R, exec, $menu" 
