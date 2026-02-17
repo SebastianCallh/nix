@@ -146,8 +146,7 @@ in
     };
   };
 
-  # https://discourse.nixos.org/t/swaylock-wont-unlock/27275/3
-  security.pam.services.swaylock = {};
+  security.pam.services.hyprlock = {};
   
   services.greetd = {
     enable = true;

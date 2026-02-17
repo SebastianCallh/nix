@@ -72,8 +72,7 @@ in
 
     security.polkit.enable = true; # privilege manager
 
-    # https://discourse.nixos.org/t/swaylock-wont-unlock/27275/3
-    security.pam.services.swaylock = {};
+    security.pam.services.hyprlock = {};
   
     # Greeter should probably be put in its own service
     services.greetd = {

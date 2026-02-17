@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }: 
 let
   cfg = config.desktop;
-  lockCommand = "${config.programs.swaylock.package}/bin/swaylock -f";
+  lockCommand = "${pkgs.hyprlock}/bin/hyprlock";
 in {
   imports = [
     ./styling.nix
     ./monitors.nix
     ./hyprland.nix
-    ./swaylock.nix
+    ./hyprlock.nix
     ./swayidle.nix
     ./swaync.nix
     ./wofi.nix
@@ -65,7 +65,7 @@ in {
       lockCommand = lockCommand;
     };
     
-    swaylock.wallpaper = cfg.lockscreen.wallpaper;
+    hyprlock.wallpaper = cfg.lockscreen.wallpaper;
 
     xdg = {
       portal = {
