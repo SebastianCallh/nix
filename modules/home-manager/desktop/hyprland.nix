@@ -92,7 +92,7 @@ in
         "$mod, P, exec, $locker"
         "$mod, N, exec, $sidebar"
         "$mod, S, exec, $printscreen"
-        # "$mod, Q, hyprctl dispatch exit"
+        "$mod, Q, exec, hyprshutdown"
         "$mod, W, killactive"
         "$mod, space, exec, hyprctl switchxkblayout all next"
         # "$mod, P, pseudo," # dwindle

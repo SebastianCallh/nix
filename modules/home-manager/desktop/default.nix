@@ -9,6 +9,7 @@ in {
     ./hyprland.nix
     ./hyprlock.nix
     ./hypridle.nix
+    ./hyprshutdown.nix
     ./swaync.nix
     ./wofi.nix
     ./waybar
