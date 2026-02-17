@@ -24,7 +24,7 @@
   corepackages.enable = true;
 
   desktop = {
-    theme = "ayu-mirage";
+    theme = "ayu-light";
     terminal = lib.getExe config.sh.package;
     monitors = [
       {
