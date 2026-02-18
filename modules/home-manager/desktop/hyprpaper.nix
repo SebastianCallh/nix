@@ -15,20 +15,15 @@ in
     };
   };
 
-  config = let
-    preloads = builtins.concatStringsSep "\n" (map
-      (m: "preload = ${toString m.wallpaper}")
-      cfg.monitors);
-
-    wallpapers = builtins.concatStringsSep "\n" (map
-      (m: "wallpaper = ${m.name},${toString m.wallpaper}")
-      cfg.monitors);
-  in {
-    home.file.".config/hypr/hyprpaper.conf".text = ''
-      ipc = off # don't tick and check IPC
-      splash = false
-      ${preloads}
-      ${wallpapers}
-    '';
+  config = {
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        ipc = "off";
+        splash = false;
+        preload = map (m: toString m.wallpaper) cfg.monitors;
+        wallpaper = map (m: "${m.name},${toString m.wallpaper}") cfg.monitors;
+      };
+    };
   };
 }

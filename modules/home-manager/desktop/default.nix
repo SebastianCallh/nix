@@ -9,6 +9,7 @@ in {
     ./hyprland.nix
     ./hyprlock.nix
     ./hypridle.nix
+    ./hyprpaper.nix
     ./hyprshutdown.nix
     ./hyprsunset.nix
     ./swaync.nix
