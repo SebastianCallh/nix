@@ -6,15 +6,15 @@ in
   options.coding = with lib; {
     enable = mkEnableOption "enable";
 
-    enableAider = {
+    enableAider = mkOption {
       type = types.bool;
+      default = true;
     };
   };
   
   config = lib.mkIf cfg.enable {
       home.packages = with pkgs; [
         devenv
-        aider-chat
         claude-code
 
         # these are needed to build many python dependencies
@@ -22,6 +22,8 @@ in
         zlib
         expat
         glib
+      ] ++ lib.optionals cfg.enableAider [
+        pkgs.aider-chat
       ];
   };
 }
