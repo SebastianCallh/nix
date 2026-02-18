@@ -66,6 +66,8 @@ in {
       timeout = cfg.lockscreen.timeout;
       lockCommand = lockCommand;
     };
+
+    hyprpaper.monitors = map (m: { inherit (m) name wallpaper; }) cfg.monitors;
     
     xdg = {
       portal = {
