@@ -38,12 +38,9 @@ in
         user = {
           name = cfg.userName;
           email = cfg.userEmail;
-          init.defaultBranch = "main";
-          push = {
-            autoSetupRemote = true;
-          };
-          
         };
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
       };
       lfs.enable = true;
     };
