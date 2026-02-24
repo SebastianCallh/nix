@@ -56,11 +56,21 @@
         position = "bottom";
         height = 30;
         modules-left = ["hyprland/workspaces"]; 
-        modules-right = ["tray" "hyprland/language" "battery" "clock"];
+        modules-right = ["tray" "memory" "cpu" "hyprland/language" "battery" "clock"];
   
         "tray" = {
           icon-size = 21;
           spacing = 10;
+        };
+
+        memory = {
+          format = "  {used:0.1f}G / {total:0.1f}G";
+          tooltip = false;
+        };
+
+        cpu = {
+          format = "  {usage}%";
+          tooltip = false;
         };
   
         "hyprland/language" = {
