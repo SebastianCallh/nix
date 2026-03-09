@@ -68,6 +68,7 @@ in
       qt6.qtwayland
       libappindicator # tray icons
       swaynotificationcenter
+      loupe # image viewer
     ];
 
     security.polkit.enable = true; # privilege manager
