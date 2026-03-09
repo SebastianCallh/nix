@@ -65,7 +65,7 @@ in
   
   home.packages = with pkgs; [
     curl
-    neofetch
+    fastfetch
     discord
     obsidian
     lazygit

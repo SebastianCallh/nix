@@ -22,7 +22,7 @@ in
     home.packages = with pkgs; [
       # cli tools
       curl
-      neofetch
+      fastfetch
       nil
       ripgrep
       grimblast
