@@ -34,6 +34,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
+      signing.format = null;
       settings = {
         user = {
           name = cfg.userName;
