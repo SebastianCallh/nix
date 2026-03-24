@@ -76,7 +76,7 @@ in
     libreoffice
     postman
     slack
-    google-cloud-sdk
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
   ];
 
   # shells need to be enabled system-wide and not only in home manager
