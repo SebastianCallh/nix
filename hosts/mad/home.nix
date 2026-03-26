@@ -17,6 +17,7 @@ in
     ../../modules/home-manager/editor/helix
     ../../modules/home-manager/sh
     ../../modules/home-manager/dockertools
+    ../../modules/home-manager/kubernetes
   ];
 
   home = {
@@ -71,6 +72,7 @@ in
   };
   
   dockertools.enable = true;
+  kubernetes.enable = true;
    
   home.packages = with pkgs; [
     libreoffice
