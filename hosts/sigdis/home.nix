@@ -16,7 +16,7 @@
     devenv
     file
     killall
-    nodePackages.pyright
+    pyright
     (pkgs.nerdfonts.override { fonts = ["Terminus" "Hack"]; })
   ];
 

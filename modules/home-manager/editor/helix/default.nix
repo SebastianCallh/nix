@@ -19,7 +19,7 @@ in
         ruff
         pyright
         marksman
-        nodePackages.vscode-json-languageserver
+        vscode-json-languageserver
         lazygit
       ];
     
