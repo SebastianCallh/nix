@@ -10,8 +10,9 @@ in
   config = lib.mkIf cfg.enable {
       home.packages = with pkgs; [
         kubectl
-        k9s
         kubernetes-helm
       ];
+
+      programs.k9s.enable = true;
   };
 }
