@@ -28,7 +28,7 @@ in
   corepackages.enable = true;
 
   desktop = {
-    theme = if darkMode then "ayu-mirage" else "ayu-light";
+    theme = if darkMode then "gruvbox-dark-dark-medium" else "gruvbox-light-medium";
     terminal = lib.getExe config.sh.package;
     monitors = [
       {
