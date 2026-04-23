@@ -100,6 +100,14 @@ in
     ];
 
 
+    # Kill memory-hogging processes before the system freezes
+    services.earlyoom = {
+      enable = true;
+      freeMemThreshold = 5;
+      freeSwapThreshold = 10;
+      enableNotifications = true;
+    };
+
     # mount usb drives
     services.udisks2.enable = true;
   };
