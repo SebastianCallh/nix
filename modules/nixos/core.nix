@@ -69,7 +69,23 @@ in
       libappindicator # tray icons
       swaynotificationcenter
       loupe # image viewer
+      ibusMinimal # to handle dead keys like tilde and backtick in gtk apps
     ];
+
+    # Shim loader so unpatched dynamically-linked binaries (pip wheels,
+    # vendor tools, jetbrains plugins) can find common libraries like
+    # libstdc++.so.6 via NIX_LD_LIBRARY_PATH.
+    programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc.lib
+        zlib
+        openssl
+        expat
+        glib
+        libGL
+      ];
+    };
 
     security.polkit.enable = true; # privilege manager
 
