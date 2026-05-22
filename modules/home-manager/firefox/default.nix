@@ -9,6 +9,7 @@
 
     programs.firefox = {
       enable = true;
+      configPath = ".mozilla/firefox";
       profiles = {
         seb = {
           id = 0;
