@@ -19,6 +19,7 @@ in
   config = {
     wayland.windowManager.hyprland = {
       enable = true;
+      configType = "hyprlang";
     };
 
     wayland.windowManager.hyprland.settings = {
