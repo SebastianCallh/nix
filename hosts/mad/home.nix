@@ -1,6 +1,11 @@
 { config, pkgs, lib, inputs, username, full_name, email, ... }:
 let
   darkMode = false;
+  # See nixpkgs-gcloud in flake.nix: pinned nixpkgs just for google-cloud-sdk.
+  pkgs-gcloud = import inputs.nixpkgs-gcloud {
+    inherit (pkgs) system;
+    config.allowUnfree = true;
+  };
 in
 {
   imports = [
@@ -78,7 +83,8 @@ in
     libreoffice
     postman
     slack
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    (pkgs-gcloud.google-cloud-sdk.withExtraComponents [pkgs-gcloud.google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    crawl
   ];
 
   # shells need to be enabled system-wide and not only in home manager
