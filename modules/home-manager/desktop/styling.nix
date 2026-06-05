@@ -1,6 +1,15 @@
 { pkgs, config, lib, ... }: 
 let
   cfg = config.styling;
+  c = config.lib.stylix.colors;
+  # xdg-desktop-portal-gtk (active for the FileChooser) makes Firefox read its
+  # light/dark preference from dconf instead of the GTK config files. Stylix
+  # only sets this key via its gnome target, which is off on Hyprland, so the
+  # portal reports "no preference" and Firefox renders unstyled. Derive the
+  # polarity from the scheme background luminance and set the key ourselves.
+  # See https://github.com/nix-community/stylix/issues/2071
+  isDark =
+    (lib.toInt c."base00-rgb-r" + lib.toInt c."base00-rgb-g" + lib.toInt c."base00-rgb-b") < 384;
 in
 {
   options.styling = with lib; {
@@ -62,6 +71,11 @@ in
     gtk = {
       enable = true;
     };
+
+    # mkForce because stylix's gnome target also sets this key (to "default"
+    # whenever stylix.polarity isn't explicitly "dark"), which is the root cause.
+    dconf.settings."org/gnome/desktop/interface".color-scheme =
+      lib.mkForce (if isDark then "prefer-dark" else "prefer-light");
     
     fonts.fontconfig.enable = true;
     home.pointerCursor = {

@@ -1,6 +1,6 @@
 { config, pkgs, lib, inputs, username, full_name, email, ... }:
 let
-  darkMode = false;
+  darkMode = true;
   # See nixpkgs-gcloud in flake.nix: pinned nixpkgs just for google-cloud-sdk.
   pkgs-gcloud = import inputs.nixpkgs-gcloud {
     inherit (pkgs) system;
@@ -33,7 +33,7 @@ in
   corepackages.enable = true;
 
   desktop = {
-    theme = if darkMode then "gruvbox-dark-dark-medium" else "gruvbox-light-medium";
+    theme = if darkMode then "gruvbox-dark-medium" else "gruvbox-light-medium";
     terminal = lib.getExe config.sh.package;
     monitors = [
       {
