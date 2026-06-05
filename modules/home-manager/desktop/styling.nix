@@ -61,7 +61,6 @@ in
 
     gtk = {
       enable = true;
-      gtk4.theme = null;
     };
     
     fonts.fontconfig.enable = true;
