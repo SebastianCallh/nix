@@ -81,7 +81,6 @@ in
    
   home.packages = with pkgs; [
     libreoffice
-    postman
     slack
     (pkgs-gcloud.google-cloud-sdk.withExtraComponents [pkgs-gcloud.google-cloud-sdk.components.gke-gcloud-auth-plugin])
     crawl
