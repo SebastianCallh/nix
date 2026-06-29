@@ -3,7 +3,7 @@ let
   username = "seb";
   hostname = "mad";
   full_name = "Sebastian Callh";
-  email = "sebastian.callh@maddenanalytics.com";
+  email = "sebastian.callh@gmail.com";
 in
 {
   imports =
