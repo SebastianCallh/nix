@@ -18,7 +18,7 @@ in
     ../../modules/home-manager/coding
     ../../modules/home-manager/firefox
     ../../modules/home-manager/syncthing
-    ../../modules/home-manager/direnv
+    ../../modules/home-manager/devenv
     ../../modules/home-manager/editor/helix
     ../../modules/home-manager/sh
     ../../modules/home-manager/dockertools
@@ -71,6 +71,10 @@ in
   };
   
   coding.enable = true;
+  devenv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   sh = {
     terminal = "ghostty";
     shell = "zsh";
