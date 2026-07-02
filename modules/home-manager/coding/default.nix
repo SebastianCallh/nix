@@ -9,7 +9,6 @@ in
   
   config = lib.mkIf cfg.enable {
       home.packages = with pkgs; [
-        devenv
         jq
 
         # these are needed to build many python dependencies
