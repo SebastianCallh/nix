@@ -9,6 +9,7 @@ in
   
   config = lib.mkIf cfg.enable {
       home.packages = with pkgs; [
+        gnumake
         jq
 
         # these are needed to build many python dependencies
