@@ -3,7 +3,7 @@ let
   darkMode = true;
   # See nixpkgs-gcloud in flake.nix: pinned nixpkgs just for google-cloud-sdk.
   pkgs-gcloud = import inputs.nixpkgs-gcloud {
-    inherit (pkgs) system;
+    inherit (pkgs.stdenv.hostPlatform) system;
     config.allowUnfree = true;
   };
 in

@@ -19,7 +19,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.devenv ];
 
-    programs.zsh.initExtra = lib.mkIf cfg.enableZshIntegration ''
+    programs.zsh.initContent = lib.mkIf cfg.enableZshIntegration ''
       eval "$(devenv hook zsh)"
     '';
   };
