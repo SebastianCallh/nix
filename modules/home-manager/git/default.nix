@@ -59,10 +59,10 @@ in
       enable = cfg.enableLazygit;
       settings = {
         git = {
-          pagers = [
+          diffRenderers = [
             {
               colorArg = "always";
-              pager = "delta --paging=never --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
+              command = "delta --paging=never --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
             }
           ];
         };
