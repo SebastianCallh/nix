@@ -1,11 +1,8 @@
 { config, lib, ... }:
 let
-  # Ghostty's own tiling layer, taken verbatim from
-  #   ghostty +list-keybinds --default
-  # Once herdr owns panes and tabs this has to go, for two reasons: ghostty
-  # consumes these keys before herdr ever sees them (alt+1..8 most painfully),
-  # and whatever it does not consume still builds a second set of splits and
-  # tabs that herdr knows nothing about.
+  
+  # vanilla ghostty commands
+  # We use them explicitly here so we can disable them in favour for a terminal multiplexer
   ghosttyTiling =
     map (n: "alt+${toString n}") (lib.range 1 8)
     ++ map (n: "alt+digit_${toString n}") (lib.range 1 8)
@@ -33,8 +30,6 @@ let
       "ctrl+shift+arrow_left"         # previous_tab
     ];
 
-  # What ghostty used to do itself. herdr reproduces these bindings exactly,
-  # so they only apply on hosts that are not running it.
   ghosttyOwnTiling = [
     # navigate splits
     "ctrl+h=goto_split:left"
