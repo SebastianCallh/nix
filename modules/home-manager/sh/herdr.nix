@@ -84,9 +84,7 @@ in
         keys = {
           prefix = cfg.prefix;
 
-          # Direct bindings, no prefix. These are exactly the keys ghostty
-          # used to bind to its own splits and tabs, so the muscle memory
-          # carries over unchanged; they are simply routed to herdr now.
+          # Direct bindings, no prefix. These mirrored ghostty key binds
           focus_pane_left = "ctrl+h";
           focus_pane_down = "ctrl+j";
           focus_pane_up = "ctrl+k";
@@ -109,7 +107,7 @@ in
           swap_pane_right = "prefix+shift+l";
 
           split_vertical = "prefix+v";
-          split_horizontal = "prefix+minus";
+          split_horizontal = "prefix+h";
           zoom = "prefix+z";
           resize_mode = "prefix+r";
           close_pane = "prefix+x";
