@@ -24,7 +24,7 @@
 
   desktop = {
     theme = "ayu-mirage";
-    terminal = lib.getExe config.sh.package;
+    terminal = config.sh.command;
     monitors = [
       {
         name = "eDP-1";
@@ -65,6 +65,8 @@
     terminal = "ghostty";
     shell = "zsh";
   };
+
+  herdr.enable = true;
   
   dockertools.enable = true;
    

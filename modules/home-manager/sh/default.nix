@@ -6,6 +6,7 @@ in
   imports = [
     ./kitty.nix
     ./ghostty.nix
+    ./herdr.nix
     ./zsh.nix
     # ./zellij.nix
   ];
@@ -26,6 +27,22 @@ in
         "kitty" = pkgs.kitty;
         "ghostty" = pkgs.ghostty;
       }."${cfg.terminal}";
+    };
+
+    command = mkOption {
+      readOnly = true;
+      type = types.str;
+      description = ''
+        Command that opens a terminal. This is what the compositor should
+        spawn, rather than the bare terminal binary: when herdr is enabled it
+        wraps the terminal so the window comes up already attached to the
+        persistent herdr session.
+      '';
+      default =
+        let terminal = lib.getExe cfg.package;
+        in if config.herdr.autoStart && config.herdr.enable
+           then "${terminal} -e ${lib.getExe config.programs.herdr.package}"
+           else terminal;
     };
    };
 

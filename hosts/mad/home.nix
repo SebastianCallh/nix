@@ -34,7 +34,7 @@ in
 
   desktop = {
     theme = if darkMode then "gruvbox-dark-medium" else "gruvbox-light-medium";
-    terminal = lib.getExe config.sh.package;
+    terminal = config.sh.command;
     monitors = [
       {
         name = "eDP-1";
@@ -79,6 +79,8 @@ in
     terminal = "ghostty";
     shell = "zsh";
   };
+
+  herdr.enable = true;
   
   dockertools.enable = true;
   kubernetes.enable = true;
