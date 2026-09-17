@@ -33,7 +33,7 @@ in
   corepackages.enable = true;
 
   desktop = {
-    theme = if darkMode then "gruvbox-dark-medium" else "gruvbox-light-medium";
+    theme = if darkMode then "catppuccin-mocha" else "catppuccin-latte";
     terminal = config.sh.command;
     monitors = [
       {
