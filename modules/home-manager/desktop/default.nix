@@ -1,7 +1,10 @@
 { config, pkgs, lib, ... }: 
 let
   cfg = config.desktop;
-  lockCommand = "${pkgs.hyprlock}/bin/hyprlock";
+  lockCommand =
+    if cfg.shell == "noctalia"
+    then "${lib.getExe pkgs.noctalia} msg session lock"
+    else "${pkgs.hyprlock}/bin/hyprlock";
 in {
   imports = [
     ./styling.nix
@@ -12,6 +15,7 @@ in {
     ./hyprpaper.nix
     ./hyprshutdown.nix
     ./hyprsunset.nix
+    ./noctalia.nix
     ./swaync.nix
     ./wofi.nix
     ./waybar
@@ -22,6 +26,15 @@ in {
       type = types.str;
       description = ''
         Executable for the terminal to use.
+      '';
+    };
+
+    shell = mkOption {
+      type = types.enum [ "waybar" "noctalia" ];
+      default = "waybar";
+      description = ''
+        Which desktop shell to run. "waybar" is the waybar/wofi/swaync/hypr*
+        stack, "noctalia" replaces all of it with noctalia.
       '';
     };
 

@@ -29,6 +29,12 @@ in
       type = types.path;
       default = ../../../images/theme-wallpapers/${cfg.theme}.png;
     };
+
+    isDark = mkOption {
+      readOnly = true;
+      type = types.bool;
+      default = isDark;
+    };
   };
 
   config = {

@@ -1,7 +1,7 @@
-{ ... }:
+{ config, ... }:
 {
   programs.waybar = {
-    enable = true;
+    enable = config.desktop.shell == "waybar";
     # colours are assumed to come from stylix or another style definition merged with this
     style = ''
     

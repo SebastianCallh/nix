@@ -1,7 +1,7 @@
-{  ... }:
+{ config, ... }:
 {
   services.swaync = {
-    enable = true;
+    enable = config.desktop.shell == "waybar";
     settings = {
       positionX = "right";
       positionY = "top";

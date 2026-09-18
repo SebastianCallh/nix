@@ -5,7 +5,7 @@ in
 {
   config = {
     programs.wofi = {
-      enable = true;
+      enable = config.desktop.shell == "waybar";
       
       settings = {
         key_up = "Ctrl-p";

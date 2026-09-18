@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  home.packages = [ pkgs.hyprshutdown ];
+  # noctalia ships its own session panel, so hyprshutdown is only needed
+  # alongside the waybar stack.
+  home.packages = lib.optional (config.desktop.shell == "waybar") pkgs.hyprshutdown;
 }

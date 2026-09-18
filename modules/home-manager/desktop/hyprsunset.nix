@@ -1,7 +1,7 @@
-{ ... }:
+{ config, ... }:
 {
   services.hyprsunset = {
-    enable = true;
+    enable = config.desktop.shell == "waybar";
     settings = {
       profile = [
         {
