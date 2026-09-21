@@ -13,10 +13,6 @@ let
 in
 {
   options.styling = with lib; {
-    # Fontconfig family name, not the package name: the nerd-fonts patched
-    # build of Fira Code registers itself without the space. The Mono variant
-    # forces the patched glyphs down to a single cell, which is what a terminal
-    # (and the starship prompt) wants.
     monospaceFont = mkOption {
       readOnly = true;
       type = types.str;
