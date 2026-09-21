@@ -35,6 +35,7 @@ in
     enable = true;
     username = username;
     gc = true;
+    session = "niri-session";
   };
 
   audio = {

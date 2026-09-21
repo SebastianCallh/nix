@@ -10,6 +10,7 @@ in {
     ./styling.nix
     ./monitors.nix
     ./hyprland.nix
+    ./niri.nix
     ./hyprlock.nix
     ./hypridle.nix
     ./hyprpaper.nix
@@ -35,6 +36,16 @@ in {
       description = ''
         Which desktop shell to run. "waybar" is the waybar/wofi/swaync/hypr*
         stack, "noctalia" replaces all of it with noctalia.
+      '';
+    };
+
+    compositor = mkOption {
+      type = types.enum [ "hyprland" "niri" ];
+      default = "hyprland";
+      description = ''
+        Which Wayland compositor to run. Both are configured from the same
+        desktop options, so switching only changes the window management
+        model: "hyprland" tiles dynamically, "niri" scrolls columns.
       '';
     };
 
@@ -75,6 +86,11 @@ in {
       terminal = cfg.terminal;
       lockCommand = lockCommand;
     };
+
+    niri = {
+      terminal = cfg.terminal;
+      lockCommand = lockCommand;
+    };
     
     hypridle = {
       timeout = cfg.lockscreen.timeout;
@@ -93,10 +109,11 @@ in {
           "org.freedesktop.impl.portal.OpenURI" = [ "gtk" ];
           default = "*";
         };
+        # The niri home-manager module contributes xdg-desktop-portal-gnome,
+        # which is what niri's own portals.conf expects for screencasting.
         extraPortals = [
           pkgs.xdg-desktop-portal-gtk
-          pkgs.xdg-desktop-portal-hyprland
-        ];
+        ] ++ lib.optional (cfg.compositor == "hyprland") pkgs.xdg-desktop-portal-hyprland;
       };
 
       # mime = {

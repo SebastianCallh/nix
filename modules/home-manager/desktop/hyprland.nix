@@ -18,7 +18,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (config.desktop.compositor == "hyprland") {
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "hyprlang";

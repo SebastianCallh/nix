@@ -2,12 +2,22 @@
 let 
   cfg = config.core;
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-  session = "Hyprland"; # logging out and in does not work with the pkgs prefix for some reason
+  session = cfg.session;
 in
 {
   options.core = {
     enable = lib.mkEnableOption "Enable core module. Very important.";
     gc = lib.mkEnableOption "Enable automatic garbage collection";
+    session = with lib; mkOption {
+      type = types.str;
+      default = "Hyprland";
+      example = "niri-session";
+      description = ''
+        Command greetd launches for the graphical session. This has to be the
+        bare executable name rather than a store path, because logging out and
+        back in does not work when it carries the pkgs prefix.
+      '';
+    };
     username = with lib; mkOption {
       type = types.str;
     };
