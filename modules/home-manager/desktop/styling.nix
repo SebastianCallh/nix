@@ -13,10 +13,14 @@ let
 in
 {
   options.styling = with lib; {
-    font = mkOption {
+    # Fontconfig family name, not the package name: the nerd-fonts patched
+    # build of Fira Code registers itself without the space. The Mono variant
+    # forces the patched glyphs down to a single cell, which is what a terminal
+    # (and the starship prompt) wants.
+    monospaceFont = mkOption {
       readOnly = true;
       type = types.str;
-      default = "Fira Code";
+      default = "FiraCode Nerd Font Mono";
     };
     
     theme = mkOption {
@@ -54,17 +58,17 @@ in
       fonts = {
         serif = {
           package = pkgs.dejavu_fonts;
-          name = "${cfg.font} Serif";
+          name = "DejaVu Serif";
         };
 
         sansSerif = {
           package = pkgs.dejavu_fonts;
-          name = "${cfg.font} Sans";
+          name = "DejaVu Sans";
         };
 
         monospace = {
-          package = pkgs.dejavu_fonts;
-          name = "${cfg.font} Sans Mono";
+          package = pkgs.nerd-fonts.fira-code;
+          name = cfg.monospaceFont;
         };
 
         emoji = {
