@@ -36,6 +36,11 @@ in
         bar.default = {
           position = "bottom";
           thickness = 30;
+          margin_ends = 0;
+          radius = 0;
+          concave_edge_corners = false;
+          capsule_radius = 0;
+
           start = [ "workspaces" ];
           center = [ ];
           end = [ "tray" "ram" "cpu" "keyboard_layout" "battery" "clock" "control-center" ];
