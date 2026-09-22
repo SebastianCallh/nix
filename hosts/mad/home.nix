@@ -19,7 +19,6 @@ in
     ../../modules/_home-manager/devenv
     ../../modules/_home-manager/editor/helix
     ../../modules/_home-manager/sh
-    ../../modules/_home-manager/dockertools
     ../../modules/_home-manager/kubernetes
   ];
 
@@ -66,7 +65,6 @@ in
 
   herdr.enable = true;
   
-  dockertools.enable = true;
   kubernetes.enable = true;
    
   home.packages = with pkgs; [

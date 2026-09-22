@@ -11,7 +11,6 @@ in
       ../../modules/_nixos/bluetooth.nix
       ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
-      ../../modules/_nixos/docker.nix
       ../../modules/_nixos/zsa.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -43,10 +42,6 @@ in
   bluetooth.enable = true;
 
     
-  docker = {
-    enable = true;
-    userName = username;
-  };
     
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

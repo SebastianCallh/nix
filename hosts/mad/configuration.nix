@@ -13,7 +13,6 @@ in
       ../../modules/_nixos/bluetooth.nix
       ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
-      ../../modules/_nixos/docker.nix
       ../../modules/_nixos/zsa.nix
       ../../modules/_nixos/jetbrains.nix
     ];
@@ -45,11 +44,6 @@ in
   bluetooth.enable = true;
 
     
-  docker = {
-    enable = true;
-    userName = username;
-  };
-
   jetbrains = {
     enable = true;
     datagrip.enable = true;

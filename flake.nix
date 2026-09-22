@@ -99,6 +99,7 @@
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.git
+              config.flake.modules.nixos.docker
             ];
           };
 
@@ -110,6 +111,7 @@
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.git
+              config.flake.modules.nixos.docker
               config.flake.modules.nixos.jujutsu
             ]
             # The whole compositor-and-shell decision, two words. Order

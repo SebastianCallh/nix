@@ -12,7 +12,6 @@
     ../../modules/_home-manager/direnv
     ../../modules/_home-manager/editor/helix
     ../../modules/_home-manager/sh
-    ../../modules/_home-manager/dockertools
   ];
 
   corepackages.enable = true;
@@ -58,7 +57,6 @@
 
   herdr.enable = true;
   
-  dockertools.enable = true;
    
   home.packages = with pkgs; [
     libreoffice
