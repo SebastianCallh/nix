@@ -158,7 +158,13 @@
         darwinConfigurations.sigdis = darwinHost {
           system = "aarch64-darwin";
           configuration = ./hosts/sigdis/configuration.nix;
-          extraModules = [ config.flake.modules.darwin.zsh ];
+          extraModules = with config.flake.modules.darwin; [
+            zsh
+            sh
+            kitty
+            helix
+            direnv
+          ];
         };
       };
       }

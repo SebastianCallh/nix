@@ -1,9 +1,13 @@
 { config, ... }:
+let
+  attach = {
+    home-manager.sharedModules = [ config.flake.modules.homeManager.sh ];
+  };
+in
 {
   flake.modules = {
-    nixos.sh = {
-      home-manager.sharedModules = [ config.flake.modules.homeManager.sh ];
-    };
+    nixos.sh = attach;
+    darwin.sh = attach;
 
     homeManager.sh =
       { config, lib, pkgs, ... }:

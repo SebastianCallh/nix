@@ -1,9 +1,13 @@
 { config, ... }:
+let
+  attach = {
+    home-manager.sharedModules = [ config.flake.modules.homeManager.direnv ];
+  };
+in
 {
   flake.modules = {
-    nixos.direnv = {
-      home-manager.sharedModules = [ config.flake.modules.homeManager.direnv ];
-    };
+    nixos.direnv = attach;
+    darwin.direnv = attach;
 
     homeManager.direnv =
       { config, ... }:

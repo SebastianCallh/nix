@@ -1,12 +1,5 @@
 { config, pkgs, inputs, lib, ... }:
 {
-  imports = [
-    ../../modules/_home-manager/editor/helix
-    ../../modules/_home-manager/direnv
-    ../../modules/_home-manager/sh
-    ../../modules/_home-manager/kitty
-  ];
-  
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     lazygit

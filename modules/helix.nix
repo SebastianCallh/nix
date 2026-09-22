@@ -1,9 +1,13 @@
 { config, ... }:
+let
+  attach = {
+    home-manager.sharedModules = [ config.flake.modules.homeManager.helix ];
+  };
+in
 {
   flake.modules = {
-    nixos.helix = {
-      home-manager.sharedModules = [ config.flake.modules.homeManager.helix ];
-    };
+    nixos.helix = attach;
+    darwin.helix = attach;
 
     homeManager.helix =
       { pkgs, ... }:
