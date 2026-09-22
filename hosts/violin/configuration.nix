@@ -8,7 +8,6 @@ in
     [ 
       ./hardware-configuration.nix
       ../../modules/_nixos/core.nix
-      ../../modules/_nixos/network.nix
       inputs.home-manager.nixosModules.default
     ];
   
@@ -25,10 +24,7 @@ in
     gc = true;
   };
 
-  network = {
-    enable = true;
-    hostname = hostname;
-  };
+  networking.hostName = hostname;
 
 
     

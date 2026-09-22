@@ -10,7 +10,6 @@ in
     [ 
       ./hardware-configuration.nix
       ../../modules/_nixos/core.nix
-      ../../modules/_nixos/network.nix
     ];
   
   home-manager = {
@@ -26,10 +25,7 @@ in
     gc = true;
   };
 
-  network = {
-    enable = true;
-    hostname = hostname;
-  };
+  networking.hostName = hostname;
 
 
     
