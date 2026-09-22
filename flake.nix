@@ -134,6 +134,7 @@
               config.flake.modules.nixos.docker
               config.flake.modules.nixos.jujutsu
               config.flake.modules.nixos.devenv
+              config.flake.modules.nixos.kubernetes
               config.flake.modules.nixos.datagrip
               config.flake.modules.nixos.dataspell
             ]

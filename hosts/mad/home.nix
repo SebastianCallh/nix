@@ -14,7 +14,6 @@ in
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/editor/helix
     ../../modules/_home-manager/sh
-    ../../modules/_home-manager/kubernetes
   ];
 
 
@@ -54,7 +53,6 @@ in
 
   herdr.enable = true;
   
-  kubernetes.enable = true;
    
   home.packages = with pkgs; [
     libreoffice
