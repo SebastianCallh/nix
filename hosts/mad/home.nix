@@ -11,7 +11,6 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
-    ../../modules/_home-manager/desktop
   ];
 
 

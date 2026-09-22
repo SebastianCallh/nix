@@ -3,7 +3,6 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
-    ../../modules/_home-manager/desktop
     ../../modules/_home-manager/desktop/waybar-stack.nix
   ];
 

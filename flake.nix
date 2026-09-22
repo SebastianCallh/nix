@@ -91,6 +91,7 @@
               config.flake.modules.nixos.firefox
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.sh
+              config.flake.modules.nixos.desktop
             ];
           };
 
@@ -109,6 +110,7 @@
               config.flake.modules.nixos.herdr
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.sh
+              config.flake.modules.nixos.desktop
               config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.zsa
               config.flake.modules.nixos.audio
@@ -131,6 +133,7 @@
               config.flake.modules.nixos.coding
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.sh
+              config.flake.modules.nixos.desktop
               config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.zsa
               config.flake.modules.nixos.audio
