@@ -12,7 +12,6 @@ in
       ../../modules/_nixos/core.nix
       ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
-      ../../modules/_nixos/jetbrains.nix
     ];
   
   home-manager = {
@@ -40,12 +39,6 @@ in
 
 
     
-  jetbrains = {
-    enable = true;
-    datagrip.enable = true;
-    dataspell.enable = true;
-  };
-  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

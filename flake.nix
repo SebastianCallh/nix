@@ -117,6 +117,8 @@
               config.flake.modules.nixos.git
               config.flake.modules.nixos.docker
               config.flake.modules.nixos.jujutsu
+              config.flake.modules.nixos.datagrip
+              config.flake.modules.nixos.dataspell
             ]
             # The whole compositor-and-shell decision, two words. Order
             # matters: the compositor contributes its niri nodes before the
