@@ -5,11 +5,11 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
-    ../../modules/home-manager/desktop
-    ../../modules/home-manager/firefox
-    ../../modules/home-manager/syncthing
-    ../../modules/home-manager/editor/helix
-    ../../modules/home-manager/sh
+    ../../modules/_home-manager/desktop
+    ../../modules/_home-manager/firefox
+    ../../modules/_home-manager/syncthing
+    ../../modules/_home-manager/editor/helix
+    ../../modules/_home-manager/sh
   ];
 
   home.username = username;

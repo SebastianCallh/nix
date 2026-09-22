@@ -59,6 +59,17 @@
         };
     in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        # Provides flake.modules.<class>.<aspect>, the shared trunk that
+        # aspect modules contribute to and hosts pick from.
+        inputs.flake-parts.flakeModules.modules
+        # Every .nix under ./modules is a flake-parts module, auto-imported.
+        # Paths containing /_ are skipped: modules/_nixos and
+        # modules/_home-manager still hold class modules that hosts import by
+        # hand, and are migrated out of there aspect by aspect.
+        (inputs.import-tree ./modules)
+      ];
+
       systems = [
         "x86_64-linux"
         "aarch64-darwin"

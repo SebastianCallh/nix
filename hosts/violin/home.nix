@@ -3,16 +3,16 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
-    ../../modules/home-manager/desktop
-    ../../modules/home-manager/corepackages
-    ../../modules/home-manager/git
-    ../../modules/home-manager/coding
-    ../../modules/home-manager/firefox
-    ../../modules/home-manager/syncthing
-    ../../modules/home-manager/direnv
-    ../../modules/home-manager/editor/helix
-    ../../modules/home-manager/sh
-    ../../modules/home-manager/dockertools
+    ../../modules/_home-manager/desktop
+    ../../modules/_home-manager/corepackages
+    ../../modules/_home-manager/git
+    ../../modules/_home-manager/coding
+    ../../modules/_home-manager/firefox
+    ../../modules/_home-manager/syncthing
+    ../../modules/_home-manager/direnv
+    ../../modules/_home-manager/editor/helix
+    ../../modules/_home-manager/sh
+    ../../modules/_home-manager/dockertools
   ];
 
   home = {

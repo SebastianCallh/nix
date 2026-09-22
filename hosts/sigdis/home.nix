@@ -1,10 +1,10 @@
 { config, pkgs, inputs, lib, ... }:
 {
   imports = [
-    ../../modules/home-manager/editor/helix
-    ../../modules/home-manager/direnv
-    ../../modules/home-manager/sh
-    ../../modules/home-manager/kitty
+    ../../modules/_home-manager/editor/helix
+    ../../modules/_home-manager/direnv
+    ../../modules/_home-manager/sh
+    ../../modules/_home-manager/kitty
   ];
   
   fonts.fontconfig.enable = true;

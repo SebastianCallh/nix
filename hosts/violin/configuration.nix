@@ -7,13 +7,13 @@ in
   imports =
     [ 
       ./hardware-configuration.nix
-      ../../modules/nixos/core.nix
-      ../../modules/nixos/user.nix
-      ../../modules/nixos/bluetooth.nix
-      ../../modules/nixos/audio.nix
-      ../../modules/nixos/network.nix
-      ../../modules/nixos/docker.nix
-      ../../modules/nixos/zsa.nix
+      ../../modules/_nixos/core.nix
+      ../../modules/_nixos/user.nix
+      ../../modules/_nixos/bluetooth.nix
+      ../../modules/_nixos/audio.nix
+      ../../modules/_nixos/network.nix
+      ../../modules/_nixos/docker.nix
+      ../../modules/_nixos/zsa.nix
       inputs.home-manager.nixosModules.default
     ];
   
