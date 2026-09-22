@@ -8,7 +8,6 @@ in
     [ 
       ./hardware-configuration.nix
       ../../modules/_nixos/core.nix
-      ../../modules/_nixos/bluetooth.nix
       ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
       ../../modules/_nixos/zsa.nix
@@ -39,7 +38,6 @@ in
   };
 
   zsa.enable = true;
-  bluetooth.enable = true;
 
     
     

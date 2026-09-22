@@ -88,6 +88,7 @@
               inputs.catppuccin.nixosModules.catppuccin
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.zsh
+              config.flake.modules.nixos.bluetooth
             ];
           };
 
@@ -98,6 +99,7 @@
               inputs.stylix.nixosModules.stylix
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.zsh
+              config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.git
               config.flake.modules.nixos.docker
             ];
@@ -110,6 +112,7 @@
               inputs.stylix.nixosModules.stylix
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.zsh
+              config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.git
               config.flake.modules.nixos.docker
               config.flake.modules.nixos.jujutsu
