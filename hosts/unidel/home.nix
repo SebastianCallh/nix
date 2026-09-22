@@ -7,7 +7,6 @@ in
     inputs.catppuccin.homeManagerModules.catppuccin
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/desktop/waybar-stack.nix
-    ../../modules/_home-manager/firefox
     ../../modules/_home-manager/editor/helix
     ../../modules/_home-manager/sh
   ];
