@@ -13,8 +13,6 @@ in
     ../../modules/_home-manager/sh
   ];
 
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
   xdg.enable = true; # required for catppuccin/nix theming
   
   nixpkgs.config = { 

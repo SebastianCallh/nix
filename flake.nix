@@ -84,13 +84,19 @@
           unidel = nixosHost {
             system = "x86_64-linux";
             configuration = ./hosts/unidel/configuration.nix;
-            extraModules = [ inputs.catppuccin.nixosModules.catppuccin ];
+            extraModules = [
+              inputs.catppuccin.nixosModules.catppuccin
+              config.flake.modules.nixos.seb
+            ];
           };
 
           violin = nixosHost {
             system = "x86_64-linux";
             configuration = ./hosts/violin/configuration.nix;
-            extraModules = [ inputs.stylix.nixosModules.stylix ];
+            extraModules = [
+              inputs.stylix.nixosModules.stylix
+              config.flake.modules.nixos.seb
+            ];
           };
 
           mad = nixosHost {
@@ -98,6 +104,7 @@
             configuration = ./hosts/mad/configuration.nix;
             extraModules = [
               inputs.stylix.nixosModules.stylix
+              config.flake.modules.nixos.seb
             ]
             # The whole compositor-and-shell decision, two words. Order
             # matters: the compositor contributes its niri nodes before the

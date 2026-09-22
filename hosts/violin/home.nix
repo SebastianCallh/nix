@@ -16,11 +16,6 @@
     ../../modules/_home-manager/dockertools
   ];
 
-  home = {
-    username = username;
-    homeDirectory = "/home/${username}";
-  };
-
   corepackages.enable = true;
 
   desktop = {

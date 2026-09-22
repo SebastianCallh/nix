@@ -10,7 +10,6 @@ in
     [ 
       ./hardware-configuration.nix
       ../../modules/_nixos/core.nix
-      ../../modules/_nixos/user.nix
       ../../modules/_nixos/bluetooth.nix
       ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
@@ -50,11 +49,6 @@ in
   zsa.enable = true;
   bluetooth.enable = true;
 
-  user = {
-    enable = true;
-    name = username;
-    autologin = false;
-  };
     
   docker = {
     enable = true;

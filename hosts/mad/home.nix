@@ -25,11 +25,6 @@ in
     ../../modules/_home-manager/kubernetes
   ];
 
-  home = {
-    username = username;
-    homeDirectory = "/home/${username}";
-  };
-
   corepackages.enable = true;
 
   desktop = {

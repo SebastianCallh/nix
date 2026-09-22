@@ -1,6 +1,3 @@
-# The niri compositor, both halves: the greetd session on the system side and
-# the compositor configuration on the user side.
-#
 # Only compositor-generic configuration lives here. Anything that talks to a
 # desktop shell is contributed by that shell's own module, so a host picks its
 # compositor and its shell independently and neither file branches on the other.
