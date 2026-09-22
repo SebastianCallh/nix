@@ -87,6 +87,7 @@
             extraModules = [
               inputs.catppuccin.nixosModules.catppuccin
               config.flake.modules.nixos.seb
+              config.flake.modules.nixos.syncthing
               config.flake.modules.nixos.zsh
             ];
           };
@@ -98,6 +99,7 @@
               inputs.stylix.nixosModules.stylix
               config.flake.modules.nixos.core
               config.flake.modules.nixos.seb
+              config.flake.modules.nixos.syncthing
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.zsa
@@ -115,6 +117,7 @@
               inputs.stylix.nixosModules.stylix
               config.flake.modules.nixos.core
               config.flake.modules.nixos.seb
+              config.flake.modules.nixos.syncthing
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.zsa

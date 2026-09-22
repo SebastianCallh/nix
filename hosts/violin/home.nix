@@ -8,7 +8,6 @@
     ../../modules/_home-manager/corepackages
     ../../modules/_home-manager/coding
     ../../modules/_home-manager/firefox
-    ../../modules/_home-manager/syncthing
     ../../modules/_home-manager/direnv
     ../../modules/_home-manager/editor/helix
     ../../modules/_home-manager/sh
