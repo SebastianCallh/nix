@@ -8,7 +8,6 @@ in
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/desktop/waybar-stack.nix
     ../../modules/_home-manager/editor/helix
-    ../../modules/_home-manager/sh
   ];
 
   xdg.enable = true; # required for catppuccin/nix theming
@@ -50,12 +49,6 @@ in
 
   sh.terminal = "kitty";
   
-  kitty = {
-    font = {
-      name = config.styling.fontName;
-      size = 18;
-    };
-  };
   
   home.packages = with pkgs; [
     curl

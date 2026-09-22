@@ -6,7 +6,6 @@
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/desktop/waybar-stack.nix
     ../../modules/_home-manager/editor/helix
-    ../../modules/_home-manager/sh
   ];
 
 
@@ -48,7 +47,6 @@
   
   sh.terminal = "ghostty";
 
-  herdr.enable = true;
   
    
   home.packages = with pkgs; [

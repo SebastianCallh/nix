@@ -13,7 +13,6 @@ in
     inputs.stylix.homeModules.stylix
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/editor/helix
-    ../../modules/_home-manager/sh
   ];
 
 
@@ -51,7 +50,6 @@ in
   
   sh.terminal = "ghostty";
 
-  herdr.enable = true;
   
    
   home.packages = with pkgs; [
