@@ -13,7 +13,6 @@ in
     inputs.stylix.homeModules.stylix
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/corepackages
-    ../../modules/_home-manager/jujutsu
     ../../modules/_home-manager/coding
     ../../modules/_home-manager/firefox
     ../../modules/_home-manager/syncthing
@@ -51,11 +50,7 @@ in
     enableLazygit = true;
   };
 
-  jujutsu = {
-    enable = true;
-    userName = full_name;
-    userEmail = email;
-  };
+  jujutsu.userEmail = "sebastian.callh@gmail.com";
 
   helix = {
     enable = true;
