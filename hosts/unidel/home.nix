@@ -50,10 +50,7 @@ in
     };
   };
 
-  sh = {
-    terminal = "kitty";
-    shell = "zsh";
-  };
+  sh.terminal = "kitty";
   
   kitty = {
     font = {

@@ -62,10 +62,7 @@ in
     enable = true;
     enableZshIntegration = true;
   };
-  sh = {
-    terminal = "ghostty";
-    shell = "zsh";
-  };
+  sh.terminal = "ghostty";
 
   herdr.enable = true;
   
@@ -78,10 +75,6 @@ in
     (pkgs-gcloud.google-cloud-sdk.withExtraComponents [pkgs-gcloud.google-cloud-sdk.components.gke-gcloud-auth-plugin])
     crawl
   ];
-
-  # shells need to be enabled system-wide and not only in home manager
-  # https://nixos.wiki/wiki/Command_Shell
-  programs.zsh.enable = true;
     
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

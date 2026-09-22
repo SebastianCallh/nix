@@ -54,10 +54,7 @@
   };
   
   coding.enable = true;
-  sh = {
-    terminal = "ghostty";
-    shell = "zsh";
-  };
+  sh.terminal = "ghostty";
 
   herdr.enable = true;
   
@@ -68,10 +65,6 @@
     postman
     slack
   ];
-
-  # shells need to be enabled system-wide and not only in home manager
-  # https://nixos.wiki/wiki/Command_Shell
-  programs.zsh.enable = true;
     
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

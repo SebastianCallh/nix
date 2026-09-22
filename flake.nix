@@ -87,6 +87,7 @@
             extraModules = [
               inputs.catppuccin.nixosModules.catppuccin
               config.flake.modules.nixos.seb
+              config.flake.modules.nixos.zsh
             ];
           };
 
@@ -96,6 +97,7 @@
             extraModules = [
               inputs.stylix.nixosModules.stylix
               config.flake.modules.nixos.seb
+              config.flake.modules.nixos.zsh
               config.flake.modules.nixos.git
             ];
           };
@@ -106,6 +108,7 @@
             extraModules = [
               inputs.stylix.nixosModules.stylix
               config.flake.modules.nixos.seb
+              config.flake.modules.nixos.zsh
               config.flake.modules.nixos.git
               config.flake.modules.nixos.jujutsu
             ]
@@ -122,6 +125,7 @@
         darwinConfigurations.sigdis = darwinHost {
           system = "aarch64-darwin";
           configuration = ./hosts/sigdis/configuration.nix;
+          extraModules = [ config.flake.modules.darwin.zsh ];
         };
       };
       }
