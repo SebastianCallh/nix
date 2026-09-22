@@ -102,6 +102,7 @@
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.syncthing
               config.flake.modules.nixos.firefox
+              config.flake.modules.nixos.corepackages
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.zsa
@@ -121,6 +122,7 @@
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.syncthing
               config.flake.modules.nixos.firefox
+              config.flake.modules.nixos.corepackages
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.zsa

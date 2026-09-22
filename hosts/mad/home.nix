@@ -12,7 +12,6 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
     ../../modules/_home-manager/desktop
-    ../../modules/_home-manager/corepackages
     ../../modules/_home-manager/coding
     ../../modules/_home-manager/devenv
     ../../modules/_home-manager/editor/helix
@@ -20,7 +19,6 @@ in
     ../../modules/_home-manager/kubernetes
   ];
 
-  corepackages.enable = true;
 
   desktop = {
     theme = if darkMode then "catppuccin-mocha" else "catppuccin-latte";
