@@ -12,7 +12,6 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
     ../../modules/_home-manager/desktop
-    ../../modules/_home-manager/coding
     ../../modules/_home-manager/devenv
     ../../modules/_home-manager/editor/helix
     ../../modules/_home-manager/sh
@@ -52,7 +51,6 @@ in
     defaultEditor = true;
   };
   
-  coding.enable = true;
   devenv = {
     enable = true;
     enableZshIntegration = true;
