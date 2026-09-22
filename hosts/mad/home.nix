@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, username, full_name, email, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   darkMode = true;
   # See nixpkgs-gcloud in flake.nix: pinned nixpkgs just for google-cloud-sdk.

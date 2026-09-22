@@ -19,12 +19,7 @@ in
     ];
   
   home-manager = {
-    extraSpecialArgs = { 
-      inherit inputs;
-      username = username;
-      full_name = full_name;
-      email = email;
-    };
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "${username}" = import ./home.nix;
     };

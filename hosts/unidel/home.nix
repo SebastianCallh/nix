@@ -1,4 +1,4 @@
-{ config, pkgs, lib, builtins, inputs, username, ... }:
+{ config, pkgs, lib, builtins, inputs, ... }:
 let theme = "light";
 in
 {
