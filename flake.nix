@@ -9,7 +9,10 @@
     nixpkgs-gcloud.url = "github:nixos/nixpkgs/4100e830e085863741bc69b156ec4ccd53ab5be0";
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin.url = "github:catppuccin/nix";
-    
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,45 +31,64 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, ... }@inputs: {
-    nixosConfigurations.unidel = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/unidel/configuration.nix
-        inputs.home-manager.nixosModules.default
-        inputs.catppuccin.nixosModules.catppuccin
-      ];
-    };
+  outputs =
+    inputs:
+    let
+      # Hosts differ only in system, entry point, and which theming module they
+      # pull in; everything else is identical boilerplate.
+      nixosHost =
+        { system, configuration, extraModules ? [ ] }:
+        inputs.nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            configuration
+            inputs.home-manager.nixosModules.default
+          ] ++ extraModules;
+        };
 
-    nixosConfigurations.violin = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/violin/configuration.nix
-        inputs.home-manager.nixosModules.default
-        # inputs.catppuccin.nixosModules.catppuccin
-        inputs.stylix.nixosModules.stylix
+      darwinHost =
+        { system, configuration, extraModules ? [ ] }:
+        inputs.nix-darwin.lib.darwinSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            configuration
+            inputs.home-manager.darwinModules.default
+          ] ++ extraModules;
+        };
+    in
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
       ];
-    };
 
-    nixosConfigurations.mad = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/mad/configuration.nix
-        inputs.home-manager.nixosModules.default
-        inputs.stylix.nixosModules.stylix
-      ];
-    };
+      flake = {
+        nixosConfigurations = {
+          unidel = nixosHost {
+            system = "x86_64-linux";
+            configuration = ./hosts/unidel/configuration.nix;
+            extraModules = [ inputs.catppuccin.nixosModules.catppuccin ];
+          };
 
-    darwinConfigurations.sigdis = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/sigdis/configuration.nix
-        inputs.home-manager.darwinModules.default
-      ];
+          violin = nixosHost {
+            system = "x86_64-linux";
+            configuration = ./hosts/violin/configuration.nix;
+            extraModules = [ inputs.stylix.nixosModules.stylix ];
+          };
+
+          mad = nixosHost {
+            system = "x86_64-linux";
+            configuration = ./hosts/mad/configuration.nix;
+            extraModules = [ inputs.stylix.nixosModules.stylix ];
+          };
+        };
+
+        darwinConfigurations.sigdis = darwinHost {
+          system = "aarch64-darwin";
+          configuration = ./hosts/sigdis/configuration.nix;
+        };
+      };
     };
-  };
 }
