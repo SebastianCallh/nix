@@ -12,7 +12,6 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
     ../../modules/_home-manager/desktop
-    ../../modules/_home-manager/devenv
     ../../modules/_home-manager/editor/helix
     ../../modules/_home-manager/sh
     ../../modules/_home-manager/kubernetes
@@ -51,10 +50,6 @@ in
     defaultEditor = true;
   };
   
-  devenv = {
-    enable = true;
-    enableZshIntegration = true;
-  };
   sh.terminal = "ghostty";
 
   herdr.enable = true;
