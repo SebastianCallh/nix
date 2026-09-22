@@ -2,8 +2,6 @@
 let
   username = "seb";
   hostname = "mad";
-  full_name = "Sebastian Callh";
-  email = "sebastian.callh@gmail.com";
 in
 {
   imports =
