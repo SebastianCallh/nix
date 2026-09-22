@@ -13,7 +13,6 @@ in
     inputs.stylix.homeModules.stylix
   ];
 
-
   desktop = {
     theme = if darkMode then "catppuccin-mocha" else "catppuccin-latte";
     terminal = config.sh.command;
@@ -41,11 +40,8 @@ in
 
   jujutsu.userEmail = "sebastian.callh@gmail.com";
 
-  
   sh.terminal = "ghostty";
 
-  
-   
   home.packages = with pkgs; [
     libreoffice
     slack
