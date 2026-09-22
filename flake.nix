@@ -96,6 +96,7 @@
             configuration = ./hosts/violin/configuration.nix;
             extraModules = [
               inputs.stylix.nixosModules.stylix
+              config.flake.modules.nixos.core
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.bluetooth
@@ -112,6 +113,7 @@
             configuration = ./hosts/mad/configuration.nix;
             extraModules = [
               inputs.stylix.nixosModules.stylix
+              config.flake.modules.nixos.core
               config.flake.modules.nixos.seb
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.bluetooth

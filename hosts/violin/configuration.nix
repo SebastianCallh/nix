@@ -7,7 +7,6 @@ in
   imports =
     [ 
       ./hardware-configuration.nix
-      ../../modules/_nixos/core.nix
       inputs.home-manager.nixosModules.default
     ];
   
@@ -16,12 +15,6 @@ in
     users = {
       "${username}" = import ./home.nix;
     };
-  };
-
-  core = {
-    enable = true;
-    username = username;
-    gc = true;
   };
 
   networking.hostName = hostname;
