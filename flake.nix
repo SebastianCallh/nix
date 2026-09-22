@@ -92,6 +92,7 @@
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.sh
               config.flake.modules.nixos.desktop
+              config.flake.modules.nixos.waybar
             ];
           };
 
@@ -111,6 +112,7 @@
               config.flake.modules.nixos.zsh
               config.flake.modules.nixos.sh
               config.flake.modules.nixos.desktop
+              config.flake.modules.nixos.waybar
               config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.zsa
               config.flake.modules.nixos.audio

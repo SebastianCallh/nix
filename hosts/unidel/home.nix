@@ -5,7 +5,6 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
-    ../../modules/_home-manager/desktop/waybar-stack.nix
   ];
 
   xdg.enable = true; # required for catppuccin/nix theming
