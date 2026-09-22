@@ -7,7 +7,7 @@ in
 
   config = {
     programs.hyprlock = {
-      enable = config.desktop.shell == "waybar";
+      enable = true;
       settings = {
         general = {
           grace = 10;

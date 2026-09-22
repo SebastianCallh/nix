@@ -16,7 +16,7 @@ in
 
   config = {
     services.hypridle = {
-      enable = config.desktop.shell == "waybar";
+      enable = true;
       settings = {
         general = {
           before_sleep_cmd = cfg.lockCommand;

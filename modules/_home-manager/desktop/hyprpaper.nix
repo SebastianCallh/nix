@@ -17,7 +17,7 @@ in
 
   config = {
     services.hyprpaper = {
-      enable = config.desktop.shell == "waybar";
+      enable = true;
       settings = {
         ipc = "off";
         splash = false;

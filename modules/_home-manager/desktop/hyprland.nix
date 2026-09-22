@@ -1,8 +1,6 @@
 { pkgs, config, lib, ... }:
 let
   cfg = config.hyprland;
-  noctalia = config.desktop.shell == "noctalia";
-  ipc = "${lib.getExe pkgs.noctalia} msg";
 in
 {
   options.hyprland = with lib; {
@@ -18,7 +16,7 @@ in
     };
   };
 
-  config = lib.mkIf (config.desktop.compositor == "hyprland") {
+  config = {
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "hyprlang";
@@ -27,37 +25,20 @@ in
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
       "$terminal" = cfg.terminal;
-      "$menu" =
-        if noctalia
-        then "${ipc} panel-toggle launcher"
-        else "${config.programs.wofi.package}/bin/wofi --show drun -a";
+      "$menu" = "${config.programs.wofi.package}/bin/wofi --show drun -a";
       "$locker" = cfg.lockCommand;
-      "$sidebar" =
-        if noctalia
-        then "${ipc} panel-toggle control-center"
-        else "${pkgs.swaynotificationcenter}/bin/swaync-client -t";
-      "$printscreen" =
-        if noctalia
-        then "${ipc} screenshot-region"
-        else "${pkgs.grimblast}/bin/grimblast copysave area";
-      "$powermenu" =
-        if noctalia
-        then "${ipc} panel-toggle session"
-        else "hyprshutdown";
+      "$sidebar" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t";
+      "$printscreen" = "${pkgs.grimblast}/bin/grimblast copysave area";
+      "$powermenu" = "hyprshutdown";
 
-      # noctalia runs as a user unit and brings its own wallpaper, bar,
-      # notifications and tray, so none of those need starting here.
-      exec-once =
-        lib.optionals (!noctalia) [
+      exec-once = [
           "hyprpaper"
           "waybar"
           "swaync"
           "blueman-applet"
           "nm-applet --indicator"
-        ]
-        ++ [
           "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"
-        ];
+      ];
 
     monitor = map
       (m:
@@ -105,8 +86,6 @@ in
       windowrule = [
         "no_initial_focus on, match:class ^(jetbrains-.*)$, match:title ^(win.*)$"
         "no_focus on, match:class ^(jetbrains-.*)$, match:title ^(win.*)$"
-      ] ++ lib.optionals noctalia [
-        "float on, match:class ^(dev\\.noctalia\\.Noctalia)$"
       ];
 
       bind = [
@@ -162,28 +141,11 @@ in
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
-      ] ++ lib.optionals noctalia [
-        "$mod, V, exec, ${ipc} panel-toggle clipboard"
-        "$mod, comma, exec, ${ipc} settings-toggle"
-        "ALT, Tab, exec, ${ipc} window-switcher"
       ];
 
       # l -> do stuff even when locked
       # e -> repeats when key is held
-      bindle =
-        if noctalia
-        then [
-          # volume controls, routed through noctalia so its OSD shows
-          ",XF86AudioRaiseVolume, exec, ${ipc} volume-up"
-          ",XF86AudioLowerVolume, exec, ${ipc} volume-down"
-          ",XF86AudioMute, exec, ${ipc} volume-mute"
-          ",XF86MicMute, exec, ${ipc} mic-mute"
-
-          # screen brightness
-          ",XF86MonBrightnessUp, exec, ${ipc} brightness-up"
-          ",XF86MonBrightnessDown, exec, ${ipc} brightness-down"
-        ]
-        else [
+      bindle = [
           # volume controls
           ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
           ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -193,22 +155,14 @@ in
           # screen brightness
           ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
           ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
-        ];
+      ];
 
-      bindl =
-        if noctalia
-        then [
-          # media controls
-          ",XF86AudioPlay, exec, ${ipc} media toggle"
-          ",XF86AudioNext, exec, ${ipc} media next"
-          ",XF86AudioPrev, exec, ${ipc} media previous"
-        ]
-        else [
+      bindl = [
           # media controls
           ",XF86AudioPlay, exec, playerctl play-pause"
           ",XF86AudioNext, exec, playerctl next"
           ",XF86AudioPrev, exec, playerctl previous"
-        ];
+      ];
     };
   };
 }

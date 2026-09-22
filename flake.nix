@@ -58,7 +58,11 @@
           ] ++ extraModules;
         };
     in
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+      # config.flake.modules is the trunk every aspect module under ./modules
+      # contributes to, and what hosts below compose themselves from.
+      { config, ... }:
+      {
       imports = [
         # Provides flake.modules.<class>.<aspect>, the shared trunk that
         # aspect modules contribute to and hosts pick from.
@@ -92,7 +96,16 @@
           mad = nixosHost {
             system = "x86_64-linux";
             configuration = ./hosts/mad/configuration.nix;
-            extraModules = [ inputs.stylix.nixosModules.stylix ];
+            extraModules = [
+              inputs.stylix.nixosModules.stylix
+            ]
+            # The whole compositor-and-shell decision, two words. Order
+            # matters: the compositor contributes its niri nodes before the
+            # shell appends its own.
+            ++ (with config.flake.modules.nixos; [
+              niri
+              noctalia
+            ]);
           };
         };
 
@@ -101,5 +114,6 @@
           configuration = ./hosts/sigdis/configuration.nix;
         };
       };
-    };
+      }
+    );
 }

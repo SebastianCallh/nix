@@ -35,7 +35,6 @@ in
     enable = true;
     username = username;
     gc = true;
-    session = "niri-session";
   };
 
   audio = {
@@ -71,12 +70,6 @@ in
   # shells need to be enabled system-wide and not only in home manager
   # https://nixos.wiki/wiki/Command_Shell
   programs.zsh.enable = true;
-
-  # noctalia reads the battery through upower and the power profile through
-  # power-profiles-daemon; without these its battery widget and the control
-  # center power shortcuts stay empty.
-  services.upower.enable = true;
-  services.power-profiles-daemon.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

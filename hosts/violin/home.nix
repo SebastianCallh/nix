@@ -4,6 +4,7 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
     ../../modules/_home-manager/desktop
+    ../../modules/_home-manager/desktop/waybar-stack.nix
     ../../modules/_home-manager/corepackages
     ../../modules/_home-manager/git
     ../../modules/_home-manager/coding

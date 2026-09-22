@@ -1,25 +1,14 @@
-{ config, pkgs, lib, ... }: 
+# Values every desktop shares, regardless of which compositor or shell the host
+# picks. The compositor and the shell are chosen by importing their modules, not
+# by setting a flag here.
+{ config, pkgs, lib, ... }:
 let
   cfg = config.desktop;
-  lockCommand =
-    if cfg.shell == "noctalia"
-    then "${lib.getExe pkgs.noctalia} msg session lock"
-    else "${pkgs.hyprlock}/bin/hyprlock";
-in {
+in
+{
   imports = [
     ./styling.nix
     ./monitors.nix
-    ./hyprland.nix
-    ./niri.nix
-    ./hyprlock.nix
-    ./hypridle.nix
-    ./hyprpaper.nix
-    ./hyprshutdown.nix
-    ./hyprsunset.nix
-    ./noctalia.nix
-    ./swaync.nix
-    ./wofi.nix
-    ./waybar
   ];
 
   options.desktop = with lib; {
@@ -30,22 +19,11 @@ in {
       '';
     };
 
-    shell = mkOption {
-      type = types.enum [ "waybar" "noctalia" ];
-      default = "waybar";
+    lockCommand = mkOption {
+      type = types.str;
       description = ''
-        Which desktop shell to run. "waybar" is the waybar/wofi/swaync/hypr*
-        stack, "noctalia" replaces all of it with noctalia.
-      '';
-    };
-
-    compositor = mkOption {
-      type = types.enum [ "hyprland" "niri" ];
-      default = "hyprland";
-      description = ''
-        Which Wayland compositor to run. Both are configured from the same
-        desktop options, so switching only changes the window management
-        model: "hyprland" tiles dynamically, "niri" scrolls columns.
+        Command that locks the session. Contributed by the desktop shell, since
+        that is what owns the lockscreen, and read by the compositor to bind it.
       '';
     };
 
@@ -64,13 +42,13 @@ in {
           size = 10;
         };
       };
-    };      
-  
+    };
+
     lockscreen = {
       wallpaper = mkOption {
         type = types.path;
       };
-    
+
       timeout = mkOption {
         type = types.int;
       };
@@ -82,47 +60,22 @@ in {
       theme = cfg.theme;
     };
 
-    hyprland = {
-      terminal = cfg.terminal;
-      lockCommand = lockCommand;
-    };
-
-    niri = {
-      terminal = cfg.terminal;
-      lockCommand = lockCommand;
-    };
-    
-    hypridle = {
-      timeout = cfg.lockscreen.timeout;
-      lockCommand = lockCommand;
-    };
-
-    hyprpaper.monitors = map (m: { inherit (m) name wallpaper; }) cfg.monitors;
-    
     xdg = {
       portal = {
         enable = true;
         xdgOpenUsePortal = true;
-        # config.commons.default = "xdg-desktop-portal-hyprland";
         config.common = {
           "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
           "org.freedesktop.impl.portal.OpenURI" = [ "gtk" ];
           default = "*";
         };
-        # The niri home-manager module contributes xdg-desktop-portal-gnome,
-        # which is what niri's own portals.conf expects for screencasting.
+        # A compositor module appends whatever else it needs. The niri
+        # home-manager module contributes xdg-desktop-portal-gnome, which is
+        # what niri's own portals.conf expects for screencasting.
         extraPortals = [
           pkgs.xdg-desktop-portal-gtk
-        ] ++ lib.optional (cfg.compositor == "hyprland") pkgs.xdg-desktop-portal-hyprland;
+        ];
       };
-
-      # mime = {
-      #   enable = true;
-      #   defaultApplications = {
-      #     "text/markdown" = [editor];
-      #   };
-      # };
     };
-
   };
 }

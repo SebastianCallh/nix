@@ -33,8 +33,6 @@ in
   corepackages.enable = true;
 
   desktop = {
-    shell = "noctalia";
-    compositor = "niri";
     theme = if darkMode then "catppuccin-mocha" else "catppuccin-latte";
     terminal = config.sh.command;
     monitors = [
