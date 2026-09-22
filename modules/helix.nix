@@ -1,20 +1,16 @@
-{config, lib, pkgs, ...}:
-let 
-  cfg = config.helix;
-in
+{ config, ... }:
 {
-  options.helix = with lib; {
-    enable = mkEnableOption "Enable Helix";
-    defaultEditor = mkOption {
-      type = types.bool;
-      default = false;
+  flake.modules = {
+    nixos.helix = {
+      home-manager.sharedModules = [ config.flake.modules.homeManager.helix ];
     };
-  };
 
-  config = lib.mkIf cfg.enable {
+    homeManager.helix =
+      { pkgs, ... }:
+      {
     programs.helix = {
       enable = true;
-      defaultEditor = cfg.defaultEditor;
+      defaultEditor = true;
       extraPackages = with pkgs; [
         ruff
         pyright
@@ -28,7 +24,7 @@ in
           line-number = "relative";
           mouse = false;
           soft-wrap.enable = true;
-
+  
           # try out the new experimental inline diagnostics
           end-of-line-diagnostics = "hint";
           inline-diagnostics = {
@@ -53,13 +49,13 @@ in
           # C-g = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
         };
       };
-
+  
       languages = {
         language-server.ruff = {
           command = "${pkgs.ruff}/bin/ruff";
           args = ["server"];
         };
-  
+    
         language = [
           {
             name = "python";
@@ -75,5 +71,6 @@ in
         ];
       };
     };
+      };
   };
 }

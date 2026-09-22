@@ -141,6 +141,7 @@
               config.flake.modules.nixos.devenv
               config.flake.modules.nixos.kubernetes
               config.flake.modules.nixos.herdr
+              config.flake.modules.nixos.helix
               config.flake.modules.nixos.datagrip
               config.flake.modules.nixos.dataspell
             ]

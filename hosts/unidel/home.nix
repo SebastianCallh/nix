@@ -7,7 +7,6 @@ in
     inputs.catppuccin.homeManagerModules.catppuccin
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/desktop/waybar-stack.nix
-    ../../modules/_home-manager/editor/helix
   ];
 
   xdg.enable = true; # required for catppuccin/nix theming

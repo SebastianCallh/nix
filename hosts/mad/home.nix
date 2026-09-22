@@ -12,7 +12,6 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.stylix.homeModules.stylix
     ../../modules/_home-manager/desktop
-    ../../modules/_home-manager/editor/helix
   ];
 
 
@@ -43,10 +42,6 @@ in
 
   jujutsu.userEmail = "sebastian.callh@gmail.com";
 
-  helix = {
-    enable = true;
-    defaultEditor = true;
-  };
   
   sh.terminal = "ghostty";
 
