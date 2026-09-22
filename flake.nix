@@ -87,7 +87,7 @@
               config.flake.modules.nixos.syncthing
               config.flake.modules.nixos.firefox
               config.flake.modules.nixos.zsh
-              config.flake.modules.nixos.sh
+              config.flake.modules.nixos.terminal
               config.flake.modules.nixos.desktop
               config.flake.modules.nixos.waybar
             ];
@@ -107,7 +107,7 @@
               config.flake.modules.nixos.direnv
               config.flake.modules.nixos.herdr
               config.flake.modules.nixos.zsh
-              config.flake.modules.nixos.sh
+              config.flake.modules.nixos.terminal
               config.flake.modules.nixos.desktop
               config.flake.modules.nixos.waybar
               config.flake.modules.nixos.bluetooth
@@ -131,7 +131,7 @@
               config.flake.modules.nixos.corepackages
               config.flake.modules.nixos.coding
               config.flake.modules.nixos.zsh
-              config.flake.modules.nixos.sh
+              config.flake.modules.nixos.terminal
               config.flake.modules.nixos.desktop
               config.flake.modules.nixos.bluetooth
               config.flake.modules.nixos.zsa
@@ -162,7 +162,7 @@
           configuration = ./hosts/sigdis/configuration.nix;
           extraModules = with config.flake.modules.darwin; [
             zsh
-            sh
+            terminal
             kitty
             helix
             direnv

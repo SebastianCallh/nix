@@ -1,18 +1,18 @@
 { config, ... }:
 let
   attach = {
-    home-manager.sharedModules = [ config.flake.modules.homeManager.sh ];
+    home-manager.sharedModules = [ config.flake.modules.homeManager.terminal ];
   };
 in
 {
   flake.modules = {
-    nixos.sh = attach;
-    darwin.sh = attach;
+    nixos.terminal = attach;
+    darwin.terminal = attach;
 
-    homeManager.sh =
+    homeManager.terminal =
       { config, lib, pkgs, ... }:
       let
-        cfg = config.sh;
+        cfg = config.terminal;
 
         # vanilla ghostty commands
         # We use them explicitly here so we can disable them in favour for a terminal multiplexer
@@ -60,8 +60,8 @@ in
         ];
       in
       {
-        options.sh = with lib; {
-          terminal = mkOption {
+        options.terminal = with lib; {
+          program = mkOption {
             type = types.enum [ "kitty" "ghostty" ];
           };
 
@@ -71,7 +71,7 @@ in
             default = {
               "kitty" = pkgs.kitty;
               "ghostty" = pkgs.ghostty;
-            }."${cfg.terminal}";
+            }."${cfg.program}";
           };
 
           multiplexer = mkOption {
@@ -102,7 +102,7 @@ in
         };
 
         config = {
-          home.sessionVariables.TERM = cfg.terminal;
+          home.sessionVariables.TERM = cfg.program;
 
           programs.kitty.enable = true;
 

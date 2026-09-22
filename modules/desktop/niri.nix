@@ -50,7 +50,7 @@
         };
 
         # Niri's spawn takes an argv list, but every command this module has to
-        # run arrives as a single string (sh.command carries arguments, the
+        # run arrives as a single string (terminal.command carries arguments, the
         # shell IPC calls are multi-word). spawn-sh takes the string as-is.
         sh = command: { spawn-sh = command; };
       in

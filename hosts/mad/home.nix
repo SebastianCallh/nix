@@ -15,7 +15,7 @@ in
 
   desktop = {
     theme = if darkMode then "catppuccin-mocha" else "catppuccin-latte";
-    terminal = config.sh.command;
+    terminal = config.terminal.command;
     monitors = [
       {
         name = "eDP-1";
@@ -40,7 +40,7 @@ in
 
   jujutsu.userEmail = "sebastian.callh@gmail.com";
 
-  sh.terminal = "ghostty";
+  terminal.program = "ghostty";
 
   home.packages = with pkgs; [
     libreoffice

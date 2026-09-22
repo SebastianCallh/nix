@@ -31,7 +31,7 @@
         };
 
         config = {
-          sh.multiplexer = lib.getExe config.programs.herdr.package;
+          terminal.multiplexer = lib.getExe config.programs.herdr.package;
 
           programs.herdr = {
             enable = true;

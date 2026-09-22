@@ -22,7 +22,7 @@ in
 
   desktop = {
     theme = theme;
-    terminal = lib.getExe config.sh.package;
+    terminal = lib.getExe config.terminal.package;
     monitors = [
       {
         name = "eDP-1";
@@ -44,7 +44,7 @@ in
     };
   };
 
-  sh.terminal = "kitty";
+  terminal.program = "kitty";
   
   
   home.packages = with pkgs; [

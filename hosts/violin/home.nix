@@ -8,7 +8,7 @@
 
   desktop = {
     theme = "ayu-mirage";
-    terminal = config.sh.command;
+    terminal = config.terminal.command;
     monitors = [
       {
         name = "eDP-1";
@@ -42,7 +42,7 @@
     enableLazygit = true;
   };
   
-  sh.terminal = "ghostty";
+  terminal.program = "ghostty";
 
   
    
