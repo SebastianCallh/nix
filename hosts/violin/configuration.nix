@@ -10,7 +10,6 @@ in
       ../../modules/_nixos/core.nix
       ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
-      ../../modules/_nixos/zsa.nix
       inputs.home-manager.nixosModules.default
     ];
   
@@ -37,7 +36,6 @@ in
     hostname = hostname;
   };
 
-  zsa.enable = true;
 
     
     

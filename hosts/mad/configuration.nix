@@ -12,7 +12,6 @@ in
       ../../modules/_nixos/core.nix
       ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
-      ../../modules/_nixos/zsa.nix
       ../../modules/_nixos/jetbrains.nix
     ];
   
@@ -39,7 +38,6 @@ in
     hostname = hostname;
   };
 
-  zsa.enable = true;
 
     
   jetbrains = {
