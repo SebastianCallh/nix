@@ -96,6 +96,7 @@
             extraModules = [
               inputs.stylix.nixosModules.stylix
               config.flake.modules.nixos.seb
+              config.flake.modules.nixos.git
             ];
           };
 
@@ -105,6 +106,7 @@
             extraModules = [
               inputs.stylix.nixosModules.stylix
               config.flake.modules.nixos.seb
+              config.flake.modules.nixos.git
             ]
             # The whole compositor-and-shell decision, two words. Order
             # matters: the compositor contributes its niri nodes before the

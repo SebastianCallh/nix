@@ -13,7 +13,6 @@ in
     inputs.stylix.homeModules.stylix
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/corepackages
-    ../../modules/_home-manager/git
     ../../modules/_home-manager/jujutsu
     ../../modules/_home-manager/coding
     ../../modules/_home-manager/firefox
@@ -46,9 +45,7 @@ in
   };
 
   git = {
-    enable = true;
-    userName = full_name;
-    userEmail = email;
+    userEmail = "sebastian.callh@gmail.com";
     enableDelta = true;
     deltaLight = !darkMode;
     enableLazygit = true;

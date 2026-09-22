@@ -6,7 +6,6 @@
     ../../modules/_home-manager/desktop
     ../../modules/_home-manager/desktop/waybar-stack.nix
     ../../modules/_home-manager/corepackages
-    ../../modules/_home-manager/git
     ../../modules/_home-manager/coding
     ../../modules/_home-manager/firefox
     ../../modules/_home-manager/syncthing
@@ -49,8 +48,6 @@
   };
 
   git = {
-    enable = true;
-    userName = "Sebastian Callh";
     userEmail = "sebastian.callh@violet.ai";
     enableDelta = true;
     enableLazygit = true;
