@@ -8,7 +8,6 @@ in
     [ 
       ./hardware-configuration.nix
       ../../modules/_nixos/core.nix
-      ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -24,11 +23,6 @@ in
     enable = true;
     username = username;
     gc = true;
-  };
-
-  audio = {
-    enable = true;
-    username = username;
   };
 
   network = {

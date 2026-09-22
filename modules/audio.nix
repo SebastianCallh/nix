@@ -1,0 +1,43 @@
+{ config, ... }:
+let
+  username = config.identity.username;
+in
+{
+  flake.modules.nixos.audio =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [ pkgs.pavucontrol ];
+
+      services.pulseaudio.enable = false;
+
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        jack.enable = true;
+        wireplumber.enable = true;
+      };
+
+      services.mpd = {
+        enable = true;
+        user = username;
+        startWhenNeeded = true;
+        settings = {
+          music_directory = "/home/${username}/music/";
+          audio_output = [
+            {
+              type = "pipewire";
+              name = "PipeWire Output";
+            }
+          ];
+        };
+      };
+
+      systemd.services.mpd.environment = {
+        # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+        # User-id 1000 must match user in `services.mpd.user`
+        XDG_RUNTIME_DIR = "/run/user/1000";
+      };
+    };
+}

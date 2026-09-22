@@ -10,7 +10,6 @@ in
     [ 
       ./hardware-configuration.nix
       ../../modules/_nixos/core.nix
-      ../../modules/_nixos/audio.nix
       ../../modules/_nixos/network.nix
     ];
   
@@ -25,11 +24,6 @@ in
     enable = true;
     username = username;
     gc = true;
-  };
-
-  audio = {
-    enable = true;
-    username = username;
   };
 
   network = {
