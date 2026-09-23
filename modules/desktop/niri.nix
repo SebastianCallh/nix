@@ -84,6 +84,17 @@
             layout = {
               gaps = 2;
 
+              # open new windows at full screen res. Defaults to 0.5
+              default-column-width.proportion = 1.0;
+
+              # what Mod+R cycles through. Default presets stop at 2/3.
+              preset-column-widths._children = [
+                { proportion = 0.33333; }
+                { proportion = 0.5; }
+                { proportion = 0.66667; }
+                { proportion = 1.0; }
+              ];
+
               focus-ring = {
                 width = 2;
                 active-color = "#${c.base0D-hex}";
@@ -143,6 +154,9 @@
               "Mod+W".close-window = { };
               "Mod+Space".switch-layout = "next";
 
+              # Cycles the focused column width
+              "Mod+R".switch-preset-column-width = { };
+
               # shift focus with arrow keys
               "Mod+Left".focus-column-left = { };
               "Mod+Right".focus-column-right = { };
@@ -160,6 +174,34 @@
               "Mod+Shift+Right".move-column-right = { };
               "Mod+Shift+Up".move-window-up = { };
               "Mod+Shift+Down".move-window-down = { };
+
+              # Stack windows into a column and pull them back out. Niri's own
+              # Mod+Comma and Mod+Period are taken by the shell module, and one
+              # pair of keys covers consume and expel in both directions.
+              "Mod+BracketLeft".consume-or-expel-window-left = { };
+              "Mod+BracketRight".consume-or-expel-window-right = { };
+
+              # Maximize grows the column to the full width of the screen and
+              # leaves the rest of the strip in place; fullscreen hides it.
+              "Mod+F".maximize-column = { };
+              "Mod+Shift+F".fullscreen-window = { };
+
+              # Mod+V is the shell's clipboard, so floating takes the shifted
+              # layout key. The second bind is the only way back to a floating
+              # window once focus has moved to the tiling layer.
+              "Mod+Shift+Space".toggle-window-floating = { };
+              "Mod+Ctrl+Space".switch-focus-between-floating-and-tiling = { };
+
+              # Zoomed-out view of every workspace. Niri's own Mod+O is the
+              # shell launcher here.
+              "Mod+Tab".toggle-overview = { };
+
+              # Workspaces are stacked vertically, so these walk the stack
+              # without having to know the index Mod+1 to Mod+0 would need.
+              "Mod+U".focus-workspace-down = { };
+              "Mod+I".focus-workspace-up = { };
+              "Mod+Shift+U".move-column-to-workspace-down = { };
+              "Mod+Shift+I".move-column-to-workspace-up = { };
             }
             # switch to / move to workspace
             // lib.listToAttrs (

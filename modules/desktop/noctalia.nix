@@ -147,7 +147,7 @@
           (lib.mkIf config.wayland.windowManager.niri.enable {
             wayland.windowManager.niri.settings = {
               binds = {
-                "Mod+R".spawn-sh = "${ipc} panel-toggle launcher";
+                "Mod+O".spawn-sh = "${ipc} panel-toggle launcher";
                 "Mod+N".spawn-sh = "${ipc} panel-toggle control-center";
                 "Mod+S".spawn-sh = "${ipc} screenshot-region";
                 "Mod+Q".spawn-sh = "${ipc} panel-toggle session";
