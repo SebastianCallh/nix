@@ -70,7 +70,13 @@
                   concave_edge_corners = false;
                   capsule_radius = 0;
 
-                  start = [ "workspaces" ];
+                  # The workspaces widget draws pills and nothing else, so the
+                  # bar can say which workspace is focused but not what is
+                  # running on any of them. The taskbar widget grouped by
+                  # workspace draws the same workspace tags with each
+                  # workspace's app icons inside them, which is a superset, so
+                  # it replaces the pills instead of sitting beside them.
+                  start = [ "taskbar" ];
                   center = [ ];
                   end = [
                     "tray"
@@ -84,6 +90,16 @@
                 };
 
                 widget = {
+                  taskbar = {
+                    group_by_workspace = true;
+                    # Without this the capsules are unlabelled icon groups and
+                    # nothing says which workspace each one is.
+                    show_workspace_label = true;
+                    # Three terminals collapse to one icon with a count badge
+                    # rather than three identical icons.
+                    group_single_icon_per_app = true;
+                  };
+
                   cpu = {
                     type = "sysmon";
                     stat = "cpu_usage";
@@ -147,9 +163,6 @@
           (lib.mkIf config.wayland.windowManager.niri.enable {
             wayland.windowManager.niri.settings = {
               binds = {
-                # Mod+D is the dmenu/rofi/sway convention. Not Mod+R, which the
-                # compositor uses to cycle column widths, and not Mod+O, which
-                # is niri's own overview key and is kept free besides.
                 "Mod+D".spawn-sh = "${ipc} panel-toggle launcher";
                 "Mod+N".spawn-sh = "${ipc} panel-toggle control-center";
                 "Mod+S".spawn-sh = "${ipc} screenshot-region";
