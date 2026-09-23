@@ -204,8 +204,8 @@
               "Mod+Shift+Space".toggle-window-floating = { };
               "Mod+Ctrl+Space".switch-focus-between-floating-and-tiling = { };
 
-              # Zoomed-out view of every workspace. Niri's own Mod+O is the
-              # shell launcher here.
+              # Zoomed-out view of every workspace. Niri's own key for this is
+              # Mod+O, which stays unbound so the open program can have it.
               "Mod+Tab".toggle-overview = { };
 
               # Workspaces are stacked vertically, so these walk the stack

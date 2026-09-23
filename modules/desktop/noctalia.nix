@@ -147,7 +147,10 @@
           (lib.mkIf config.wayland.windowManager.niri.enable {
             wayland.windowManager.niri.settings = {
               binds = {
-                "Mod+O".spawn-sh = "${ipc} panel-toggle launcher";
+                # Mod+D is the dmenu/rofi/sway convention. Not Mod+R, which the
+                # compositor uses to cycle column widths, and not Mod+O, which
+                # is niri's own overview key and is kept free besides.
+                "Mod+D".spawn-sh = "${ipc} panel-toggle launcher";
                 "Mod+N".spawn-sh = "${ipc} panel-toggle control-center";
                 "Mod+S".spawn-sh = "${ipc} screenshot-region";
                 "Mod+Q".spawn-sh = "${ipc} panel-toggle session";
