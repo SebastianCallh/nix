@@ -84,8 +84,11 @@
             layout = {
               gaps = 2;
 
-              # open new windows at full screen res. Defaults to 0.5
-              default-column-width.proportion = 1.0;
+              # Leaves a slice of the next column parked at the screen edge.
+              # That overhang is the only static cue that the strip continues
+              # past what is on screen; at 1.0 a column switch and a workspace
+              # switch look identical. Mod+R cycles up to full width.
+              default-column-width.proportion = 0.66667;
 
               # what Mod+R cycles through. Default presets stop at 2/3.
               preset-column-widths._children = [
@@ -107,7 +110,11 @@
               border.off = { };
             };
 
-            animations.off = { };
+            # Not cosmetic here. The strip sliding sideways is what separates
+            # moving along a row of columns from jumping to another workspace,
+            # which otherwise look the same. The slowdown keeps every animation
+            # short enough to read as direction rather than wait through.
+            animations.slowdown = 0.3;
 
             # Outputs, startup commands and window rules are all repeated
             # top-level nodes, so they share one ordered _children list. A
@@ -153,6 +160,11 @@
 
               "Mod+W".close-window = { };
               "Mod+Space".switch-layout = "next";
+
+              # Niri's own key for its cheatsheet, and the only place the real
+              # keymap is visible now that this file and the shell module both
+              # write into it.
+              "Mod+Shift+Slash".show-hotkey-overlay = { };
 
               # Cycles the focused column width
               "Mod+R".switch-preset-column-width = { };
