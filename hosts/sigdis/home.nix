@@ -17,8 +17,8 @@
   helix.theme = "ayu_light";
   helix.defaultEditor = true;
   
-  kitty.theme = "Ayu Light";
-  kitty.font = {
+  terminal.program = "kitty";
+  terminal.font = {
     name = "Terminess Nerd Font Mono";
     size = 20;
   };

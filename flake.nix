@@ -163,7 +163,6 @@
           extraModules = with config.flake.modules.darwin; [
             zsh
             terminal
-            kitty
             helix
             direnv
           ];

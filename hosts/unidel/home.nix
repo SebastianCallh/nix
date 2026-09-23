@@ -22,7 +22,7 @@ in
 
   desktop = {
     theme = theme;
-    terminal = lib.getExe config.terminal.package;
+    terminal = config.terminal.command;
     monitors = [
       {
         name = "eDP-1";
