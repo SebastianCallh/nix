@@ -77,18 +77,24 @@
                 natural-scroll = { };
               };
 
-              # Matches hyprland's follow_mouse = 1.
-              focus-follows-mouse = { };
+              # Matches hyprland's follow_mouse = 1, except that hovering a
+              # window at the screen edge focuses it without scrolling the
+              # strip to it. Otherwise a stray mouse moves the whole view.
+              focus-follows-mouse._props.max-scroll-amount = "0%";
             };
 
             layout = {
-              gaps = 2;
+              gaps = 12;
 
-              # Leaves a slice of the next column parked at the screen edge.
-              # That overhang is the only static cue that the strip continues
-              # past what is on screen; at 1.0 a column switch and a workspace
-              # switch look identical. Mod+R cycles up to full width.
-              default-column-width.proportion = 0.66667;
+              # Two new windows fill the screen exactly, so no sliver of a
+              # neighbour sticks out at the edge. Mod+R cycles the other widths.
+              default-column-width.proportion = 0.5;
+
+              # A column too wide to share the screen with its neighbour is
+              # centred, so neighbours show evenly on both sides rather than as
+              # one lopsided slice. A lone column sits in the middle.
+              center-focused-column = "on-overflow";
+              always-center-single-column = { };
 
               # what Mod+R cycles through. Default presets stop at 2/3.
               preset-column-widths._children = [
@@ -129,11 +135,12 @@
                 }
 
                 # Hyprland dims inactive windows; niri has no dim, so the
-                # closest equivalent is to make them slightly transparent.
+                # closest equivalent is to make them slightly transparent. Kept
+                # faint, because a clearly see-through window reads as a glitch.
                 {
                   window-rule._children = [
                     { match._props.is-active = false; }
-                    { opacity = 0.88; }
+                    { opacity = 0.95; }
                   ];
                 }
 
@@ -168,6 +175,24 @@
 
               # Cycles the focused column width
               "Mod+R".switch-preset-column-width = { };
+
+              # Finer width control, and a way to put the focused column in the
+              # middle of the screen when on-overflow centring does not apply.
+              "Mod+Minus".set-column-width = "-10%";
+              "Mod+Equal".set-column-width = "+10%";
+              "Mod+C".center-column = { };
+
+              # Grows the column into whatever space is free on screen without
+              # pushing its visible neighbours off, unlike Mod+F.
+              "Mod+Ctrl+F".expand-column-to-available-width = { };
+
+              # Shows a column's stacked windows as tabs at full height. Niri's
+              # own key for this is Mod+W, which closes windows here.
+              "Mod+E".toggle-column-tabbed-display = { };
+
+              # Jump to either end of the strip.
+              "Mod+Home".focus-column-first = { };
+              "Mod+End".focus-column-last = { };
 
               # shift focus with arrow keys
               "Mod+Left".focus-column-left = { };
