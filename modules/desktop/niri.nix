@@ -76,11 +76,6 @@
                 tap = { };
                 natural-scroll = { };
               };
-
-              # Matches hyprland's follow_mouse = 1, except that hovering a
-              # window at the screen edge focuses it without scrolling the
-              # strip to it. Otherwise a stray mouse moves the whole view.
-              focus-follows-mouse._props.max-scroll-amount = "0%";
             };
 
             layout = {
