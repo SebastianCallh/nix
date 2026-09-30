@@ -234,6 +234,13 @@
               "Mod+I".focus-workspace-up = { };
               "Mod+Shift+U".move-column-to-workspace-down = { };
               "Mod+Shift+I".move-column-to-workspace-up = { };
+
+              # Screens sit side by side, so left and right are the only
+              # directions needed.
+              "Mod+Ctrl+Left".focus-monitor-left = { };
+              "Mod+Ctrl+Right".focus-monitor-right = { };
+              "Mod+Ctrl+Shift+Left".move-workspace-to-monitor-left = { };
+              "Mod+Ctrl+Shift+Right".move-workspace-to-monitor-right = { };
             }
             # switch to / move to workspace
             // lib.listToAttrs (
