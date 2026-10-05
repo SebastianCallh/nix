@@ -17,6 +17,9 @@
         desktop.lockCommand = "${pkgs.hyprlock}/bin/hyprlock";
 
         xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+
+        # A hyprctl wrapper, so it pulls in all of hyprland.
+        home.packages = [ pkgs.grimblast ];
       };
   };
 }

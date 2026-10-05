@@ -26,7 +26,6 @@
           fastfetch
           nil
           ripgrep
-          grimblast
           dconf # https://github.com/nix-community/home-manager/issues/3113
           tree
           file
