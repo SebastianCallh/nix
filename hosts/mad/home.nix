@@ -40,7 +40,7 @@ in
 
   jujutsu.userEmail = "sebastian.callh@gmail.com";
 
-  terminal.program = "ghostty";
+  terminal.program = "foot";
 
   home.packages = with pkgs; [
     libreoffice

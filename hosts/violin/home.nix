@@ -42,7 +42,7 @@
     enableLazygit = true;
   };
   
-  terminal.program = "ghostty";
+  terminal.program = "foot";
 
   
    
