@@ -11,7 +11,7 @@
         # Stylix has no herdr target, so the palette is mapped by hand. herdr only
         # exposes these ten tokens (struct ModeThemeColors in the 0.9 binary);
         # everything else it draws comes from the host terminal, which stylix
-        # already themes via the ghostty/kitty targets. That is also why the base
+        # already themes via its terminal targets. That is also why the base
         # theme is "terminal" rather than one of the bundled ones.
         c = config.lib.stylix.colors.withHashtag;
 
@@ -78,7 +78,7 @@
               keys = {
                 prefix = config.herdr.prefix;
 
-                # Direct bindings, no prefix. These mirrored ghostty key binds
+                # Direct bindings, no prefix. These mirror the old terminal-level key binds
                 focus_pane_left = "ctrl+h";
                 focus_pane_down = "ctrl+j";
                 focus_pane_up = "ctrl+k";
