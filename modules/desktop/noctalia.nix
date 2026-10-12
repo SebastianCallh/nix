@@ -38,11 +38,6 @@
             # stylix.image is set; noctalia draws the wallpaper itself.
             stylix.targets.hyprland.hyprpaper.enable = false;
 
-            # Stylix leaves polarity at "either" unless told otherwise, and its
-            # noctalia target only emits a dark palette variant while picking
-            # light mode for anything but an explicit "dark".
-            stylix.polarity = if config.styling.isDark then "dark" else "light";
-
             # Theme, font family, wallpaper path and surface opacities all come
             # from the stylix noctalia target, so they are deliberately absent.
             programs.noctalia = {

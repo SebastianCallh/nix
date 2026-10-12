@@ -46,6 +46,10 @@
           autoEnable = true;
           base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.theme}.yaml";
           image = cfg.wallpaper;
+          # Stylix leaves polarity at "either" unless told otherwise, and the
+          # targets that care (noctalia's palette variant, foot's colour section
+          # name) then guess light. Derived from the scheme so every host agrees.
+          polarity = if isDark then "dark" else "light";
           targets = {
             firefox = {
               enable = true;
