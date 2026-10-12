@@ -26,6 +26,10 @@
 
             mouse.hide-when-typing = "yes";
 
+            # Same as ghostty's window-decoration = false. Without it foot draws
+            # its own title bar on compositors with no server-side decorations.
+            csd.preferred = "none";
+
             # foot has neither splits nor tabs, so unlike ghostty and kitty it
             # has nothing to hand back when a multiplexer is running: every key
             # the multiplexer wants is already free.
